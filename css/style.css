@@ -118,3 +118,9 @@ span.whois-line{
     0%{box-shadow:0 0 10px #14a9ff, 0 0 20px #2DA6EB, 0 0 30px #285aeb}
     100%{box-shadow:0 0 5px #184158, 0 0 10px #020607, 0 0 15px #05080f}
 }
+/*SECTION COMING SOON*/
+.coming{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
