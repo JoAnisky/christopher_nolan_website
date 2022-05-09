@@ -1,5 +1,58 @@
 body{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #020202;
+}
+
+/* TEXT STYLES */
+h1, a, li{
+    color: white;
+    font-family: 'Radley', serif;
+    text-transform: uppercase;
+}
+h1.title{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);    
+    font-weight: normal;
+    letter-spacing: 11px;
+}
+a{
+    text-decoration: none;
+}
+p{
+    font-family: 'Raleway', sans-serif; 
+}
+
+li{
+    list-style-type: none;
+}
+ul{
+    display: flex;
+    gap: 70px;
+}
+span.menu-line{
+    display: block;
+    height: 2px;
+    width: 58px;
+    background-color: #BB853A;
+}
+.header-up{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background: url('../img/backgrounds/bckg-header.png') center no-repeat;
+    height: 715px;
+}
+.menu-up{
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    padding-right: 70px;
+    background-color: rgba(2,2,2, 0.4);
+    height: 50px;
+    width: -webkit-fill-available;
 }
