@@ -165,3 +165,7 @@ p.nolan-title{
     flex-direction:column;
     align-items:center;
 }
+.movie-gal{
+    display:flex;
+    gap:70px;
+}
