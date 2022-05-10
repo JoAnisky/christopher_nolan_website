@@ -26,7 +26,6 @@ h1.title{
     font-size: 40px;
     text-shadow: 1px 1px 5px #020202;
 }
-
 a{
     text-decoration: none;
 }
@@ -36,11 +35,14 @@ p, h2{
 li{
     list-style-type: none;
 }
-ul.menu{
-    display: flex;
-    gap: 70px;
+.read-more{
+    color:white;
+    border:none;
+    font-weight:bold;
+    padding: 10px 24px 10px 24px;
+    text-transform: uppercase;
+    background-image: linear-gradient(to bottom, #ff0009, #b80006);
 }
-
 /* DECORATIVE LINES */
 span.menu-line{
     display: block;
@@ -61,7 +63,7 @@ span.h2-line{
     width: 58px;
     background-color: var(--line-color);
 }
-
+/*MAIN WRAPPER*/
 /* HEADER */
 .header-up{
     display: flex;
@@ -73,26 +75,31 @@ span.h2-line{
     height: 600px;
 }
 /*MENU Up*/
-.menu-up{
+.menu-contain{
     display: flex;
     position: sticky;
     top:0;
     justify-content: flex-end;
-    padding-right: 70px;
-    background-color: rgba(2,2,2, 0.4);
+    background-color: rgba(2,2,2, 0.8);
     height: 50px;
     width: 100%;
+}
+.menu-up{
+    display:flex;
+    gap:70px;
+    padding-right: 70px;
 }
 /*Content Wrapper*/
 .content-wrapper{
     padding:0 4.375rem;
 }
 /*Styles Global SECTIONS*/
-.sections{
+.section{
     padding-top:25px;
 }
 .section_titles{
     font-weight: 100;
+    margin-bottom: 50px;
     text-transform: uppercase;
 }
 
@@ -137,6 +144,23 @@ p.nolan-title{
 }
 /* SECTION 2 : COMING SOON - DIVs */
 .coming{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.video_container{
+    display: flex;
+    flex-wrap: wrap;
+    background: url('../img/backgrounds/bckg-blackhole.webp') no-repeat center;
+}
+.video_description{
+    z-index:-1;
+    background-color:rgb(49, 49, 49, 0.33);
+    width:561px;
+    height:235px;
+}
+/* SECTION : MOVIES - DIVs */
+.movies{
     display:flex;
     flex-direction:column;
     align-items:center;
