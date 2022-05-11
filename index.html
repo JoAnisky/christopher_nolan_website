@@ -27,7 +27,7 @@
     <!-- BACKGROUND Circle UP Animated-->
     <div class="circle"></div>
         <main class="content-wrapper">
-            <!-- SECTION 1 : About Christopher Nolan -->
+            <!-- BEGIN SECTION 1 : About Christopher Nolan -->
             <section class="about">
                 <!--Left Div "Who is Christopher Nolan ?"-->
                 <div class="about-whois">
@@ -48,12 +48,14 @@
                 <!--END Right-->
             </section>
 
-            <!-- SECTION 2 :Coming Soon-->
+            <!-- BEGIN SECTION 2 : Coming Soon-->
             <section class="section coming">
+                <!--Section Title -->
                 <div class="section_titles">
                     <h2>coming soon</h2>
                     <span class="h2-line"></span>
                 </div>
+                <!-- END Section Title -->
                 <div class="video_container">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/MBM88TbUb0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="video_description">
@@ -72,8 +74,9 @@
                 </div>
             </section>
 
-            <!-- SECTION 3 : Movies -->
+            <!-- BEGIN SECTION 3 : Movies -->
             <section class="section movies">
+                <!--Section Title -->
                 <div class="section_titles">
                     <h2>movies</h2>
                     <span class="h2-line"></span>
@@ -115,15 +118,19 @@
                         </div>
                     </div>
                 </div>
-            <!-- END Movie Gallery -->
             </section>
+            <!-- END Movie Gallery -->
+
+            <!-- Picture Gallery -->
             <section class="picture-gal">
+            <!--Section Title -->
                 <div class="section_titles">
                     <h2>gallery</h2>
                     <span class="h2-line"></span>
                 </div>
+            <!--END Section Title-->
+                <!-- Pictures container -->
                 <div class="img-container">
-
                     <img src="../img/gallery/m/backstage-tenet1.png"  width="574" height="323" alt="Scène de bagarre du film Tenet">
 
                     <img src="../img/gallery/m/backstage-tenet2.png"  width="574" height="323" alt="Nolan fait des prises de vue sur le tournage de Tenet">
@@ -139,7 +146,7 @@
                     <img src="../img/gallery/m/backstage-nolan4.png"  width="574" height="318" alt="Nolan et son équipe sur le tournage du film Interstellar">
 
                     <img src="../img/gallery/m/backstage-interstellar1.png"  width="574" height="323" alt="Tournage du film Interstellar">
-
+                    <!-- Container for 3 pictures -->
                     <div class="img-box">
                         <img id="img-haute"src="../img/gallery/m/backstage-interstellar2.png"  width="248" height="418" alt="Tournage d'une scène du film Interstellar">
                         
@@ -147,13 +154,30 @@
 
                         <img src="../img/gallery/m/backstage-oppen1.png"  width="300" height="200" alt="Tournage du film Oppenheimer">
                     </div>
-
+                    <!-- END 3 Pictures container -->
                     <img src="../img/gallery/m/backstage-batman2.png"  width="574" height="383" alt="Tournage d'une scène de Batman Begins avec le Joker">
                 </div>
-
+                <!-- END Pictures Container -->
             </section>
+            <!-- END Picture Gallery -->
         </main>
+        <!--END Main-->
+
+        <!-- FOOTER Begin -->
         <footer>
+
+            <!-- Form Container -->
+            <div class="form-contain">
+                <svg width="67" height="67" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)"><path d="M33.49 66.977c18.496 0 33.49-14.994 33.49-33.489C66.98 14.993 51.986 0 33.49 0 14.994 0 0 14.993 0 33.488c0 18.495 14.994 33.489 33.49 33.489Z" fill="#E1090F"/><path d="M14.69 18.66c-.917 0-1.669.75-1.669 1.667v26.318c0 .918.751 1.671 1.67 1.671h37.597c.92 0 1.67-.753 1.67-1.671V20.327c0-.918-.752-1.668-1.67-1.668H14.691Zm4.452 3.997h28.685l-14.34 12.53-14.345-12.53Zm31.476 1.996v18.511l-10.487-9.349 10.487-9.162Zm-34.257.01 10.531 9.203-10.531 9.389V24.663Zm21.236 11.365 9.978 8.896H19.507l9.92-8.843 2.957 2.583c.627.548 1.57.548 2.197 0l3.016-2.636Z" fill="#fff"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h67v67H0z"/></clipPath></defs>
+                </svg>
+                <p class="form-title">Subscribe now</p>
+                <p class="form-title">and don't miss anything !</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="youremail@site.com">
+                    <input type="button" value="submit">
+                </form>
+            </div>
+            <!-- END Form Container -->
 
         </footer>
 </body>
