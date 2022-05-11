@@ -11,6 +11,7 @@ body{
     background-color: var(--black-color);
     font-family: 'Raleway', sans-serif; 
 }
+
 /* TEXT STYLES */
 h1, a, li{
     color: var(--white-color);
@@ -66,6 +67,7 @@ span.h2-line{
     background-color: var(--line-color);
 }
 /*MAIN WRAPPER*/
+
 /* HEADER */
 .header-up{
     display: flex;
@@ -73,9 +75,10 @@ span.h2-line{
     align-items: center;
     z-index: 9998;
     background: url('../img/backgrounds/bckg-header.png') no-repeat center ;
-    background-size: 100%;
+    background-size: cover;
     height: 600px;
 }
+
 /*MENU Up*/
 .menu-contain{
     display: flex;
@@ -118,6 +121,7 @@ span.h2-line{
     line-height: 23px;
     border-bottom: 1px solid var(--white-color);
 }
+
 /* SECTION 1 : Texts */
 p.who{
     font-size: 38px;
@@ -128,6 +132,7 @@ p.nolan-title{
     font-size: 38px;
     letter-spacing: 4px;
 }
+
 /*Animated Circle Background About*/
 .circle{
     position:absolute;
@@ -144,6 +149,7 @@ p.nolan-title{
     0%{box-shadow:0 0 10px #14a9ff, 0 0 20px #2DA6EB, 0 0 30px #285aeb}
     100%{box-shadow:0 0 5px #184158, 0 0 10px #020607, 0 0 15px #05080f}
 }
+
 /* SECTION 2 : COMING SOON - DIVs */
 .coming{
     display: flex;
@@ -163,7 +169,7 @@ p.nolan-title{
     width: 561px;
     height: 235px;
 }
-/* SECTION 3 : MOVIES Gallery - DIVs */
+/* SECTION 3 - MOVIES Gallery : DIVs */
 .movies{
     display: flex;
     flex-direction: column;
@@ -176,7 +182,7 @@ p.nolan-title{
     gap: 70px;
 }
 .movie-contain{
-    width: 258px;
+    width: 263px;
     height: 550px;
 }
 .movie-desc{
@@ -184,6 +190,14 @@ p.nolan-title{
     padding: 21px;
     background-color: var(--grey-color);
 }
+/* SECTION 3 - MOVIES Gallery : texts */
 p.movie-year{
     margin: 0;
+}
+
+/* SECTION 4 - Pictures Gallery - DIVs */
+.picture-gal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
