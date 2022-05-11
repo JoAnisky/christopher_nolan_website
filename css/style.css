@@ -201,6 +201,7 @@ p.movie-year{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 80px;
 }
 .img-container{
     display:grid;
@@ -220,10 +221,17 @@ p.movie-year{
 /* FOOTER */
 footer{
     padding-top:95px;
+    height:478px;
     background-color:#111111;
+    background: #111111 url('../img/backgrounds/bckg-inception.png') no-repeat center ;
 }
 .form-contain{
     display:flex;
     flex-direction: column;
     align-items: center;
+    gap:34px;
+}
+.form-title{
+    margin:0;
+    font-size:32px;
 }
