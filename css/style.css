@@ -3,6 +3,7 @@
 --black-color:#020202;
 --white-color:#FEFEFE;
 --grey-color:rgb(49, 49, 49, 0.33);
+--red-color:#e1090f
 }
 body{
     margin: 0;
@@ -40,6 +41,9 @@ ul{
 }
 li{
     list-style-type: none;
+}
+input{
+    font-family: 'Raleway', sans-serif; 
 }
 .read-more{
     color:var(--white-color);
@@ -236,18 +240,6 @@ footer{
     background-position: bottom center;
 }
 /* FOOTER Form */
-input[type=email]{
-    width: 374px;
-    text-align: center;
-    background-color: rgb(255, 255, 255, 0.2);
-    padding: 9px;
-    border-radius: 15px;
-    border: 1px solid black;
-}
-input[type=email]::placeholder{
-    font-weight:bold;
-    color:var(--white-color);
-}
 .form-contain{
     display: flex;
     flex-direction: column;
@@ -259,6 +251,53 @@ input[type=email]::placeholder{
     font-size: 38px;
     text-shadow: 1px 1px 2px black;
 }
+/* NEWSLETTER components */
+.custom-field{
+    position:relative;
+}
+.user-label {
+    position: absolute;
+    left: 15px;
+    color: #e8e8e8;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4,0,0.2,1);
+}
+.user-label:focus{
+display:none;
+}
+input[type=email]{
+    width: 374px;
+    background-color: rgb(255, 255, 255, 0.2);
+    padding: 9px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+input[type=email]:focus {
+    border:1px solid #fff;
+    outline:none;
+}
+
+.btn-submit{
+    color:var(--white-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-color: var(--red-color);
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.btn-submit{
+    color:var(--white-color);
+    text-transform: uppercase;
+    font-size:18px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-color: var(--red-color);
+    border-radius: 10px;
+    padding: 8px;
+}
 /* Footer Components */
 
 .foot-components{
@@ -267,7 +306,7 @@ input[type=email]::placeholder{
     padding-top: 77px;
 }
 .foot-titles{
-    text-shadow: 0px 4px 5px #e1090f;
+    text-shadow: 0px 4px 5px var(--red-color);
     text-transform: uppercase;
     font-weight: bold;
 }
