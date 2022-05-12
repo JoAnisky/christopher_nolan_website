@@ -261,7 +261,7 @@ footer{
     z-index: -1;
     width: 50px;
     height: 4px;
-    background-color: var(--line-color);
+    background-color: #E1090F;
     filter: blur(2px);
 
 }
