@@ -85,6 +85,7 @@ span.h2-line{
 /*MENU Up*/
 .menu-contain{
     display: flex;
+    align-items:center;
     position: sticky;
     top: 0;
     justify-content: flex-end;
@@ -95,7 +96,7 @@ span.h2-line{
 .menu-up{
     display: flex;
     gap: 70px;
-    padding-right: 15.375rem;
+    padding-right:11.5625rem;
 }
 .menu-up a{
     color: var(--white-color);
@@ -204,7 +205,7 @@ p.movie-year{
 }
 
 /* SECTION 4 - Pictures Gallery - DIVs */
-.picture-gal{
+.gallery{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -229,9 +230,23 @@ p.movie-year{
 /* FOOTER */
 footer{
     padding-top: 95px;
+    padding-bottom:1px;
     background: linear-gradient(rgba(1, 1, 1, 0.7), rgba(83, 83, 83, 0.7)), url('../img/backgrounds/bckg-inception.png');
     background-repeat: no-repeat;
     background-position: bottom center;
+}
+/* FOOTER Form */
+input[type=email]{
+    width: 374px;
+    text-align: center;
+    background-color: rgb(255, 255, 255, 0.2);
+    padding: 9px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+input[type=email]::placeholder{
+    font-weight:bold;
+    color:var(--white-color);
 }
 .form-contain{
     display: flex;
@@ -244,29 +259,42 @@ footer{
     font-size: 38px;
     text-shadow: 1px 1px 2px black;
 }
-/*Footer Components*/
+/* Footer Components */
+
 .foot-components{
     display: flex;
     justify-content: space-evenly;
     padding-top: 77px;
 }
 .foot-titles{
-
-    z-index: 1;
+    text-shadow: 0px 4px 5px #e1090f;
     text-transform: uppercase;
     font-weight: bold;
 }
-.title-line{
-    display :inline-block;
-    z-index: -1;
-    width: 50px;
-    height: 4px;
-    background-color: #E1090F;
-    filter: blur(2px);
-
-}
 .foot-components a{
-    font-family:'Raleway', sans-serif;  ;
+    font-family:'Raleway', sans-serif;
     text-transform: none;
     color: var(--white-color);
+}
+.sitemap{
+    display:flex;
+    flex-direction: column;
+    column-gap: 10px;
+}
+.sitemap ul{
+    margin:0px;
+}
+.sitemap li{
+    line-height: 2;
+}
+.socials{
+    display:flex;
+    width:fit-content;
+    align-items: baseline;
+}
+.copyright{
+    padding-top:25px;
+    font-weight: 100;
+    font-style:italic;
+    text-align: center;
 }
