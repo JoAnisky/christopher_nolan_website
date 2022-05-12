@@ -13,7 +13,7 @@ body{
 }
 
 /* TEXT STYLES */
-h1, a, li{
+h1, li{
     color: var(--white-color);
     font-family: 'Radley', serif;
     text-transform: uppercase;
@@ -34,6 +34,9 @@ p, h2, h3{
 h3{
     text-transform: uppercase;
     margin:0
+}
+ul{
+    padding:0;
 }
 li{
     list-style-type: none;
@@ -93,6 +96,11 @@ span.h2-line{
     display: flex;
     gap: 70px;
     padding-right: 15.375rem;
+}
+.menu-up a{
+    color: var(--white-color);
+    font-family: 'Radley', serif;
+    text-transform: uppercase;
 }
 /*Content Wrapper*/
 /* .content-wrapper{
@@ -204,12 +212,12 @@ p.movie-year{
     padding-bottom: 80px;
 }
 .img-container{
-    display:grid;
-    gap:15px;
+    display: grid;
+    gap: 15px;
     grid-template-columns: repeat(2, 1fr);
 }
 .img-box{
-    display:grid;
+    display: grid;
     justify-items: end;
     grid-template-columns:fit-content(248px) 1fr;
     grid-template-rows:1fr 1fr;
@@ -220,21 +228,45 @@ p.movie-year{
 
 /* FOOTER */
 footer{
-    padding-top:95px;
-    height:478px;
+    padding-top: 95px;
     background: linear-gradient(rgba(1, 1, 1, 0.7), rgba(83, 83, 83, 0.7)), url('../img/backgrounds/bckg-inception.png');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: bottom center;
 }
 .form-contain{
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap:34px;
+    gap: 34px;
 }
 .form-title{
-    margin:0;
-    font-size:38px;
+    margin: 0;
+    font-size: 38px;
     text-shadow: 1px 1px 2px black;
+}
+/*Footer Components*/
+.foot-components{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 77px;
+}
+.foot-titles{
 
+    z-index: 1;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.title-line{
+    display :inline-block;
+    z-index: -1;
+    width: 50px;
+    height: 4px;
+    background-color: var(--line-color);
+    filter: blur(2px);
+
+}
+.foot-components a{
+    font-family:'Raleway', sans-serif;  ;
+    text-transform: none;
+    color: var(--white-color);
 }
