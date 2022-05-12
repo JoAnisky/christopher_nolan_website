@@ -222,8 +222,9 @@ p.movie-year{
 footer{
     padding-top:95px;
     height:478px;
-    background-color:#111111;
-    background: #111111 url('../img/backgrounds/bckg-inception.png') no-repeat center ;
+    background: linear-gradient(rgba(1, 1, 1, 0.7), rgba(83, 83, 83, 0.7)), url('../img/backgrounds/bckg-inception.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .form-contain{
     display:flex;
