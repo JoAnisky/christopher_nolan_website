@@ -192,20 +192,7 @@ p.nolan-title{
 
 
 /* SECTION 3 - MOVIES Gallery : DIVs */
-/* .movie-gal{
-    display: flex;
-    gap: 40px;
-}
-.movie-contain{
-    width: 263px;
-    height: 550px;
-}
-.movie-desc{
-    font-size:14px;
-    text-align: center;
-    padding: 10px;
-    background-color: var(--grey-color);
-} */
+/* Global Container */
 .movies{
     display: flex;
     align-items: center;
@@ -213,6 +200,8 @@ p.nolan-title{
     padding-bottom: 60px;
     background: url('../img/backgrounds/bckg-interstellar.png') no-repeat bottom;
 }
+
+/*Carousel*/
 .carousel-contain{
     display:flex;
     width:900px;
@@ -224,17 +213,25 @@ p.nolan-title{
     scroll-snap-type: x mandatory;
 }
 .carousel-movie{
-    flex: 1 0 450px;
+    flex: 1 0 300px;
     margin-left: 1rem;
     scroll-snap-align: start;
 }
-.card-content{
+.movie-card{
+    width:263px;
+}
+.movie-card h2{
+    font-size:16px;
+    text-align:center;
+    text-transform:initial;
+}
+.movie-desc{
     font-size:14px;
     text-align: center;
     padding: 10px;
     background-color: var(--grey-color);
 }
-.card-content p{
+.movie-desc p{
     text-transform: none;
     font-weight:100;
 }
@@ -242,7 +239,7 @@ p.nolan-title{
     background-color: var(--black-color);
 }
 ::-webkit-scrollbar {
-    height: 6px;
+    height: 9px;
     background-color: #F5F5F5;
 }
 ::-webkit-scrollbar-thumb {
