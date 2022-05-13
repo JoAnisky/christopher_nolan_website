@@ -58,18 +58,24 @@
                 </div>
                 <!-- END Section Title -->
                 <div class="video_container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/MBM88TbUb0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                    </iframe>
-
+                    <div class="video-coming">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/MBM88TbUb0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
                     <div class="video_description">
-                        <p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit.
-                        quis exercitationem</p>
-                        <button class="read-more">read more</button>
+                        <div class="video">
+                            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit.
+                            quis exercitationem</p>
+                            <button class="read-more">read more</button>
+                        </div>
                     </div>
                 </div>
+
                 <div class="video_container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/LdOM0x0XDMo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                    </iframe>
+                    <div class="video-coming">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/LdOM0x0XDMo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
                     <div class="video_description">
                         <p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit.
                         quis exercitationem</p>
@@ -87,40 +93,59 @@
                 </div>
 
             <!-- BEGIN Movie Gallery -->
-
-                <div class="movie-gal">
-                    <div class="movie-contain">
-                        <img src="../img/movies/affiche-tenet.jpg"  width="263" height="357" alt="Affiche du film Tenet" class="poster">
-                        <div class="movie-desc">
-                            <h3>Tenet</h3>
-                            <p class="movie-year">Year</p>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel</p>
-                        </div>
-                    </div>
-                    <div class="movie-contain">
-                        <img src="../img/movies/affiche-dunkerque.jpg"  width="263" height="354" alt="Affiche du film Dunkerque" class="poster">
-                        <div class="movie-desc">
-                            <h3>Dunkerque</h3>
-                            <p class="movie-year">Year</p>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel</p>
-                        </div>
-                    </div>
-                    <div class="movie-contain">
-                        <img src="../img/movies/affiche-inception.jpg"  width="264" height="354" alt="Affiche du film Inception" class="poster">
-                        <div class="movie-desc">
-                            <h3>Inception</h3>
-                            <p class="movie-year">Year</p>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel</p>
-                        </div>
-                    </div>
-                    <div class="movie-contain">
-                        <img src="../img/movies/affiche-interstellar.jpg"  width="263" height="356" alt="Affiche du film Interstelar" class="poster">
-                        <div class="movie-desc">
-                            <h3>Interstellar</h3>
-                            <p class="movie-year">Year</p>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel</p>
-                        </div>
-                    </div>
+                <div class="carousel-contain">
+                    <ul class="carousel-movies">
+                        <li class="carousel-movie">
+                            <div class="movie-card">
+                                <h2 class="card-title">Tenet</h2>
+                                <img src="../img/movies/affiche-tenet.jpg"  width="263" height="357" alt="Affiche du film Tenet" class="poster">
+                                <div class="movie-desc">
+                                    <p>Mewl for food at 4am chase mice. Scratch leg; meow for can opener to feed me purr when being pet nya nya nyan 
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="carousel-movie">
+                            <div class="movie-card">
+                                <h2 class="card-title">Dunkerque</h2>
+                                <img src="../img/movies/affiche-dunkerque.jpg"  width="263" height="354" alt="Affiche du film Dunkerque" class="poster">
+                                <div class="movie-desc">
+                                    <p>Mewl for food at 4am chase mice. Scratch leg; meow for can opener to feed me purr when being pet nya nya nyan 
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="carousel-movie">
+                            <div class="movie-card">
+                                <h2 class="card-title">Inception</h2>
+                                <img src="../img/movies/affiche-inception.jpg"  width="264" height="354" alt="Affiche du film Inception" class="poster">
+                                <div class="movie-desc">
+                                    <p>Mewl for food at 4am chase mice. Scratch leg; meow for can opener to feed me purr when being pet nya nya nyan 
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="carousel-movie">
+                            <div class="movie-card">
+                                <h2 class="card-title">Interstellar</h2>
+                                <img src="../img/movies/affiche-interstellar.jpg"  width="264" height="354" alt="Affiche du film Interstellar" class="poster">
+                                <div class="movie-desc">
+                                    <p>Mewl for food at 4am chase mice. Scratch leg; meow for can opener to feed me purr when being pet nya nya nyan 
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="carousel-item">
+                            <div class="movie-card">
+                                <h2 class="card-title">The Dark Knight</h2>
+                                <img src="../img/movies/affiche-dark_knight.jpg"  width="263" height="351" alt="Affiche du film The Dark Knight" class="poster">
+                                <div class="movie-desc">
+                                    <p>Mewl for food at 4am chase mice. Scratch leg; meow for can opener to feed me purr when being pet nya nya nyan 
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </section>
             <!-- END Movie Gallery -->
@@ -212,6 +237,7 @@
 
                     <div class="socials">
                             <p class="foot-titles">socials</p>
+                        <div class="socials-logo">
                         <a href="#">
                             <svg width="21" height="21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5.38C4.911.38.38 4.91.38 10.5c0 5.074 3.738 9.263 8.608 9.995v-7.313H6.484v-2.66h2.504v-1.77c0-2.93 1.427-4.217 3.863-4.217 1.167 0 1.783.086 2.076.126v2.322h-1.662c-1.034 0-1.395.98-1.395 2.085v1.454h3.03l-.41 2.66h-2.62v7.334c4.94-.67 8.75-4.893 8.75-10.016C20.62 4.91 16.089.38 10.5.38Z" fill="#fff"/></svg>
                         </a>
@@ -223,6 +249,7 @@
                             <svg width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)"><path d="M22.027 4.593a9.05 9.05 0 0 1-2.6.713 4.536 4.536 0 0 0 1.99-2.503A9.086 9.086 0 0 1 18.544 3.9c-.825-.88-2.001-1.428-3.302-1.428a4.524 4.524 0 0 0-4.407 5.555 12.847 12.847 0 0 1-9.326-4.729 4.507 4.507 0 0 0-.612 2.276c0 1.57.798 2.955 2.013 3.768a4.52 4.52 0 0 1-2.05-.568v.057a4.53 4.53 0 0 0 3.628 4.438 4.528 4.528 0 0 1-2.044.075 4.535 4.535 0 0 0 4.226 3.144 9.07 9.07 0 0 1-5.618 1.935 8.89 8.89 0 0 1-1.078-.063c2 1.285 4.38 2.033 6.935 2.033 8.323 0 12.874-6.894 12.874-12.872 0-.196-.005-.393-.012-.586a9.198 9.198 0 0 0 2.256-2.342Z" fill="#fff"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h22v22H0z"/></clipPath></defs>
                             </svg>
                         </a>
+                    </div>
                     </div>
 
                 </div>
