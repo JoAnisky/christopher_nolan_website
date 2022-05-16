@@ -243,9 +243,9 @@ p.nolan-title{
 }
 @keyframes desc-move{
 from {width: 561px;height:200px;
-    right: 0;top:5px}
+    right: 0;top:5px;}
 to {width: 620px;height:300px;
-    right: 42vh;top:70px}
+    right: 42vh;top:70px;}
 }
 
 /* SECTION 3 - MOVIES Gallery : DIVs */
@@ -342,12 +342,7 @@ p.movie-year{
     flex-direction: column;
     gap:13px;
 }
-#img-haute{
-    /* grid-area: 1/1/2/3; */
-}
-#img-basse{
-    /* grid-area:2/2/1/2; */
-}
+
 /* Pictures Effects */
 .image-zoom{
     width: 100%;
