@@ -217,7 +217,7 @@ p.nolan-title{
     box-sizing: border-box;
     z-index:1;
     position:relative;
-    right:50px;
+    right:0px;
     background-color: var(--grey-color);
     width: 561px;
     margin-top:250px;
@@ -276,6 +276,7 @@ p.nolan-title{
 /* Global Container */
 .movies{
     display: flex;
+    position:relative;
     align-items: center;
     flex-direction: column;
     padding-bottom: 60px;
@@ -283,6 +284,38 @@ p.nolan-title{
 }
 
 /*Carousel*/
+#d1{
+    display:flex;
+    justify-content: center;
+    left:40%;
+    /* display:none; */
+    width:900px;
+}
+.distribution_contain{
+    padding-left:25px;
+    padding-right:25px;
+}
+.large_carousel_title2{
+    text-transform: uppercase;
+    font-weight:bold;
+}
+.role{
+    text-align:left;
+}
+.carousel_movie_trailer{
+    background-color:var(--grey-color);
+}
+.carousel_movie_trailer > h2{
+    text-transform: uppercase;
+    margin:0;
+    text-align: center;
+}
+.distribution_contain{
+    box-sizing:border-box;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
 .carousel-contain{
     display:flex;
     width:900px;
