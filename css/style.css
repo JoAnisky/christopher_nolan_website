@@ -201,6 +201,7 @@ p.nolan-title{
     background-attachment: fixed;
 }
 
+/* Global elements container */
 .video_container{
     z-index:0;
     position:relative;
@@ -209,21 +210,32 @@ p.nolan-title{
     margin-top:65px;
     margin-bottom: 115px;
 }
+
+/* Youtube Iframe container*/
 .video-player{
     display: flex;
     position:relative;
     align-items: flex-start;
     z-index: 0;
-    animation: 2s video-move forwards;
-    animation-play-state: paused;
 }
-@keyframes video-move{
-    from {width: 561px;height:200px;
-        left: 0px; transform: scale(1);}
+.video_right_anim{
+    animation: 2s video-right forwards;
+}
+@keyframes video-right{
+    from {width:561px; height:200px; left:0px; transform: scale(1);}
     to {width: 700px;height:300px;
-        left: 44.5vh;transform: scale(1.09);}
+    left: 29.9%;transform: scale(1.10);}
+}
+.video_left_anim{
+    animation: 2s video-left forwards;
+}
+@keyframes video-left{
+    from {width: 700px;height:300px;
+        left: 29.9%;transform: scale(1.10);}
+    to {width:561px; height:200px; left:0px;transform: scale(1);}
 }
 
+/* Description and button container */
 .video-desc_container{
     display:flex;
     flex-wrap:wrap;
@@ -238,17 +250,25 @@ p.nolan-title{
     margin-top:250px;
     height: 200px;
     padding: 19px;
-    animation: 2s desc-move forwards;
-    animation-play-state: paused;
 }
-@keyframes desc-move{
-from {width: 561px;height:200px;
-    right: 0;top:5px;}
-to {width: 620px;height:300px;
-    right: 42vh;top:70px;}
+/* Coming soon Video desc animation */
+.desc_left_anim{
+    animation: 2s desc-move-left forwards;
+}
+@keyframes desc-move-left{
+    from {width: 561px;height:200px; right: 0;top:5px;}
+    to {width: 616px;height:300px; right: 25.89%;top:80px;}
+}
+.desc_right_anim{
+    animation: 2s desc-move-right forwards;
+}
+@keyframes desc-move-right{
+    from {width: 616px;height:300px; right: 25.89%;top:80px; }
+    to {width: 561px;height:200px; right: 0;top:5px;}
 }
 
 /* SECTION 3 - MOVIES Gallery : DIVs */
+
 /* Global Container */
 .movies{
     display: flex;
