@@ -50,38 +50,7 @@ li{
 input{
     font-family: 'Raleway', sans-serif; 
 }
-/* Btn Styles */
-.btn-read-more {
-    display: inline-block;
-    padding: 0.7rem 1.5rem;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--white-color);
-    text-transform: upercase;
-    border: 1px solid var(--red-color);
-    background-color: transparent;
-    border-radius:5px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-} 
-.btn-read-more::before {
-content: "";
-position: absolute;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-background-image: var(--red-gradient);
-transform: translateX(-101%);
-transition: all .3s;
-z-index: -1;
-}
-.btn-read-more:hover::before {
-transform: translateX(0);
-}
-
+/* Btn Read More */
 /* DECORATIVE LINES */
 span.menu-line{
     display: block;
@@ -236,6 +205,10 @@ p.nolan-title{
 }
 
 /* Description and button container */
+.movie-title{
+    font-weight:100;
+    text-transform: none;;
+}
 .video-desc_container{
     display:flex;
     flex-wrap:wrap;
@@ -264,7 +237,38 @@ p.nolan-title{
 }
 @keyframes desc-move-right{
     from {width: 616px;height:300px; right: 25.89%;top:80px; }
-    to {width: 561px;height:200px; right: 0;top:5px;}
+    to {width: 561px;height:200px; right: 0;top:7px;}
+}
+/* BTN Read More */
+.btn-read-more {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white-color);
+    text-transform: upercase;
+    border: 1px solid var(--red-color);
+    background-color: transparent;
+    border-radius:5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+} 
+.btn-read-more::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--red-gradient);
+    transform: translateX(-101%);
+    transition: all .3s;
+    z-index: -1;
+}
+.btn-read-more:hover::before {
+    transform: translateX(0);
 }
 
 /* SECTION 3 - MOVIES Gallery : DIVs */
