@@ -288,7 +288,7 @@ p.nolan-title{
     display:flex;
     justify-content: center;
     left:40%;
-    /* display:none; */
+    display:none;
     width:900px;
 }
 .distribution_contain{
@@ -299,8 +299,8 @@ p.nolan-title{
     text-transform: uppercase;
     font-weight:bold;
 }
-.role{
-    text-align:left;
+.roles{
+    text-align:end;
 }
 .carousel_movie_trailer{
     background-color:var(--grey-color);
