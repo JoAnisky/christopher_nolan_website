@@ -285,18 +285,25 @@ p.nolan-title{
 
 /*Carousel*/
 .exit_cross{
+    z-index: 2;
     box-sizing: border-box;
     display: none;
-    position:absolute;
+    position:relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: 0;
-    right: 8rem;
+    bottom: 115px;
+    left: 35rem;
     border: 1px solid white;
     border-radius:25px;
     width: 35px;
     height: 35px;
+    animation: 0.5s cubic-bezier(0, 0, 0.2, 1) apparition-effect forwards;
+    
+}
+@keyframes apparition-effect{
+    from  {transform:scale(0); opacity:(0);}
+    to {opacity:(1);}
 }
 .exit_cross span{
     background-color:white;
@@ -318,6 +325,11 @@ transform:rotate(45deg);
     text-transform: none;
     position:absolute;
     top:0;
+    animation: 0.5s cubic-bezier(0, 0, 0.2, 1) scale-effect forwards;
+}
+@keyframes scale-effect{
+    from  {transform:scale(0); opacity:(0);}
+    to {opacity:(1);}
 }
 .distribution_contain{
     padding-left:25px;
@@ -468,40 +480,35 @@ footer{
 .custom-field{
     position:relative;
 }
-.user-label {
-    position: absolute;
-    left: 15px;
-    bottom: 24px;
-    color: #e8e8e8;
-    pointer-events: none;
-    transform: translateY(1rem);
-}
-.user-label::placeholder{
-   display:none;
-}
+
 .mail-input{
     width: 374px;
+    color:white;
     background-color: rgb(255, 255, 255, 0.2);
     padding: 9px;
     border-radius: 8px;
     border: 1px solid black;
 }
+.mail-input::placeholder{
+    color:white;
+ }
 .mail-input:focus {
-    border:1px solid rgb(182, 126, 7);
+    border:1px solid rgba(251, 251, 251, 0.379);
+    color:white;
     outline:none;
 }
 /* Newsletter Btn */
 .btn-submit{
     color:var(--white-color);
+    cursor:pointer;
     text-transform: uppercase;
     font-size:15px;
     letter-spacing: 1px;
     font-weight: bold;
     background-color: var(--red-color);
     border-radius: 8px;
-    padding: 6px 16px 6px 16px;
+    padding: 6px 16px 7px 16px;
     border: 2px solid #000000;
-    border-left: 0px;
 }
 
 /* Footer Components */

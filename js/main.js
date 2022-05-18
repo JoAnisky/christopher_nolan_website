@@ -102,3 +102,8 @@ exitCross.addEventListener("click", function(event){
       if (event.target.closest(".movie-card"))return
       // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
 })
+
+document.addEventListener('keypress', logKey);
+function logKey(e) {
+  console.log(` ${e.code}`);
+}
