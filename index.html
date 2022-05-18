@@ -32,11 +32,12 @@
             <section id="about" class="section about">
                 <!--Left Div "Who is Christopher Nolan ?"-->
                 <div class="about-whois">
-                    <p class="who">Who is<span class="whois-line"></span></p>
+                    <p class="who flip">Who is<span class="whois-line items"></span></p>
                     <p class="nolan-title">Christopher</p>
                     <p class="nolan-title">nolan ?</p>
-                </div>
-                <!--END Left-->
+                </div>   
+                <!--END Left Div -->
+
                 <!--Right Div "Description"-->
                 <div class="about-text">
                     <p>
@@ -53,33 +54,37 @@
             <section id="coming" class="section coming">
                 <!--Section Title -->
                 <div class="section_titles">
-                    <h2>coming soon</h2>
+                    <h2 class="items">coming soon</h2>
                     <span class="h2-line"></span>
                 </div>
                 <!-- END Section Title -->
                 <div class="video_container">
-                    <div class="video-coming">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/MBM88TbUb0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    <div class="video-player">
+                        <iframe class="trailer"  width="560" height="315" src="https://www.youtube.com/embed/MBM88TbUb0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
                     </div>
-                    <div class="video_description">
-                        <div class="video">
+                    <div class="video-desc_container">
+                        <div class="video-dec">
+                            <h3>Oppenheimer - <span class="movie-title">Coming up 2022</span></h3>
                             <p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit.
                             quis exercitationem</p>
-                            <button class="read-more">read more</button>
                         </div>
+                        <button class="btn-read-more" href="#">Read More</button>
                     </div>
                 </div>
 
                 <div class="video_container">
-                    <div class="video-coming">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/LdOM0x0XDMo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    <div class="video-player">
+                        <iframe class="trailer" width="560" height="315" src="https://www.youtube.com/embed/LdOM0x0XDMo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
                     </div>
-                    <div class="video_description">
-                        <p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit.
-                        quis exercitationem</p>
-                        <button class="read-more">read more</button>
+                    <div class="video-desc_container">
+                        <div class="video-desc">
+                            <h3>Tenet - <span class="movie-title">Coming up 2021</span></h3>
+                            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit.
+                            quis exercitationem</p>
+                        </div>
+                        <button class="btn-read-more" href="#">Read More</button>
                     </div>
                 </div>
             </section>
@@ -90,15 +95,49 @@
                 <div class="section_titles">
                     <h2>movies</h2>
                     <span class="h2-line"></span>
+                    <div id="d1">
+                        <img src="../img/movies/large/affiche-tenet.webp"  width="511" height="693" alt="Affiche du film Tenet" class="poster">
+                        <div class="carousel_movie_trailer">
+                        <div class="trailer_contain">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/AZGcmvrTX9M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                                <h2>Tenet</h2>
+                        <div class="distribution_contain">
+                            <div class="synopsis">
+                                <p class="large_carousel_title2">Synopsis</p>
+                                <p>Les aventures d’un groupe d’explorateurs qui utilise un trou de ver récemment découvert pour surpasser les limites du voyage dans l’espace et conquérir les vastes distances impliquées par un voyage interstellaire.
+                                </p>
+                            </div>
+                            
+                            <div class="acteurs">
+                                <p class="large_carousel_title2">Acteurs</p>
+                                <p>Michael Caine</p>
+                                <p>Martin Donovan</p>
+                                <p>Yuri Kolokolnikov</p>
+                                <p>Anthony Molinari</p>
+                            </div>
+                            <div class="roles">
+                                <p class="large_carousel_title2">Rôle</p>
+                                <p>Crosby</p>
+                                <p>Victor</p>
+                                <p>Quinton</p>
+                                <p>Rohan</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
+                    
 
             <!-- BEGIN Movie Gallery -->
+            <!-- Large Div container -->
                 <div class="carousel-contain">
+                <!-- END Large Div container -->
                     <ul class="carousel-movies">
                         <li class="carousel-movie">
                             <div class="movie-card">
                                 <h2 class="card-title">Tenet</h2>
-                                <img src="../img/movies/affiche-tenet.jpg"  width="263" height="357" alt="Affiche du film Tenet" class="poster">
+                                <img src="../img/movies/affiche-tenet.jpg"  width="263" height="357" alt="Affiche du film Tenet" id="togg1" class="poster">
                                 <div class="movie-desc">
                                     <p>Mewl for food at 4am chase mice. Scratch leg; meow for can opener to feed me purr when being pet nya nya nyan 
                                     </p>

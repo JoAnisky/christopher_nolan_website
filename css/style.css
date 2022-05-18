@@ -3,7 +3,11 @@
 --black-color:#020202;
 --white-color:#FEFEFE;
 --grey-color:rgb(49, 49, 49, 0.33);
---red-color:#e1090f
+--red-color:#e1090f;
+--red-gradient:linear-gradient(to bottom, #ff0009, #b80006);
+}
+html.sr .load-hidden {
+    visibility: hidden;
 }
 body{
     margin: 0;
@@ -46,14 +50,7 @@ li{
 input{
     font-family: 'Raleway', sans-serif; 
 }
-.read-more{
-    color:var(--white-color);
-    border:none;
-    font-weight:bold;
-    padding: 10px 24px 10px 24px;
-    text-transform: uppercase;
-    background-image: linear-gradient(to bottom, #ff0009, #b80006);
-}
+/* Btn Read More */
 /* DECORATIVE LINES */
 span.menu-line{
     display: block;
@@ -102,7 +99,7 @@ span.h2-line{
 .menu-up{
     display: flex;
     gap: 70px;
-    padding-right:11.5625rem;
+    padding-right: 3.5rem;
 }
 .menu-up a{
     color: var(--white-color);
@@ -127,7 +124,7 @@ span.h2-line{
     display: flex;
     align-items: center;
     z-index: 9999;
-    padding: 0 15.375rem;
+    padding: 0 5.375rem;
     justify-content: space-between;
 }
 .about-text{
@@ -170,32 +167,116 @@ p.nolan-title{
     flex-direction: column;
     align-items: center;
     background: url('../img/backgrounds/bckg-blackhole.png') no-repeat center;
+    background-position: center ;
 }
 
+/* Global elements container */
 .video_container{
+    z-index:0;
+    position:relative;
     display: flex;
+    height:100%;
     margin-top:65px;
     margin-bottom: 115px;
 }
-.video-coming{
+
+/* Youtube Iframe container*/
+.video-player{
     display: flex;
+    position:relative;
     align-items: flex-start;
-    z-index: 1;
+    z-index: 0;
 }
-.video_description{
+.video_right_anim{
+    animation: 2s video-right forwards;
+}
+@keyframes video-right{
+    from {width:561px; height:200px; left:0px; transform: scale(1);}
+    to {width: 700px;height:300px;
+    left: 29.9%;transform: scale(1.10);}
+}
+.video_left_anim{
+    animation: 2s video-left forwards;
+}
+@keyframes video-left{
+    from {width: 700px;height:300px;
+        left: 29.9%;transform: scale(1.10);}
+    to {width:561px; height:200px; left:0px;transform: scale(1);}
+}
+
+/* Description and button container */
+.movie-title{
+    font-weight:100;
+    text-transform: none;;
+}
+.video-desc_container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: flex-end;
+    align-items: center;
     box-sizing: border-box;
+    z-index:1;
+    position:relative;
+    right:0px;
+    background-color: var(--grey-color);
     width: 561px;
     margin-top:250px;
     height: 200px;
-    padding:19px;
-    background-color: var(--grey-color);
+    padding: 19px;
+}
+/* Coming soon Video desc animation */
+.desc_left_anim{
+    animation: 2s desc-move-left forwards;
+}
+@keyframes desc-move-left{
+    from {width: 561px;height:200px; right: 0;top:5px;}
+    to {width: 616px;height:300px; right: 25.89%;top:80px;}
+}
+.desc_right_anim{
+    animation: 2s desc-move-right forwards;
+}
+@keyframes desc-move-right{
+    from {width: 616px;height:300px; right: 25.89%;top:80px; }
+    to {width: 561px;height:200px; right: 0;top:7px;}
+}
+/* BTN Read More */
+.btn-read-more {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white-color);
+    text-transform: upercase;
+    border: 1px solid var(--red-color);
+    background-color: transparent;
+    border-radius:5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+} 
+.btn-read-more::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--red-gradient);
+    transform: translateX(-101%);
+    transition: all .3s;
+    z-index: -1;
+}
+.btn-read-more:hover::before {
+    transform: translateX(0);
 }
 
-
 /* SECTION 3 - MOVIES Gallery : DIVs */
+
 /* Global Container */
 .movies{
     display: flex;
+    position:relative;
     align-items: center;
     flex-direction: column;
     padding-bottom: 60px;
@@ -203,6 +284,39 @@ p.nolan-title{
 }
 
 /*Carousel*/
+
+#d1{
+    display:none;
+    text-transform: none;
+    position:absolute;
+    top:0;
+}
+.distribution_contain{
+    padding-left:25px;
+    padding-right:25px;
+}
+.large_carousel_title2{
+    text-transform: uppercase;
+    font-weight:bold;
+}
+.roles{
+    text-align:end;
+}
+.carousel_movie_trailer{
+    background-color:rgba(33, 33, 33, 0.9);
+    width:560px;
+}
+.carousel_movie_trailer > h2{
+    text-transform: uppercase;
+    margin:0;
+    text-align: center;
+}
+.distribution_contain{
+    box-sizing:border-box;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
 .carousel-contain{
     display:flex;
     width:900px;
@@ -286,12 +400,7 @@ p.movie-year{
     flex-direction: column;
     gap:13px;
 }
-#img-haute{
-    /* grid-area: 1/1/2/3; */
-}
-#img-basse{
-    /* grid-area:2/2/1/2; */
-}
+
 /* Pictures Effects */
 .image-zoom{
     width: 100%;
