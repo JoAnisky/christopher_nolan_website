@@ -28,6 +28,7 @@ const carousselContain = document.querySelector('.caroussel-contain');
 const movieCard = document.querySelector('.movie-card');
 const togg1 = document.getElementById("togg1");
 const d1 = document.getElementById("d1");
+const exitCross = document.querySelector('.exit_cross');
 
 
 // Section "COMING SOON"
@@ -88,7 +89,16 @@ videoPlayer.classList.toggle("video_right_anim");
 movieCard.addEventListener("click", function(event){
     // Si l'utilisateur clique dans l'élément
       d1.style.display = "flex"
+      exitCross.style.display = "flex";
+
       if (event.target.closest(".movie-card"))return
       // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
-      console.log(movieCard);
+})
+
+exitCross.addEventListener("click", function(event){
+    // Si l'utilisateur clique dans l'élément
+      d1.style.display = "none"
+      exitCross.style.display = "none";
+      if (event.target.closest(".movie-card"))return
+      // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
 })
