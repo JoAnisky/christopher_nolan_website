@@ -243,10 +243,10 @@ p.nolan-title{
 .btn-read-more {
     display: inline-block;
     padding: 0.7rem 1.5rem;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--white-color);
-    text-transform: upercase;
+    text-transform: uppercase;
     border: 1px solid var(--red-color);
     background-color: transparent;
     border-radius:5px;
@@ -554,4 +554,35 @@ footer{
     font-weight: 100;
     font-style:italic;
     text-align: center;
+}
+
+@media all and (max-width:900px){
+    .menu-up{
+        display:none;
+    }
+    h1.title{
+        letter-spacing:6px;
+        font-size:2.5rem;
+    }
+    .about{
+        flex-direction:column;
+        text-align:center;
+        padding-bottom:10px;
+    }
+    .video_container{
+        width:100%;
+        flex-direction: column;
+    }
+    .video-desc_container{
+        justify-content: center;
+        margin:0;
+        width:100%
+    }
+    .btn-read-more{
+        box-sizing: border-box;
+        background-color:var(--red-color);
+        color:var(--white-color);
+        letter-spacing:1px;
+        padding: 11px 36%;
+    }
 }
