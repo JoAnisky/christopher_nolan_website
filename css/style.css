@@ -284,12 +284,12 @@ p.nolan-title{
 }
 
 /*Carousel*/
+
 #d1{
-    display:flex;
-    justify-content: center;
-    left:40%;
     display:none;
-    width:900px;
+    text-transform: none;
+    position:absolute;
+    top:0;
 }
 .distribution_contain{
     padding-left:25px;
@@ -303,7 +303,8 @@ p.nolan-title{
     text-align:end;
 }
 .carousel_movie_trailer{
-    background-color:var(--grey-color);
+    background-color:rgba(33, 33, 33, 0.9);
+    width:560px;
 }
 .carousel_movie_trailer > h2{
     text-transform: uppercase;
