@@ -7,7 +7,7 @@
           "height":"357",
           "alt":"Affiche du film Tenet sorti en 2021 en France montrant le héros du film"
       },
-      "description": "Muni d'un seul mot – Tenet – et décidé à se battre pour sauver le monde, notre protagoniste sillonne l'univers crépusculaire de l'espionnage international"
+      "description": "Muni d'un seul mot – Tenet – et décidé à se battre pour sauver le monde, notre protagoniste sillonne l'univers crépusculaire de l'espionnage international."
     },
     {  
       "title": "Dunkerque",
@@ -17,7 +17,7 @@
           "height":"354",
           "alt":"Affiche du film Dunkerque montrant le héros en position de bataille"
       },
-      "description": "C'est la guerre"
+      "description": "En Mai 1940, 400 000 soldats se trouvent coincés dans la poche de Dunkerque, à la fin de la campagne de France. L'opération Dynamo est mise en place pour tenter de les sauver."
   },
   {
       "title": "Inception",
@@ -27,7 +27,7 @@
           "height":"354",
           "alt":"Affiche du film Inception"
       },
-      "description": "Gibbs et son équipe pratiquent l'Inception : Ils pénètrent dans l'esprit des gens et influencent leurs pensées en étant les principaux personnages de leurs rêves. Seulement ou s'arrête le rêve et commence la réalité ... ?"
+      "description": "Don Cobb et son équipe pratiquent l'espionnage industriel. Ils s'approprient les secrets les plus précieux des individus pendant qu'ils rêvent. Seulement ou s'arrête le rêve et commence la réalité ... ?"
   },
   {
       "title": "Interstellar",
@@ -37,7 +37,7 @@
           "height":"354",
           "alt":"Affiche du film Interstellar montrant l'univers et un personnage devant un puits de lumière"
       },
-      "description": "Un mr tombe dans un trou noir et fait tomber des livres de derrière sa propre bibliothèque 50 ans plus tard"
+      "description": "La Terre est devenue hostile pour l'Homme. Un groupe d'explorateurs utilise une faille récemment découverte dans l'espace-temps pour tenter de sauver l'Humanité"
   },
   {
       "title": "The Dark Knight",
@@ -47,6 +47,6 @@
           "height":"357",
           "alt":"Affiche du film Inception super jolie"
       },
-      "description": "Bruce Wayne est Batman, le chevalier noir. Bien décidé à rétablir l'ordre à Gotham City, il enfile toutes les nuits son costume à la poursuite des plus gros gangster de la ville aux 1000 péchés"
+      "description": "Bruce Wayne est Batman, le chevalier noir. Bien décidé à rétablir l'ordre à Gotham City, il traque sans relâche le crime organisé qui sème le chaos dans la ville"
   }
 ]
