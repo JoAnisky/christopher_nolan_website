@@ -382,8 +382,11 @@ transform:rotate(45deg);
 }
 .movie-desc{
     font-size:14px;
+    overflow: hidden;
+    word-wrap: break-word;
     text-align: center;
     padding: 10px;
+    height:100px;
     background-color: var(--grey-color);
 }
 .movie-desc p{
@@ -597,5 +600,13 @@ footer{
     .gal-pict{
         max-block-size: initial;
         aspect-ratio: 1 / 1;
+    }
+    .custom-field{
+        display:flex;
+        flex-direction:column;
+    }
+    .foot-components{
+        flex-direction:column;
+        align-items: center;
     }
 }
