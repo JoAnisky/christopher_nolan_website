@@ -243,10 +243,10 @@ p.nolan-title{
 .btn-read-more {
     display: inline-block;
     padding: 0.7rem 1.5rem;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--white-color);
-    text-transform: upercase;
+    text-transform: uppercase;
     border: 1px solid var(--red-color);
     background-color: transparent;
     border-radius:5px;
@@ -284,6 +284,18 @@ p.nolan-title{
 }
 
 /*Carousel*/
+
+#d1{
+    display:none;
+    text-transform: none;
+    position:absolute;
+    top:0;
+    animation: 0.5s cubic-bezier(0, 0, 0.2, 1) scale-effect forwards;
+}
+@keyframes scale-effect{
+    from  {transform:scale(0); opacity:(0);}
+    to {opacity:(1);}
+}
 .exit_cross{
     z-index: 2;
     box-sizing: border-box;
@@ -302,7 +314,7 @@ p.nolan-title{
     
 }
 @keyframes apparition-effect{
-    from  {transform:scale(0); opacity:(0);}
+    from {transform:scale(0); opacity:(0);}
     to {opacity:(1);}
 }
 .exit_cross span{
@@ -318,18 +330,6 @@ transform:rotate(135deg);
 }
 .line-2{
 transform:rotate(45deg);
-}
-
-#d1{
-    display:none;
-    text-transform: none;
-    position:absolute;
-    top:0;
-    animation: 0.5s cubic-bezier(0, 0, 0.2, 1) scale-effect forwards;
-}
-@keyframes scale-effect{
-    from  {transform:scale(0); opacity:(0);}
-    to {opacity:(1);}
 }
 .distribution_contain{
     padding-left:25px;
@@ -554,4 +554,48 @@ footer{
     font-weight: 100;
     font-style:italic;
     text-align: center;
+}
+
+@media all and (max-width:900px){
+    .menu-up{
+        display:none;
+    }
+    h1.title{
+        letter-spacing:6px;
+        font-size:2.5rem;
+    }
+    .about{
+        flex-direction:column;
+        text-align:center;
+        padding-bottom:10px;
+    }
+    .video_container{
+        width:100%;
+        flex-direction: column;
+    }
+    .video-desc_container{
+        justify-content: center;
+        margin:0;
+        max-width:100%;
+    }
+    .btn-read-more{
+        box-sizing: border-box;
+        background-color:var(--red-color);
+        color:var(--white-color);
+        letter-spacing:1px;
+        padding: 11px 36%;
+    }
+    .carousel-contain{
+        justify-content: space-around;
+    }
+    /* .carousel-movies{
+
+    } */
+    .img-container{
+        grid-template-columns:1fr;
+    }
+    .gal-pict{
+        max-block-size: initial;
+        aspect-ratio: 1 / 1;
+    }
 }
