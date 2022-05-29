@@ -9,15 +9,12 @@ const videoPlayer = document.querySelector('.video-player');
 //Event au click sur le bouton READ MORE :
 btnReadMore.addEventListener('click', function(){
     //Si le bouton Contient "Read More"
-    if (btnReadMore.innerText === "Read More"){
-        
-    // Alors remplace par "OK"
+    if(btnReadMore.innerHTML === "en savoir plus"){
+        // Action à réaliser si la condition est vraie :
         btnReadMore.innerText = "Ok";
     }else{
-
-    // Sinon remplace par "Read More"
-        btnReadMore.innerText = "Read More";
-    }
+        btnReadMore.innerText = "en savoir plus"
+    };
     // Si vidéo description contient la classe desc-left-anim
     if (videoDescContainer.classList.contains('desc_left_anim')){
 
@@ -32,7 +29,6 @@ btnReadMore.addEventListener('click', function(){
         videoPlayer.classList.remove('video_right_anim')
         videoPlayer.classList.toggle("video_left_anim");
     }
-
 videoDescContainer.classList.toggle("desc_left_anim");
 videoPlayer.classList.toggle("video_right_anim");
 });
@@ -78,7 +74,6 @@ fetch("js/movies.json").then((response) => {
             movieCardDiv.append(listImage);
             movieCardDiv.append(movieDescDiv);
             movieDescDiv.append(movieDescText);
-            console.log(listItem);
         }
     });
 });
