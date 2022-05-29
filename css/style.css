@@ -391,7 +391,7 @@ transform:rotate(45deg);
     word-wrap: break-word;
     text-align: center;
     padding: 10px;
-    height:100px;
+    height:115px;
     background-color: var(--grey-color);
 }
 .movie-desc p{
@@ -578,6 +578,9 @@ footer{
         text-align:center;
         padding-bottom:10px;
     }
+    .about-text{
+        text-align:justify;
+    }
     .video_container{
         width:100%;
         flex-direction: column;
@@ -607,9 +610,18 @@ footer{
         max-block-size: initial;
         aspect-ratio: 1 / 1;
     }
+    .form-contain{
+        text-align:center;
+        padding:20px;
+    }
     .custom-field{
         display:flex;
         flex-direction:column;
+        width:100%;
+    }
+    .mail-input{
+        width:auto;
+        margin-bottom:15px;
     }
     .foot-components{
         flex-direction:column;

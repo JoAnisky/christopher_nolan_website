@@ -12,7 +12,7 @@ __Section Who Is__
 - [x] Ajout d'un descriptif de Christopher Nolan (photo ?)
 
 __Section Coming soon__
-- [ ] Ajout du titre/date du film à venir
+- [x] Ajout du titre/date du film à venir
 - [ ] Etendre la fonction d'agrandissement aux deux div
 
 __Section movies__
