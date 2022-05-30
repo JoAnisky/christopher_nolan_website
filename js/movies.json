@@ -1,13 +1,13 @@
 [
   {
-      "title": "Tenet",
-      "poster": {
-          "url":"../img/movies/affiche-tenet.jpg",
-          "width":"263",
-          "height":"357",
-          "alt":"Affiche du film Tenet sorti en 2021 en France montrant le héros du film"
-      },
-      "description": "Muni d'un seul mot – Tenet – et décidé à se battre pour sauver le monde, notre protagoniste sillonne l'univers crépusculaire de l'espionnage international."
+    "title": "Tenet",
+    "poster": {
+        "url":"../img/movies/affiche-tenet.jpg",
+        "width":"263",
+        "height":"357",
+        "alt":"Affiche du film Tenet sorti en 2021 en France montrant le héros du film"
+        },
+    "description": "Muni d'un seul mot – Tenet – et décidé à se battre pour sauver le monde, notre protagoniste sillonne l'univers crépusculaire de l'espionnage international."
     },
     {  
       "title": "Dunkerque",
@@ -16,7 +16,7 @@
           "width":"263",
           "height":"354",
           "alt":"Affiche du film Dunkerque montrant le héros en position de bataille"
-      },
+        },
       "description": "En Mai 1940, 400 000 soldats se trouvent coincés dans la poche de Dunkerque, à la fin de la campagne de France. L'opération Dynamo est mise en place pour tenter de les sauver."
   },
   {
@@ -36,7 +36,7 @@
           "width":"264",
           "height":"354",
           "alt":"Affiche du film Interstellar montrant l'univers et un personnage devant un puits de lumière"
-      },
+        },
       "description": "La Terre est devenue hostile pour l'Homme. Un groupe d'explorateurs utilise une faille récemment découverte dans l'espace-temps pour tenter de sauver l'Humanité"
   },
   {
@@ -46,7 +46,7 @@
           "width":"263",
           "height":"357",
           "alt":"Affiche du film Inception super jolie"
-      },
+        },
       "description": "Bruce Wayne est Batman, le chevalier noir. Bien décidé à rétablir l'ordre à Gotham City, il traque sans relâche le crime organisé qui sème le chaos dans la ville"
   }
 ]
