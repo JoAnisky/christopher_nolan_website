@@ -1,7 +1,7 @@
 **Nolan Website To Do List**
 
 __General__
-- [ ] Reponsive mobile
+- [ ] Reponsive mobile : Ajout du menu burger
 - [ ] Responsive tablette
 
 __Header__
@@ -21,3 +21,4 @@ __Section Gallery__
 - [ ] Agrandissement de l'image au click.
 - [ ] Ajout d'une description de la photo
 - [ ] Navigation gauche/droite/sortie.
+- [ ] Régler pb d'images invisibles en mobile
