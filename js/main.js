@@ -17,7 +17,6 @@ btnReadMore.addEventListener('click', function(){
     };
     // Si vidéo description contient la classe desc-left-anim
     if (videoDescContainer.classList.contains('desc_left_anim')){
-
     // supprime la classe desc-left-anim
         videoDescContainer.classList.remove('desc_left_anim')
 

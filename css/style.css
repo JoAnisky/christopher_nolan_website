@@ -80,7 +80,7 @@ span.h2-line{
     align-items: center;
     z-index: 9998;
     background: url('../img/backgrounds/bckg-header.png') no-repeat center ;
-    background-size: auto;
+    background-size:cover;
     height: 600px;
 }
 
@@ -128,23 +128,24 @@ span.h2-line{
     padding-bottom: 100px;
     padding-top: 44px;
 }
-.about-text{
-    width: 350px;
-    line-height: 23px;
-    border-bottom: 1px solid var(--white-color);
-}
+
 
 /* SECTION 1 : Texts */
-p.who{
-    font-size: 38px;
+
+.about-whois{
+    font-size: 50px;
 }
 p.nolan-title{
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 38px;
     letter-spacing: 4px;
 }
-
+.about-text{
+    width: 390px;
+    text-align:justify;
+    line-height: 23px;
+    border-bottom: 1px solid var(--white-color);
+}
 /*Animated Circle Background About*/
 .circle_container{
     max-width:auto;
@@ -403,7 +404,6 @@ transform:rotate(45deg);
 }
 ::-webkit-scrollbar {
     height: 9px;
-    background-color: #F5F5F5;
 }
 ::-webkit-scrollbar-thumb {
     background-color: #774c11;
@@ -564,7 +564,7 @@ footer{
     font-style:italic;
     text-align: center;
 }
-
+/************ MEDIA QUERIE MOBILE ************/
 @media all and (max-width:900px){
     .menu-up{
         display:none;
@@ -572,6 +572,10 @@ footer{
     h1.title{
         letter-spacing:6px;
         font-size:2.5rem;
+    }
+    .circle{
+        width:250px;
+        height:250px;
     }
     .about{
         flex-direction:column;
@@ -583,28 +587,32 @@ footer{
     }
     .video_container{
         width:100%;
+        margin-bottom:50px;
         flex-direction: column;
     }
     .video-desc_container{
+        text-align:center;
         justify-content: center;
         margin:0;
+        padding:10px;
         max-width:100%;
     }
     .btn-read-more{
-        box-sizing: border-box;
-        background-color:var(--red-color);
-        color:var(--white-color);
-        letter-spacing:1px;
-        padding: 10px 33%;
+        display:none;
     }
     .carousel-contain{
         justify-content: space-around;
+        width: 80%;
+        margin-left:15%;
     }
-    /* .carousel-movies{
-
-    } */
+    ::-webkit-scrollbar-track {
+        display:none;
+    }
+    ::-webkit-scrollbar-thumb {
+        display:none    }
     .img-container{
-        grid-template-columns:1fr;
+        overflow-x: scroll;
+        width:100%;
     }
     .gal-pict{
         max-block-size: initial;
