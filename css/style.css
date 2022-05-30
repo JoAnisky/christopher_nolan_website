@@ -588,6 +588,7 @@ footer{
         text-align:justify;
         width:370px;
     }
+/* Section COMING SOON */
     .video_container{
         width:100%;
         margin-bottom:50px;
@@ -603,6 +604,8 @@ footer{
     .btn-read-more{
         display:none;
     }
+
+/* Section MOVIES */
     .carousel-movie {
         flex: 1 0 283px;
     }
@@ -621,10 +624,16 @@ footer{
         overflow-x: scroll;
         width:100%;
     }
-    .gal-pict{
-        max-block-size: initial;
-        aspect-ratio: 1 / 1;
-    }
+
+/* Section GALERIE */
+.img-container{
+display:flex;
+flex-wrap: nowrap;
+}
+.img-bloc1, .img-bloc3{
+    display:flex;
+}
+/* Section FOOTER */
     .form-contain{
         text-align:center;
         padding:20px;
