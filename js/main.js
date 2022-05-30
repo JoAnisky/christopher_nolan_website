@@ -2,6 +2,7 @@ const body = document.body;
 const videoDescContainer = document.querySelector('.video-desc_container');
 const btnReadMore = document.querySelector('.btn-read-more');
 const videoPlayer = document.querySelector('.video-player');
+const videoDesc = document.querySelector('.video-desc');
 
 // Section "COMING SOON"
 // Fonction qui lance l'animation au click sur le bouton "Read More"
@@ -11,19 +12,19 @@ btnReadMore.addEventListener('click', function(){
     //Si le bouton Contient "Read More"
     if(btnReadMore.innerHTML === "en savoir plus"){
         // Action à réaliser si la condition est vraie :
+        videoDesc.style.overflow ='visible';
         btnReadMore.innerText = "Ok";
     }else{
+        videoDesc.style.overflow ='hidden';
         btnReadMore.innerText = "en savoir plus"
     };
     // Si vidéo description contient la classe desc-left-anim
     if (videoDescContainer.classList.contains('desc_left_anim')){
     // supprime la classe desc-left-anim
         videoDescContainer.classList.remove('desc_left_anim')
-
     // et ajoute la classe desc-left-anim (animation inverse)
         videoDescContainer.classList.toggle("desc_right_anim");
     }
-
     if (videoPlayer.classList.contains('video_right_anim')){
         videoPlayer.classList.remove('video_right_anim')
         videoPlayer.classList.toggle("video_left_anim");

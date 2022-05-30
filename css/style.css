@@ -228,7 +228,11 @@ p.nolan-title{
     width: 561px;
     margin-top:250px;
     height: 200px;
-    padding: 19px;
+    padding: 3px 16px;
+}
+.video-desc{
+    overflow: hidden;
+    height: 75px;
 }
 /* Coming soon Video desc animation */
 .desc_left_anim{
@@ -556,6 +560,9 @@ footer{
     gap:15px;
     align-items:center;
 }
+.logo-social{
+    fill:#FEFEFE;
+}
 .copyright{
     padding-top:25px;
     font-weight: 100;
@@ -658,10 +665,6 @@ flex-wrap: nowrap;
     }
     .socials-logo{
         gap:48px;
-    }
-    .logo-social{
-        fill:#FEFEFE;
-
     }
     .copyright{
         font-size:13px;
