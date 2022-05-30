@@ -548,7 +548,6 @@ footer{
 }
 .socials{
     display: flex;
-    align-content: center;
     flex-direction: column;
     align-items: center;
 }
@@ -634,6 +633,9 @@ flex-wrap: nowrap;
     display:flex;
 }
 /* Section FOOTER */
+.footer{
+    padding-top:0;
+}
     .form-contain{
         text-align:center;
         padding:20px;
@@ -649,6 +651,19 @@ flex-wrap: nowrap;
     }
     .foot-components{
         flex-direction:column;
-        align-items: center;
+        text-align: center;
+        padding-top:20px;
+        gap:35px;
+        font-size: 1.1rem;
+    }
+    .socials-logo{
+        gap:48px;
+    }
+    .logo-social{
+        fill:#FEFEFE;
+
+    }
+    .copyright{
+        font-size:13px;
     }
 }
