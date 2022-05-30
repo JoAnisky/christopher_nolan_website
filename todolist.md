@@ -1,18 +1,16 @@
 **Nolan Website To Do List**
 
 __General__
-- [x] Passer le site en Français
 - [ ] Reponsive mobile
 - [ ] Responsive tablette
 
 __Header__
 - [ ] Effet : le texte "Nolan" devient un lien homepage avec animation dans le menu navBar
+- [ ] Trait menu navBar suit la page en cours
 
 __Section Who Is__
-- [x] Ajout d'un descriptif de Christopher Nolan (photo ?)
 
 __Section Coming soon__
-- [x] Ajout du titre/date du film à venir
 - [ ] Etendre la fonction d'agrandissement aux deux div
 
 __Section movies__
