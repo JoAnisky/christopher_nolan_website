@@ -62,11 +62,12 @@ span.whois-line{
     display:inline-block;
     margin-left:16px;
     height: 2px;
-    width: 170px;
+    width: 215px;
     background-color: var(--line-color);
 }
 span.h2-line{
     display:block;
+    align-self:flex-end;
     height: 2px;
     width: 58px;
     background-color: var(--line-color);
@@ -101,11 +102,14 @@ span.h2-line{
     gap: 70px;
     padding-right: 3.5rem;
 }
-.menu-up a{
+.menu-up li a{
     color: var(--white-color);
     font-family: 'Radley', serif;
     text-transform: uppercase;
+    border-bottom:2px solid var(--line-color);
+    padding-bottom:5px;
 }
+
 /*Content Wrapper*/
 /* .content-wrapper{
     padding:0 13.375rem;
@@ -114,6 +118,8 @@ span.h2-line{
 /* .section{
 } */
 .section_titles{
+    display:flex;
+    flex-direction:column;
     font-weight: 100;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -232,7 +238,7 @@ p.nolan-title{
 }
 .video-desc{
     overflow: hidden;
-    height: 75px;
+    height: 126px;
 }
 /* Coming soon Video desc animation */
 .desc_left_anim{
@@ -557,11 +563,15 @@ footer{
 }
 .socials-logo{
     display:flex;
-    gap:15px;
+    gap:25px;
     align-items:center;
 }
 .logo-social{
+    width:35px;
     fill:#FEFEFE;
+}
+.logo-social:hover{
+    fill: rgb(184, 184, 184);
 }
 .copyright{
     padding-top:25px;
@@ -665,6 +675,10 @@ flex-wrap: nowrap;
     }
     .socials-logo{
         gap:48px;
+    }
+    .logo-social{
+        width:55px;
+        fill:#FEFEFE;
     }
     .copyright{
         font-size:13px;

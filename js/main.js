@@ -1,10 +1,28 @@
 const body = document.body;
 const videoDescContainer = document.querySelector('.video-desc_container');
+const sections = document.querySelectorAll('.section');
+const sectionsArr = Array.from(sections);
+
 const btnReadMore = document.querySelector('.btn-read-more');
 const videoPlayer = document.querySelector('.video-player');
 const videoDesc = document.querySelector('.video-desc');
 
-// Section "COMING SOON"
+// Menu navBar
+const intersectionCallback = (menuLine) =>{
+    if (menuLine[0].isIntersecting == true){
+    }
+}
+
+const intersectionObserver = new IntersectionObserver(
+    intersectionCallback
+);
+
+for (let i=0; i<sections.length; i++){
+    intersectionObserver.observe(sections[i]);
+}
+
+// Section 2 "COMING SOON"
+
 // Fonction qui lance l'animation au click sur le bouton "Read More"
 
 //Event au click sur le bouton READ MORE :
@@ -34,6 +52,7 @@ videoPlayer.classList.toggle("video_right_anim");
 });
 
 // SECTION 3 - MOVIES
+
 // Movies list script with movies.json
 const carousselContain = document.querySelector('.caroussel-contain');
 const carousselMovies = document.querySelector('.carousel-movies');
