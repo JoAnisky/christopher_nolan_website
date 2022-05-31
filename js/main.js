@@ -1,26 +1,27 @@
 const body = document.body;
 const videoDescContainer = document.querySelector('.video-desc_container');
-const sections = document.querySelectorAll('.section');
-const sectionsArr = Array.from(sections);
 
 const btnReadMore = document.querySelector('.btn-read-more');
 const videoPlayer = document.querySelector('.video-player');
 const videoDesc = document.querySelector('.video-desc');
 
 // Menu navBar
-const intersectionCallback = (menuLine) =>{
-    if (menuLine[0].isIntersecting == true){
-    }
-}
-const intersectionObserver = new IntersectionObserver(
-    intersectionCallback
-);
 
-for (let i=0; i<sections.length; i++){
-    intersectionObserver.observe(sections[i]);
+const menuLinks = document.querySelectorAll('.links');
+const sections = document.querySelectorAll('section');
+
+function activeMenu(){
+    let len=sections.length;
+    while(--len && window.scrollY + 58 < sections[len].offsetTop){}
+    menuLinks.forEach(ltx => ltx.classList.remove("active-link"));
+    menuLinks[len].classList.add("active-link")
 }
+
+activeMenu();
+window.addEventListener("scroll", activeMenu)
+
 // Menu - Burger
-let link = document.getElementById('link');
+let link = document.getElementById('burger-link');
 let burger = document.getElementById('burger');
 let ul = document.querySelector('.menu-up');
 
