@@ -27,7 +27,7 @@ h1.title{
     text-align: center;   
     font-weight: normal;
     letter-spacing: 11px;
-    font-size: 40px;
+    font-size: clamp(1.8rem, 4vw, 3rem);
     text-shadow: 1px 1px 5px var(--black-color);
 }
 a{
@@ -147,7 +147,7 @@ p.nolan-title{
     letter-spacing: 4px;
 }
 .about-text{
-    width: 390px;
+    max-width: 390px;
     text-align:justify;
     line-height: 23px;
     border-bottom: 1px solid var(--white-color);
@@ -584,7 +584,15 @@ font-size:25px;
 /************ MEDIA QUERIE MOBILE ************/
 @media all and (max-width:900px){
     .menu-up{
-        display:none;
+        background-color:rgba(5, 5, 5, 0.9);
+        display:flex;
+        width:100vw;
+        padding:7% 0;
+        gap:67px;
+        flex-direction: column;
+        align-items: center;
+        position:absolute;
+        top:33px;
     }
     /*Menu burger*/
     #burger {
@@ -625,14 +633,16 @@ font-size:25px;
         top:0;
     }
 
-    h1.title{
+    /* h1.title{
         letter-spacing:6px;
         font-size:2.3rem;
-    }
+    } */
     .about-whois{
-        font-size: 40px;
+        font-size: 35px;
     }
     .circle{
+        top:70vh;
+        left:-20vw;
         width:250px;
         height:250px;
     }
@@ -640,6 +650,7 @@ font-size:25px;
         flex-direction:column;
         text-align:center;
         padding-bottom:10px;
+        padding-top:10px;
     }
     .about-text{
         text-align:justify;
@@ -683,17 +694,17 @@ font-size:25px;
     }
 
 /* Section GALERIE */
-.img-container{
-display:flex;
-flex-wrap: nowrap;
-}
-.img-bloc1, .img-bloc3{
+    .img-container{
     display:flex;
-}
+    flex-wrap: nowrap;
+    }
+    .img-bloc1, .img-bloc3{
+        display:flex;
+    }
 /* Section FOOTER */
-.footer{
-    padding-top:0;
-}
+    .footer{
+        padding-top:0;
+    }
     .form-contain{
         text-align:center;
         padding:20px;
