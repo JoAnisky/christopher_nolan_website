@@ -1,24 +1,18 @@
 const body = document.body;
-const videoDescContainer = document.querySelector('.video-desc_container');
-
-const btnReadMore = document.querySelector('.btn-read-more');
-const videoPlayer = document.querySelector('.video-player');
-const videoDesc = document.querySelector('.video-desc');
-
-// Menu navBar
+// Menu navBar active links
 
 const menuLinks = document.querySelectorAll('.links');
 const sections = document.querySelectorAll('section');
 
 function activeMenu(){
     let len=sections.length;
-    while(--len && window.scrollY + 58 < sections[len].offsetTop){}
+    while(--len && window.scrollY + 100 < sections[len].offsetTop){}
     menuLinks.forEach(ltx => ltx.classList.remove("active-link"));
     menuLinks[len].classList.add("active-link")
 }
-
 activeMenu();
 window.addEventListener("scroll", activeMenu)
+// End active links 
 
 // Menu - Burger
 let link = document.getElementById('burger-link');
@@ -45,14 +39,24 @@ link.addEventListener('click', function(e){
         ul.classList.remove('active');
         ul.classList.add('close');
     }
-
 });
+// End menu burger
+
+
+// Section 1 "Header"
+var intElemScrollTop = body.scrollTop;
+console.log(intElemScrollTop);
 
 // Section 2 "COMING SOON"
+const videoDescContainer = document.querySelector('.video-desc_container');
+const videoPlayer = document.querySelector('.video-player');
+const videoDesc = document.querySelector('.video-desc');
+const btnReadMore = document.querySelector('.btn-read-more');
 
 // Fonction qui lance l'animation au click sur le bouton "Read More"
 
 //Event au click sur le bouton READ MORE :
+
 btnReadMore.addEventListener('click', function(){
     //Si le bouton Contient "Read More"
     if(btnReadMore.innerHTML === "en savoir plus"){
@@ -125,6 +129,7 @@ fetch("js/movies.json").then((response) => {
 });
 
 /* SECTION 3 - MOVIES  Parallax Test
+
 Parallax Test
 movieCard.addEventListener("mousemove", parallax);
 function parallax(e){
