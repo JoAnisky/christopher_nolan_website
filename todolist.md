@@ -1,7 +1,8 @@
 **Nolan Website To Do List**
 
 __General__
-- [ ] Reponsive mobile : Ajout du menu burger
+- [ ] Reponsive mobile : 
+- [x] Ajout du menu burger
 - [ ] Responsive tablette
 
 __Header__
