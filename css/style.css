@@ -581,7 +581,10 @@ font-size:25px;
     font-style:italic;
     text-align: center;
 }
+
+
 /************ MEDIA QUERIE MOBILE ************/
+
 @media all and (max-width:900px){
     .menu-up{
         background-color:rgba(5, 5, 5, 0.9);
@@ -594,9 +597,22 @@ font-size:25px;
         position: absolute;
         top: 33px;
     }
+    .menu-up li a{
+        animation: fade-links 1.5s ease-in forwards;
+    }
+    @keyframes fade-links {
+        from{opacity:0}
+        to{opacity:1}
+    }
     .active {
         display: flex;
+        gap:0;
+        animation: menu-down 1s ease-in forwards;
     }
+    @keyframes menu-down {
+        from { height: 0vh; gap:0px }
+        to   { height:35vh; gap:67px }
+      }
     .close{
         display: none;
     }
