@@ -22,12 +22,29 @@ for (let i=0; i<sections.length; i++){
 // Menu - Burger
 let link = document.getElementById('link');
 let burger = document.getElementById('burger');
-let ul = document.querySelector('ul');
+let ul = document.querySelector('.menu-up');
 
+function isEven(n){
+    return n % 2 === 0;
+}
+
+var mouseClick =0;
 link.addEventListener('click', function(e){
+    mouseClick++
     e.preventDefault()
     burger.classList.toggle('open');
-    ul.classList.toggle('active');
+
+    console.log(mouseClick);
+
+    if(!isEven(mouseClick)){
+        ul.classList.remove('close');    
+        ul.classList.add('active');
+    console.log("impair");
+    }else{
+        ul.classList.remove('active');
+        ul.classList.add('close');
+    }
+
 });
 
 // Section 2 "COMING SOON"
