@@ -585,14 +585,20 @@ font-size:25px;
 @media all and (max-width:900px){
     .menu-up{
         background-color:rgba(5, 5, 5, 0.9);
-        display:flex;
-        width:100vw;
-        padding:7% 0;
-        gap:67px;
+        display: none;
+        width: 100vw;
+        padding: 7% 0;
+        gap: 67px;
         flex-direction: column;
         align-items: center;
-        position:absolute;
-        top:33px;
+        position: absolute;
+        top: 33px;
+    }
+    .active {
+        display: flex;
+    }
+    .close{
+        display: none;
     }
     /*Menu burger*/
     #burger {

@@ -27,7 +27,7 @@ let ul = document.querySelector('ul');
 link.addEventListener('click', function(e){
     e.preventDefault()
     burger.classList.toggle('open');
-    ul.classList.toggle('open');
+    ul.classList.toggle('active');
 });
 
 // Section 2 "COMING SOON"
