@@ -12,7 +12,6 @@ const intersectionCallback = (menuLine) =>{
     if (menuLine[0].isIntersecting == true){
     }
 }
-
 const intersectionObserver = new IntersectionObserver(
     intersectionCallback
 );
@@ -20,6 +19,16 @@ const intersectionObserver = new IntersectionObserver(
 for (let i=0; i<sections.length; i++){
     intersectionObserver.observe(sections[i]);
 }
+// Menu - Burger
+let link = document.getElementById('link');
+let burger = document.getElementById('burger');
+let ul = document.querySelector('ul');
+
+link.addEventListener('click', function(e){
+    e.preventDefault()
+    burger.classList.toggle('open');
+    ul.classList.toggle('open');
+});
 
 // Section 2 "COMING SOON"
 
