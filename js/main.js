@@ -45,42 +45,50 @@ link.addEventListener('click', function(e){
 
 // Section 1 "Header"
 var intElemScrollTop = body.scrollTop;
-console.log(intElemScrollTop);
 
 // Section 2 "COMING SOON"
-const videoDescContainer = document.querySelector('.video-desc_container');
-const videoPlayer = document.querySelector('.video-player');
-const videoDesc = document.querySelector('.video-desc');
-const btnReadMore = document.querySelector('.btn-read-more');
+const videoDescContainer = document.querySelectorAll('.video-desc_container');
+const videoPlayer = document.querySelectorAll('.video-player');
+const videoDesc = document.querySelectorAll('.video-desc');
 
+const btnReadMore = document.querySelectorAll('.btn-read-more');
 // Fonction qui lance l'animation au click sur le bouton "Read More"
 
-//Event au click sur le bouton READ MORE :
+    btnReadMore.forEach(elemBtn => {
 
-btnReadMore.addEventListener('click', function(){
-    //Si le bouton Contient "Read More"
-    if(btnReadMore.innerHTML === "en savoir plus"){
-        // Action à réaliser si la condition est vraie :
-        videoDesc.style.overflow ='visible';
-        btnReadMore.innerText = "Ok";
-    }else{
-        videoDesc.style.overflow ='hidden';
-        btnReadMore.innerText = "en savoir plus"
-    };
-    // Si vidéo description contient la classe desc-left-anim
-    if (videoDescContainer.classList.contains('desc_left_anim')){
-    // supprime la classe desc-left-anim
-        videoDescContainer.classList.remove('desc_left_anim')
-    // et ajoute la classe desc-left-anim (animation inverse)
-        videoDescContainer.classList.toggle("desc_right_anim");
-    }
-    if (videoPlayer.classList.contains('video_right_anim')){
-        videoPlayer.classList.remove('video_right_anim')
-        videoPlayer.classList.toggle("video_left_anim");
-    }
-videoDescContainer.classList.toggle("desc_left_anim");
-videoPlayer.classList.toggle("video_right_anim");
-});
+        videoDesc.forEach(elemVideoDesc => {
+            
+            videoDescContainer.forEach(elemDescContainer => {
+
+                videoPlayer.forEach(elemPlayer => {
+                    
+                    elemBtn.onclick = function() {
+
+//Si le bouton Contient "Read More"
+                        if(elemBtn.innerHTML === "en savoir plus" && !elemDescContainer.classList.contains('desc_left_anim')){
+// Action à réaliser si la condition est vraie :
+                            elemBtn.innerText = "Ok";
+                        }else{
+                            elemBtn.innerText = "en savoir plus"
+                        };
+// // Si vidéo description contient la classe desc-left-anim
+//                         if (elemDescContainer.classList.contains('desc_left_anim')){
+// // supprime la classe desc-left-anim
+//                             elemDescContainer.classList.remove('desc_left_anim')
+// // et ajoute la classe desc-left-anim (animation inverse)
+//                             elemDescContainer.classList.toggle("desc_right_anim");
+//                         }
+//                         if (elemPlayer.classList.contains('video_right_anim')){
+//                             elemPlayer.classList.remove('video_right_anim')
+//                             elemPlayer.classList.toggle("video_left_anim");
+//                         }
+//                             elemDescContainer.classList.toggle("desc_left_anim");
+//                             elemPlayer.classList.toggle("video_right_anim");
+                    }
+                }); 
+            });
+        });
+    });
 
 // SECTION 3 - MOVIES
 
@@ -150,24 +158,24 @@ function togg(){
     }
 }; */
 
-movieCard.addEventListener("click", function(event){
-    // Si l'utilisateur clique dans l'élément
-      d1.style.display = "flex"
-      exitCross.style.display = "flex";
+// movieCard.addEventListener("click", function(event){
+//     // Si l'utilisateur clique dans l'élément
+//       d1.style.display = "flex"
+//       exitCross.style.display = "flex";
 
-      if (event.target.closest(".movie-card"))return
-      // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
-})
+//       if (event.target.closest(".movie-card"))return
+//       // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
+// })
 
-exitCross.addEventListener("click", function(event){
-    // Si l'utilisateur clique dans l'élément
-      d1.style.display = "none"
-      exitCross.style.display = "none";
-      if (event.target.closest(".movie-card"))return
-      // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
-})
+// exitCross.addEventListener("click", function(event){
+//     // Si l'utilisateur clique dans l'élément
+//       d1.style.display = "none"
+//       exitCross.style.display = "none";
+//       if (event.target.closest(".movie-card"))return
+//       // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
+// })
 
-document.addEventListener('keypress', logKey);
-function logKey(e) {
-  console.log(` ${e.code}`);
-}
+// document.addEventListener('keypress', logKey);
+// function logKey(e) {
+//   console.log(` ${e.code}`);
+// }
