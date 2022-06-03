@@ -47,49 +47,42 @@ link.addEventListener('click', function(e){
 var intElemScrollTop = body.scrollTop;
 
 // Section 2 "COMING SOON"
-const videoDescContainer = document.querySelectorAll('.video-desc_container');
-const videoPlayer = document.querySelectorAll('.video-player');
-const videoDesc = document.querySelectorAll('.video-desc');
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const videoDescContainer = document.querySelector('.video-desc_container');
+const videoPlayer = document.querySelector('.video-player');
+const videoDesc = document.querySelector('.video-desc');
 
-const btnReadMore = document.querySelectorAll('.btn-read-more');
 // Fonction qui lance l'animation au click sur le bouton "Read More"
 
-    btnReadMore.forEach(elemBtn => {
+function readMore(){
+    //Si le bouton Contient "Read More"
+    if(btn1.innerHTML === "en savoir plus"){
+        // Action à réaliser si la condition est vraie :
+        videoDesc.style.overflow ='visible';
+        btn1.innerText = "Ok";
+    }else{
+        videoDesc.style.overflow ='hidden';
+        btn1.innerText = "en savoir plus"
+    };
+    // Si vidéo description contient la classe desc-left-anim
+    if (videoDescContainer.classList.contains('desc_left_anim')){
+    // supprime la classe desc-left-anim
+        videoDescContainer.classList.remove('desc_left_anim')
+    // et ajoute la classe desc-left-anim (animation inverse)
+        videoDescContainer.classList.toggle("desc_right_anim");
+    }
+    if (videoPlayer.classList.contains('video_right_anim')){
+        videoPlayer.classList.remove('video_right_anim')
+        videoPlayer.classList.toggle("video_left_anim");
+    }
+videoDescContainer.classList.toggle("desc_left_anim");
+videoPlayer.classList.toggle("video_right_anim");
+}
 
-        videoDesc.forEach(elemVideoDesc => {
-            
-            videoDescContainer.forEach(elemDescContainer => {
-
-                videoPlayer.forEach(elemPlayer => {
-                    
-                    elemBtn.onclick = function() {
-
-//Si le bouton Contient "Read More"
-                        if(elemBtn.innerHTML === "en savoir plus" && !elemDescContainer.classList.contains('desc_left_anim')){
-// Action à réaliser si la condition est vraie :
-                            elemBtn.innerText = "Ok";
-                        }else{
-                            elemBtn.innerText = "en savoir plus"
-                        };
-// // Si vidéo description contient la classe desc-left-anim
-//                         if (elemDescContainer.classList.contains('desc_left_anim')){
-// // supprime la classe desc-left-anim
-//                             elemDescContainer.classList.remove('desc_left_anim')
-// // et ajoute la classe desc-left-anim (animation inverse)
-//                             elemDescContainer.classList.toggle("desc_right_anim");
-//                         }
-//                         if (elemPlayer.classList.contains('video_right_anim')){
-//                             elemPlayer.classList.remove('video_right_anim')
-//                             elemPlayer.classList.toggle("video_left_anim");
-//                         }
-//                             elemDescContainer.classList.toggle("desc_left_anim");
-//                             elemPlayer.classList.toggle("video_right_anim");
-                    }
-                }); 
-            });
-        });
-    });
-
+btn1.addEventListener('click', readMore);
+btn2.addEventListener('click', readMore);
+     
 // SECTION 3 - MOVIES
 
 // Movies list script with movies.json
@@ -100,9 +93,9 @@ const d1 = document.getElementById("d1");
 const exitCross = document.querySelector('.exit_cross');
 
 // Fetch starts here with content creation :
-fetch("js/movies.json").then((response) => { 
+fetch("js/movies.json").then((response) => {
     // tout le reste du code se place entre accolades sinon l'objet JSON n'existe pas (scope)
-    response.json().then((moviesData) => { 
+    response.json().then((moviesData) => {
         for (let i=0; i<moviesData.length; i++){
             // Div container movie-card
             let movieCardDiv = document.createElement('DIV');
