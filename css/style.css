@@ -180,7 +180,7 @@ p.nolan-title{
     100%{box-shadow:0 0 5px #184158, 0 0 10px #020607, 0 0 15px #05080f}
 }
 
-/* SECTION 2 : COMING SOON - DIVs */
+        /* SECTION 2 : COMING SOON - DIVs */
 .coming{
     display: flex;
     flex-direction: column;
@@ -188,7 +188,6 @@ p.nolan-title{
     background: url('../img/backgrounds/bckg-blackhole.png') no-repeat center;
     background-position: center ;
 }
-
 /* Global elements container */
 .video_container{
     z-index:0;
@@ -198,7 +197,6 @@ p.nolan-title{
     margin-top:65px;
     margin-bottom: 115px;
 }
-
 /* Youtube Iframe container*/
 .video-player{
     display: flex;
@@ -593,6 +591,9 @@ font-size:25px;
 /************ MEDIA QUERIE MOBILE ************/
 
 @media all and (max-width:620px){
+    .content-wrapper{
+        padding:15px;
+    }
     .menu-up{
         background-color:rgba(5, 5, 5, 0.9);
         display: none;
@@ -691,7 +692,7 @@ font-size:25px;
     }
     .about-text{
         text-align:justify;
-        width:26rem;
+        width:100%;
     }
 /* Section COMING SOON */
     .video_container{
@@ -717,7 +718,6 @@ font-size:25px;
     .carousel-contain{
         justify-content: space-around;
         width: 75%;
-        padding-left:11%;
     }
     ::-webkit-scrollbar-track {
         display:none;
