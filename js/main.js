@@ -1,26 +1,21 @@
 const body = document.body;
-const videoDescContainer = document.querySelector('.video-desc_container');
-const sections = document.querySelectorAll('.section');
-const sectionsArr = Array.from(sections);
+// Menu navBar active links
 
-const btnReadMore = document.querySelector('.btn-read-more');
-const videoPlayer = document.querySelector('.video-player');
-const videoDesc = document.querySelector('.video-desc');
+const menuLinks = document.querySelectorAll('.links');
+const sections = document.querySelectorAll('section');
 
-// Menu navBar
-const intersectionCallback = (menuLine) =>{
-    if (menuLine[0].isIntersecting == true){
-    }
+function activeMenu(){
+    let len=sections.length;
+    while(--len && window.scrollY + 100 < sections[len].offsetTop){}
+    menuLinks.forEach(ltx => ltx.classList.remove("active-link"));
+    menuLinks[len].classList.add("active-link")
 }
-const intersectionObserver = new IntersectionObserver(
-    intersectionCallback
-);
+activeMenu();
+window.addEventListener("scroll", activeMenu)
+// End active links 
 
-for (let i=0; i<sections.length; i++){
-    intersectionObserver.observe(sections[i]);
-}
 // Menu - Burger
-let link = document.getElementById('link');
+let link = document.getElementById('burger-link');
 let burger = document.getElementById('burger');
 let ul = document.querySelector('.menu-up');
 
@@ -44,23 +39,31 @@ link.addEventListener('click', function(e){
         ul.classList.remove('active');
         ul.classList.add('close');
     }
-
 });
+// End menu burger
+
+
+// Section 1 "Header"
+var intElemScrollTop = body.scrollTop;
 
 // Section 2 "COMING SOON"
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const videoDescContainer = document.querySelector('.video-desc_container');
+const videoPlayer = document.querySelector('.video-player');
+const videoDesc = document.querySelector('.video-desc');
 
 // Fonction qui lance l'animation au click sur le bouton "Read More"
 
-//Event au click sur le bouton READ MORE :
-btnReadMore.addEventListener('click', function(){
+function readMore(){
     //Si le bouton Contient "Read More"
-    if(btnReadMore.innerHTML === "en savoir plus"){
+    if(btn1.innerHTML === "en savoir plus"){
         // Action à réaliser si la condition est vraie :
         videoDesc.style.overflow ='visible';
-        btnReadMore.innerText = "Ok";
+        btn1.innerText = "Ok";
     }else{
         videoDesc.style.overflow ='hidden';
-        btnReadMore.innerText = "en savoir plus"
+        btn1.innerText = "en savoir plus"
     };
     // Si vidéo description contient la classe desc-left-anim
     if (videoDescContainer.classList.contains('desc_left_anim')){
@@ -75,8 +78,11 @@ btnReadMore.addEventListener('click', function(){
     }
 videoDescContainer.classList.toggle("desc_left_anim");
 videoPlayer.classList.toggle("video_right_anim");
-});
+}
 
+btn1.addEventListener('click', readMore);
+btn2.addEventListener('click', readMore);
+     
 // SECTION 3 - MOVIES
 
 // Movies list script with movies.json
@@ -87,9 +93,9 @@ const d1 = document.getElementById("d1");
 const exitCross = document.querySelector('.exit_cross');
 
 // Fetch starts here with content creation :
-fetch("js/movies.json").then((response) => { 
+fetch("js/movies.json").then((response) => {
     // tout le reste du code se place entre accolades sinon l'objet JSON n'existe pas (scope)
-    response.json().then((moviesData) => { 
+    response.json().then((moviesData) => {
         for (let i=0; i<moviesData.length; i++){
             // Div container movie-card
             let movieCardDiv = document.createElement('DIV');
@@ -124,6 +130,7 @@ fetch("js/movies.json").then((response) => {
 });
 
 /* SECTION 3 - MOVIES  Parallax Test
+
 Parallax Test
 movieCard.addEventListener("mousemove", parallax);
 function parallax(e){
@@ -144,24 +151,24 @@ function togg(){
     }
 }; */
 
-movieCard.addEventListener("click", function(event){
-    // Si l'utilisateur clique dans l'élément
-      d1.style.display = "flex"
-      exitCross.style.display = "flex";
+// movieCard.addEventListener("click", function(event){
+//     // Si l'utilisateur clique dans l'élément
+//       d1.style.display = "flex"
+//       exitCross.style.display = "flex";
 
-      if (event.target.closest(".movie-card"))return
-      // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
-})
+//       if (event.target.closest(".movie-card"))return
+//       // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
+// })
 
-exitCross.addEventListener("click", function(event){
-    // Si l'utilisateur clique dans l'élément
-      d1.style.display = "none"
-      exitCross.style.display = "none";
-      if (event.target.closest(".movie-card"))return
-      // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
-})
+// exitCross.addEventListener("click", function(event){
+//     // Si l'utilisateur clique dans l'élément
+//       d1.style.display = "none"
+//       exitCross.style.display = "none";
+//       if (event.target.closest(".movie-card"))return
+//       // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
+// })
 
-document.addEventListener('keypress', logKey);
-function logKey(e) {
-  console.log(` ${e.code}`);
-}
+// document.addEventListener('keypress', logKey);
+// function logKey(e) {
+//   console.log(` ${e.code}`);
+// }

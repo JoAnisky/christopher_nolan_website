@@ -6,6 +6,9 @@
 --red-color:#e1090f;
 --red-gradient:linear-gradient(to bottom, #ff0009, #b80006);
 }
+html{
+    scroll-behavior:smooth;
+}
 html.sr .load-hidden {
     visibility: hidden;
 }
@@ -106,6 +109,9 @@ span.h2-line{
     color: var(--white-color);
     font-family: 'Radley', serif;
     text-transform: uppercase;
+
+}
+.active-link{
     border-bottom:2px solid var(--line-color);
     padding-bottom:5px;
 }
@@ -122,6 +128,7 @@ span.h2-line{
     flex-direction:column;
     font-weight: 100;
     margin-bottom: 10px;
+    margin-top: 50px;
     text-transform: uppercase;
 }
 
@@ -147,7 +154,7 @@ p.nolan-title{
     letter-spacing: 4px;
 }
 .about-text{
-    max-width: 390px;
+    max-width: 35.25rem;
     text-align:justify;
     line-height: 23px;
     border-bottom: 1px solid var(--white-color);
@@ -173,7 +180,7 @@ p.nolan-title{
     100%{box-shadow:0 0 5px #184158, 0 0 10px #020607, 0 0 15px #05080f}
 }
 
-/* SECTION 2 : COMING SOON - DIVs */
+        /* SECTION 2 : COMING SOON - DIVs */
 .coming{
     display: flex;
     flex-direction: column;
@@ -181,7 +188,6 @@ p.nolan-title{
     background: url('../img/backgrounds/bckg-blackhole.png') no-repeat center;
     background-position: center ;
 }
-
 /* Global elements container */
 .video_container{
     z-index:0;
@@ -191,7 +197,6 @@ p.nolan-title{
     margin-top:65px;
     margin-bottom: 115px;
 }
-
 /* Youtube Iframe container*/
 .video-player{
     display: flex;
@@ -585,7 +590,10 @@ font-size:25px;
 
 /************ MEDIA QUERIE MOBILE ************/
 
-@media all and (max-width:900px){
+@media all and (max-width:620px){
+    .content-wrapper{
+        padding:15px;
+    }
     .menu-up{
         background-color:rgba(5, 5, 5, 0.9);
         display: none;
@@ -684,7 +692,7 @@ font-size:25px;
     }
     .about-text{
         text-align:justify;
-        width:305px;
+        width:100%;
     }
 /* Section COMING SOON */
     .video_container{
@@ -710,7 +718,6 @@ font-size:25px;
     .carousel-contain{
         justify-content: space-around;
         width: 75%;
-        padding-left:11%;
     }
     ::-webkit-scrollbar-track {
         display:none;

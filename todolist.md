@@ -7,7 +7,7 @@ __General__
 
 __Header__
 - [ ] Effet : le texte "Nolan" devient un lien homepage avec animation dans le menu navBar
-- [ ] Trait menu navBar suit la page en cours
+- [x] Trait menu navBar suit la page en cours
 
 __Section Who Is__
 
