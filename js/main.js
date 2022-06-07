@@ -172,3 +172,26 @@ function togg(){
 // function logKey(e) {
 //   console.log(` ${e.code}`);
 // }
+
+// Section 4 Image Gallery
+const vignettes = document.querySelectorAll('.gal-pict');
+const fullImg = document.getElementById('full');
+
+
+fetch('js/galery.json').then((response) => {
+    response.json().then((galeryImg) => {
+        
+        vignettes.forEach(item => {
+            item.addEventListener('click', function(){
+
+                for (let i=0; i<galeryImg.length; i++){
+
+                    if(item.getAttribute('src') === galeryImg[i].min){
+                        fullImg.setAttribute('src', galeryImg[i].full);
+                    }
+                }
+            });
+        });
+
+    });
+});
