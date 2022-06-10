@@ -175,23 +175,40 @@ function togg(){
 
 // Section 4 Image Gallery
 const vignettes = document.querySelectorAll('.gal-pict');
-const fullImg = document.getElementById('full');
-
+const fullImgContain = document.getElementById('full-img-contain');
+const fullImgContainer = document.getElementById('full-img-container');
+const fullImgExit = document.querySelector('.full-img-exit_cross');
+const rightArrow = document.getElementById('arrow-right');
 
 fetch('js/galery.json').then((response) => {
     response.json().then((galeryImg) => {
-        
+
         vignettes.forEach(item => {
             item.addEventListener('click', function(){
-
                 for (let i=0; i<galeryImg.length; i++){
-
                     if(item.getAttribute('src') === galeryImg[i].min){
-                        fullImg.setAttribute('src', galeryImg[i].full);
-                    }
-                }
+
+                        const fullImg = document.createElement('IMG');
+                        if(!document.getElementById('full')){
+                            fullImg.setAttribute('src', galeryImg[i].full);
+                            fullImg.setAttribute('id', 'full');
+                            fullImgContain.append(fullImg);
+                            fullImgContainer.style.display = 'flex';
+                            fullImgExit.style.display = "flex";
+                        }else{
+                            fullImgContain.replaceChildren(fullImg);
+                        };
+                        
+                        rightArrow.addEventListener('click', function(){
+                            i++
+                        });
+                    };
+                };
             });
         });
-
     });
 });
+fullImgExit.addEventListener('click', function(){
+    fullImgContainer.style.display = 'none';
+    fullImgExit.style.display = "none";
+})
