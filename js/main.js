@@ -43,6 +43,18 @@ link.addEventListener('click', function(e){
 // Section 1 "Header"
 var intElemScrollTop = body.scrollTop;
 
+// Script pour le logo UP (remonter la page)
+jQuery(function(){
+    $(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 200 ) { 
+                $('#scrollUp').css('right','10px');
+            } else { 
+                $('#scrollUp').removeAttr( 'style' );
+            }
+        });
+    });
+});
 // Section 2 "COMING SOON"
 const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");

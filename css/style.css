@@ -179,8 +179,15 @@ p.nolan-title{
     0%{box-shadow:0 0 10px #14a9ff, 0 0 20px #2DA6EB, 0 0 30px #285aeb}
     100%{box-shadow:0 0 5px #184158, 0 0 10px #020607, 0 0 15px #05080f}
 }
-
-        /* SECTION 2 : COMING SOON - DIVs */
+/* UP arrow */
+#scrollUp{
+    position: fixed;
+    bottom : 25px;
+    right: -100px;
+    opacity: 0.5;
+    z-index:9999;
+}
+ /* SECTION 2 : COMING SOON - DIVs */
 .coming{
     display: flex;
     flex-direction: column;
