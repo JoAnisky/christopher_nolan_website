@@ -179,16 +179,20 @@ const fullImgContain = document.getElementById('full-img-contain');
 const fullImgContainer = document.getElementById('full-img-container');
 const fullImgExit = document.querySelector('.full-img-exit_cross');
 const rightArrow = document.getElementById('arrow-right');
+const leftArrow = document.getElementById('arrow-left');
+const fullImg = document.createElement('IMG');
 
 fetch('js/galery.json').then((response) => {
     response.json().then((galeryImg) => {
 
         vignettes.forEach(item => {
             item.addEventListener('click', function(){
+
                 for (let i=0; i<galeryImg.length; i++){
+                    console.log(i);
+
                     if(item.getAttribute('src') === galeryImg[i].min){
 
-                        const fullImg = document.createElement('IMG');
                         if(!document.getElementById('full')){
                             fullImg.setAttribute('src', galeryImg[i].full);
                             fullImg.setAttribute('id', 'full');
@@ -198,17 +202,35 @@ fetch('js/galery.json').then((response) => {
                         }else{
                             fullImgContain.replaceChildren(fullImg);
                         };
-                        
+
                         rightArrow.addEventListener('click', function(){
                             i++
+                            fullImg.setAttribute('src', galeryImg[i].full);
+
+                            if (i == galeryImg.length -1) {
+                                rightArrow.style.opacity="0";
+                            }
                         });
+
+                        leftArrow.addEventListener('click', function(){
+                            i--
+                            fullImg.setAttribute('src', galeryImg[i].full);
+                            if (i == galeryImg.length -1) {
+                                console.log(galeryImg.length);
+                                leftArrow.style.opacity="0";
+                            }
+                        });
+
                     };
                 };
             });
         });
     });
 });
+
 fullImgExit.addEventListener('click', function(){
     fullImgContainer.style.display = 'none';
     fullImgExit.style.display = "none";
+    rightArrow.style.opacity="1";
+    fullImg.remove();
 })

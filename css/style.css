@@ -494,6 +494,7 @@ p.movie-year{
 
 }
 #full{
+    border: 1px solid white;
     width:100%;
 }
 .full-img-exit_cross{
@@ -534,6 +535,14 @@ transform:rotate(45deg);
     position: absolute;
     width: 39px;
     right: 27rem;
+    fill:white;
+}
+#arrow-left{
+    opacity: 1;
+    position: absolute;
+    width: 39px;
+    left: 27.1875rem;
+    transform: rotate(-180deg);
     fill:white;
 }
 /* FOOTER */
