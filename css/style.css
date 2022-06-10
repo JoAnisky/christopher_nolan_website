@@ -474,6 +474,7 @@ p.movie-year{
     filter:saturate(0);
 }
 .gal-pict:hover{
+    cursor:pointer;
     filter:unset;
     transform: scale(1.10) translate(1px) rotate(1deg);
 }
@@ -491,11 +492,11 @@ p.movie-year{
 #full-img-contain{
     max-width:900px;
     position:relative;
-
 }
 #full{
     border: 1px solid white;
     width:100%;
+    user-select: none;
 }
 .full-img-exit_cross{
     z-index: 2;
@@ -523,6 +524,7 @@ p.movie-year{
     width: 22px;
 }
 .full-img-exit_cross:hover{
+    cursor:pointer;
     box-shadow:0px 0px 5px 2px rgb(147 5 5);
 }
 .line-1{
@@ -544,6 +546,9 @@ transform:rotate(45deg);
     left: 27.1875rem;
     transform: rotate(-180deg);
     fill:white;
+}
+#arrow-right, #arrow-left{
+    cursor: pointer;
 }
 /* FOOTER */
 footer{

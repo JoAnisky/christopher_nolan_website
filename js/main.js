@@ -29,12 +29,9 @@ link.addEventListener('click', function(e){
     e.preventDefault()
     burger.classList.toggle('open');
 
-    console.log(mouseClick);
-
     if(!isEven(mouseClick)){
         ul.classList.remove('close');    
         ul.classList.add('active');
-    console.log("impair");
     }else{
         ul.classList.remove('active');
         ul.classList.add('close');
@@ -208,16 +205,18 @@ fetch('js/galery.json').then((response) => {
                             fullImg.setAttribute('src', galeryImg[i].full);
 
                             if (i == galeryImg.length -1) {
-                                rightArrow.style.opacity="0";
+                                rightArrow.style.display="none";
                             }
                         });
 
                         leftArrow.addEventListener('click', function(){
                             i--
                             fullImg.setAttribute('src', galeryImg[i].full);
-                            if (i == galeryImg.length -1) {
-                                console.log(galeryImg.length);
-                                leftArrow.style.opacity="0";
+                            if (galeryImg.length == 0) {
+                                console.log(i);
+                                rightArrow.style.display="block";
+
+                                leftArrow.style.display="block";
                             }
                         });
 
@@ -229,8 +228,10 @@ fetch('js/galery.json').then((response) => {
 });
 
 fullImgExit.addEventListener('click', function(){
+    i=0;
     fullImgContainer.style.display = 'none';
     fullImgExit.style.display = "none";
-    rightArrow.style.opacity="1";
+    rightArrow.style.display="block";
+    leftArrow.style.display="none";
     fullImg.remove();
 })
