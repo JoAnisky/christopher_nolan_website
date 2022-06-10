@@ -49,6 +49,7 @@ jQuery(function(){
         $(window).scroll(function () {
             if ($(this).scrollTop() > 200 ) { 
                 $('#scrollUp').css('right','10px');
+                $('#scrollUp').css('transform', 'scale:15px;')
             } else { 
                 $('#scrollUp').removeAttr( 'style' );
             }
@@ -198,7 +199,6 @@ fetch('js/galery.json').then((response) => {
             item.addEventListener('click', function(){
 
                 for (let i=0; i<galeryImg.length; i++){
-                    console.log(i);
 
                     if(item.getAttribute('src') === galeryImg[i].min){
 
@@ -215,8 +215,9 @@ fetch('js/galery.json').then((response) => {
                         rightArrow.addEventListener('click', function(){
                             i++
                             fullImg.setAttribute('src', galeryImg[i].full);
+                            leftArrow.style.display="block";
 
-                            if (i == galeryImg.length -1) {
+                            if (i === galeryImg.length -1) {
                                 rightArrow.style.display="none";
                             }
                         });
@@ -224,11 +225,10 @@ fetch('js/galery.json').then((response) => {
                         leftArrow.addEventListener('click', function(){
                             i--
                             fullImg.setAttribute('src', galeryImg[i].full);
-                            if (galeryImg.length == 0) {
-                                console.log(i);
-                                rightArrow.style.display="block";
+                            rightArrow.style.display="block";
 
-                                leftArrow.style.display="block";
+                            if (i === 0) {
+                                leftArrow.style.display="none";
                             }
                         });
 
@@ -244,6 +244,5 @@ fullImgExit.addEventListener('click', function(){
     fullImgContainer.style.display = 'none';
     fullImgExit.style.display = "none";
     rightArrow.style.display="block";
-    leftArrow.style.display="none";
     fullImg.remove();
 })

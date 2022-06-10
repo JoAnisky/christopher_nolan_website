@@ -187,6 +187,9 @@ p.nolan-title{
     opacity: 0.5;
     z-index:9999;
 }
+#scrollUp .active{
+    transform: scale(15px);
+}
  /* SECTION 2 : COMING SOON - DIVs */
 .coming{
     display: flex;
@@ -547,7 +550,6 @@ transform:rotate(45deg);
     fill:white;
 }
 #arrow-left{
-    opacity: 1;
     position: absolute;
     width: 39px;
     left: 27.1875rem;
