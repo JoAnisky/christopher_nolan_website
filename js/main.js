@@ -201,6 +201,7 @@ fetch('js/galery.json').then((response) => {
                 for (let i=0; i<galeryImg.length; i++){
 
                     if(item.getAttribute('src') === galeryImg[i].min){
+                        console.log('Premier i :', i);
 
                         if(!document.getElementById('full')){
                             fullImg.setAttribute('src', galeryImg[i].full);
@@ -214,9 +215,8 @@ fetch('js/galery.json').then((response) => {
 
                         rightArrow.addEventListener('click', function(){
                             i++
+                            console.log('Right i :', i);
                             fullImg.setAttribute('src', galeryImg[i].full);
-                            leftArrow.style.display="block";
-
                             if (i === galeryImg.length -1) {
                                 rightArrow.style.display="none";
                             }
@@ -224,6 +224,7 @@ fetch('js/galery.json').then((response) => {
 
                         leftArrow.addEventListener('click', function(){
                             i--
+                            console.log('Left i :', i);
                             fullImg.setAttribute('src', galeryImg[i].full);
                             rightArrow.style.display="block";
 
@@ -244,5 +245,6 @@ fullImgExit.addEventListener('click', function(){
     fullImgContainer.style.display = 'none';
     fullImgExit.style.display = "none";
     rightArrow.style.display="block";
+    leftArrow.style.display = "block";
     fullImg.remove();
 })
