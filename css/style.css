@@ -824,6 +824,9 @@ font-size:25px;
     }
 
 /* Section GALERIE */
+#gallery{
+    padding:0;
+}
     .img-container{
         display: none;
     }
@@ -845,7 +848,7 @@ font-size:25px;
         width:auto;
     }
 /* Section FOOTER */
-    .footer{
+    footer{
         padding-top:0;
     }
     .form-contain{
