@@ -828,25 +828,21 @@ font-size:25px;
         display: none;
     }
     #responsive-gal{
-        display: flex;
-        flex-wrap: nowrap;
-    }
-    .carousel-contain{
         display:flex;
-        width:1000px;
+        width:280px
     }
-    .carousel-movies {
+    #carousel-gal{
         display: flex;
         overflow-x: scroll;
-        padding: 1rem 0;
+        padding: 2rem 0;
         scroll-snap-type: x mandatory;
     }
-    .carousel-movie{
+    #carousel-gal{
         flex: 1 0 300px;
         scroll-snap-align: start;
     }
-    .movie-card{
-        width:263px;
+    .picture-card{
+        width:auto;
     }
 /* Section FOOTER */
     .footer{
