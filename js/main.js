@@ -1,9 +1,9 @@
 const body = document.body;
 // Menu navBar active links
-
 const menuLinks = document.querySelectorAll('.links');
 const sections = document.querySelectorAll('section');
 
+// Menu - Burger
 function activeMenu(){
     let len=sections.length;
     while(--len && window.scrollY + 100 < sections[len].offsetTop){}
@@ -42,20 +42,39 @@ link.addEventListener('click', function(e){
 
 // Section 1 "Header"
 var intElemScrollTop = body.scrollTop;
-
 // Script pour le logo UP (remonter la page)
 jQuery(function(){
     $(function () {
         $(window).scroll(function () {
             if ($(this).scrollTop() > 200 ) { 
                 $('#scrollUp').css('right','10px');
-                $('#scrollUp').css('transform', 'scale:15px;')
             } else { 
                 $('#scrollUp').removeAttr( 'style' );
             }
         });
     });
 });
+
+// Intersection Observer for HEADER
+
+
+const header = document.querySelector('header');
+
+
+// // On crée l'observer avant toute chose, l'ordre est important !!
+// let observer = new IntersectionObserver(function (entries) {
+//     for (let entrie of entries){
+//         console.log(entrie);
+//     }
+// }, {
+//     rootMargin: '397px',
+//     treshold: .5
+// // Les paramètres d'intersection ICI
+
+// });
+// observer.observe(header);
+
+
 // Section 2 "COMING SOON"
 const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
@@ -194,15 +213,11 @@ const fullImg = document.createElement('IMG');
 
 fetch('js/galery.json').then((response) => {
     response.json().then((galeryImg) => {
-
         vignettes.forEach(item => {
             item.addEventListener('click', function(){
-
                 for (let i=0; i<galeryImg.length; i++){
 
                     if(item.getAttribute('src') === galeryImg[i].min){
-                        console.log('Premier i :', i);
-
                         if(!document.getElementById('full')){
                             fullImg.setAttribute('src', galeryImg[i].full);
                             fullImg.setAttribute('id', 'full');
@@ -211,26 +226,19 @@ fetch('js/galery.json').then((response) => {
                             fullImgExit.style.display = "flex";
                         }else{
                             fullImgContain.replaceChildren(fullImg);
-                        };
+                        }
 
                         rightArrow.addEventListener('click', function(){
                             i++
-                            console.log('Right i :', i);
                             fullImg.setAttribute('src', galeryImg[i].full);
-                            if (i === galeryImg.length -1) {
-                                rightArrow.style.display="none";
-                            }
+                            console.log("right : ", i);
+                            rightArrow.style.display="block";
                         });
 
                         leftArrow.addEventListener('click', function(){
                             i--
-                            console.log('Left i :', i);
                             fullImg.setAttribute('src', galeryImg[i].full);
-                            rightArrow.style.display="block";
-
-                            if (i === 0) {
-                                leftArrow.style.display="none";
-                            }
+                            console.log("left  : ", i);
                         });
 
                     };
@@ -247,4 +255,33 @@ fullImgExit.addEventListener('click', function(){
     rightArrow.style.display="block";
     leftArrow.style.display = "block";
     fullImg.remove();
-})
+});
+
+
+const carouselGal = document.getElementById('carousel-gal');
+// Section 4 Reponsive Galery
+fetch('js/galery.json').then((response) => {
+    response.json().then((imgFile) => {
+        for (let i=0; i<imgFile.length; i++){
+
+            // Div for IMG
+            let pictureCardDiv = document.createElement('DIV');
+            pictureCardDiv.setAttribute('class', 'picture-card');
+
+            // List Item
+            let listItem = document.createElement('LI');
+            listItem.setAttribute('class', 'list-img');
+
+            // Img creation
+            let responsiveImg = document.createElement('IMG');
+            responsiveImg.setAttribute('src', imgFile[i].min);
+
+            // Insertion des éléments
+            carouselGal.append(listItem);
+            listItem.append(pictureCardDiv);
+            pictureCardDiv.append(responsiveImg);
+
+        }
+
+    });
+});
