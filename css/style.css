@@ -473,7 +473,10 @@ p.movie-year{
     flex-direction: column;
     gap:13px;
 }
-
+/**/
+#responsive-gal{
+    display:none;
+}
 /* Pictures Effects */
 .image-zoom{
     width: 100%;
@@ -684,9 +687,6 @@ font-size:25px;
 /************ MEDIA QUERIE MOBILE ************/
 
 @media all and (max-width:620px){
-    .content-wrapper{
-        padding:15px;
-    }
     .menu-up{
         background-color:rgba(5, 5, 5, 0.9);
         display: none;
@@ -785,7 +785,7 @@ font-size:25px;
     }
     .about-text{
         text-align:justify;
-        width:100%;
+        max-width: 21.25rem;
     }
 /* Section COMING SOON */
     .video_container{
@@ -810,7 +810,8 @@ font-size:25px;
     }
     .carousel-contain{
         justify-content: space-around;
-        width: 75%;
+        width: 80%;
+        margin-left: 2rem;
     }
     ::-webkit-scrollbar-track {
         display:none;
@@ -824,24 +825,24 @@ font-size:25px;
     }
 
 /* Section GALERIE */
-#gallery{
-    padding:0;
-}
+    #gallery{
+        padding:0;
+    }
     .img-container{
         display: none;
     }
     #responsive-gal{
         display:flex;
-        width:280px
+        width:350px
     }
     #carousel-gal{
         display: flex;
         overflow-x: scroll;
-        padding: 2rem 0;
+        padding: 1rem 0;
+        gap: 12px;
         scroll-snap-type: x mandatory;
     }
     #carousel-gal{
-        flex: 1 0 300px;
         scroll-snap-align: start;
     }
     .picture-card{

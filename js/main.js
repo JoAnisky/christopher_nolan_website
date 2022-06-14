@@ -274,14 +274,13 @@ fetch('js/galery.json').then((response) => {
 
             // Img creation
             let responsiveImg = document.createElement('IMG');
-            responsiveImg.setAttribute('src', imgFile[i].min);
+            responsiveImg.setAttribute('src', imgFile[i].mobile);
 
             // Insertion des éléments
             carouselGal.append(listItem);
             listItem.append(pictureCardDiv);
             pictureCardDiv.append(responsiveImg);
 
-        }
-
+        };
     });
 });

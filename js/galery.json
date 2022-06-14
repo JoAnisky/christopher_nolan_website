@@ -1,58 +1,72 @@
 [
   {
     "min": "../img/gallery/m/backstage-tenet1.png",
-    "full": "../img/gallery/backstage-tenet1.jpeg"
+    "full": "../img/gallery/full/backstage-tenet1.jpeg",
+    "mobile": "../img/gallery/mobile/backstage-tenet1.webp"
     },
   {
     "min": "../img/gallery/m/backstage-tenet2.png",
-    "full": "../img/gallery/backstage-tenet2.jpg"
+    "full": "../img/gallery/full/backstage-tenet2.jpg",
+    "mobile": "../img/gallery/mobile/backstage-tenet2.webp"
   },
   {
     "min": "../img/gallery/m/backstage-nolan1.png",
-    "full": "../img/gallery/backstage-nolan1.jpg"
+    "full": "../img/gallery/full/backstage-nolan1.jpg",
+    "mobile": "../img/gallery/mobile/backstage-nolan1.webp"
     },
   {
     "min": "../img/gallery/m/backstage-batman3.png",
-    "full": "../img/gallery/backstage-batman3.jpg"
+    "full": "../img/gallery/full/backstage-batman3.jpg",
+    "mobile": "../img/gallery/mobile/backstage-batman3.webp"
   },
   {
     "min": "../img/gallery/m/backstage-tenet3.png",
-    "full": "../img/gallery/backstage-tenet3.webp"
+    "full": "../img/gallery/full/backstage-tenet3.webp",
+    "mobile": "../img/gallery/mobile/backstage-tenet3.webp"
     },
   {
     "min": "../img/gallery/m/backstage-nolan2.png",
-    "full": "../img/gallery/backstage-nolan2.jpg"
+    "full": "../img/gallery/full/backstage-nolan2.jpg",
+    "mobile": "../img/gallery/mobile/backstage-nolan2.webp"
   },
   {
     "min": "../img/gallery/m/nolan-filming-dunkerque1.png",
-    "full": "../img/gallery/nolan-filming-dunkerque1.jpg"
+    "full": "../img/gallery/full/nolan-filming-dunkerque1.jpg",
+    "mobile": "../img/gallery/mobile/nolan-filming-dunkerque1.webp"
     },
   {
     "min": "../img/gallery/m/backstage-nolan3.png",
-    "full": "../img/gallery/backstage-nolan3.webp"
+    "full": "../img/gallery/full/backstage-nolan3.webp",
+    "mobile": "../img/gallery/mobile/backstage-nolan3.webp"
   },
   {
     "min": "../img/gallery/m/backstage-nolan4.png",
-    "full": "../img/gallery/backstage-nolan4.jpeg"
+    "full": "../img/gallery/full/backstage-nolan4.jpeg",
+    "mobile": "../img/gallery/mobile/backstage-nolan4.webp"
     },
   {
     "min": "../img/gallery/m/backstage-interstellar1.png",
-    "full": "../img/gallery/backstage-interstellar1.webp"
+    "full": "../img/gallery/full/backstage-interstellar1.webp",
+    "mobile": "../img/gallery/mobile/backstage-interstellar1.webp"
   },
   {
     "min": "../img/gallery/m/backstage-interstellar2.png",
-    "full": "../img/gallery/backstage-interstellar2.jpg"
+    "full": "../img/gallery/full/backstage-interstellar2.jpg",
+    "mobile": "../img/gallery/mobile/backstage-interstellar2.webp"
     },
   {
     "min": "../img/gallery/m/backstage-batman1.png",
-    "full": "../img/gallery/backstage-batman1.jpg"
+    "full": "../img/gallery/full/backstage-batman1.jpg",
+    "mobile": "../img/gallery/mobile/backstage-batman1.webp"
   },
   {
     "min": "../img/gallery/m/backstage-oppen1.png",
-    "full": "../img/gallery/backstage-oppen1.webp"
+    "full": "../img/gallery/full/backstage-oppen1.webp",
+    "mobile": "../img/gallery/mobile/backstage-oppen1.webp"
     },
   {
     "min": "../img/gallery/m/backstage-batman2.png",
-    "full": "../img/gallery/backstage-batman2.jpg"
+    "full": "../img/gallery/full/backstage-batman2.jpg",
+    "mobile": "../img/gallery/mobile/backstage-batman2.webp"
   }
 ]
