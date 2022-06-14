@@ -102,8 +102,7 @@ span.h2-line{
 .nolan-title_navbar{
     margin:0;
     font-family: 'Radley', serif;
-    font-size: 49px;
-    font-weight: normal;
+    font-size: clamp(1.8rem, 4vw, 3rem);    font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 10px;
 }
@@ -116,7 +115,7 @@ span.h2-line{
 }
 @keyframes move-left{
     from{opacity:1;}
-    to{opacity:1;transform: translateX(-40vw)}
+    to{opacity:1;transform: translateX(-38.5vw)}
 }
 .--inactive{
     animation: 2.8s ease-in-out move-right forwards;

@@ -64,10 +64,9 @@ const titleNavbarText = document.querySelector('.nolan-title_navbar');
 
 // // On crée l'observer avant toute chose, l'ordre est important !!
 let observer = new IntersectionObserver(function (entries) {
-    
     for (let entrie of entries){
         console.log(entrie.intersectionRatio);
-        if (entrie.intersectionRatio < 0.52){
+        if (entrie.intersectionRatio < 0.52 && header.offsetWidth > 450){
             titleNavbar.style.display ="flex";
             titleNavbarText.classList.toggle('--active');
         }else{
@@ -86,7 +85,6 @@ let observer = new IntersectionObserver(function (entries) {
 
 });
 observer.observe(header);
-
 
 // Section 2 "COMING SOON"
 const btn1 = document.getElementById("btn1");
