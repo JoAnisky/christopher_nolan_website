@@ -33,6 +33,13 @@ h1.title{
     font-size: clamp(1.8rem, 4vw, 3rem);
     text-shadow: 1px 1px 5px var(--black-color);
 }
+.title--active{
+    animation: .5s ease-in-out opacity forwards;
+}
+@keyframes opacity{
+    from{opacity:1}
+    to{opacity:0}
+}
 a{
     text-decoration: none;
 }
@@ -85,7 +92,7 @@ span.h2-line{
     z-index: 9998;
     background: url('../img/backgrounds/bckg-header.png') no-repeat center ;
     background-size:cover;
-    height: 600px;
+    height: 100vh;
 }
 
 /*MENU Up*/
@@ -128,7 +135,7 @@ span.h2-line{
     display: flex;
     z-index:150;
     align-items:center;
-    position: sticky;
+    position: fixed;
     top: 0;
     justify-content: flex-end;
     background-color: rgba(2,2,2, 0.8);
@@ -559,7 +566,7 @@ p.movie-year{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    bottom: 0px;
+    margin-bottom: 15px;
     border: 1px solid white;
     border-radius:25px;
     width: 35px;

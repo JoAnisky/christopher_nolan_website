@@ -59,6 +59,7 @@ jQuery(function(){
 
 
 const header = document.querySelector('header');
+const titleH1 = document.querySelector('.title');
 const titleNavbar = document.querySelector('.container-nolan-title_navbar');
 const titleNavbarText = document.querySelector('.nolan-title_navbar');
 
@@ -69,9 +70,12 @@ let observer = new IntersectionObserver(function (entries) {
         if (entrie.intersectionRatio < 0.52 && header.offsetWidth > 450){
             titleNavbar.style.display ="flex";
             titleNavbarText.classList.toggle('--active');
+            titleH1.classList.toggle('title--active');
         }else{
             titleNavbar.style.display ="none";
             titleNavbarText.classList.remove('--active');
+            titleH1.classList.remove('title--active');
+
         }  
         if (entrie.intersectionRatio > 0.52 && titleNavbarText.classList.contains('--active')){
             console.log(('coucou'));
@@ -84,6 +88,7 @@ let observer = new IntersectionObserver(function (entries) {
 // Les paramètres d'intersection ICI
 
 });
+console.log(body.offsetWidth);
 observer.observe(header);
 
 // Section 2 "COMING SOON"
@@ -196,7 +201,7 @@ function togg(){
 //       d1.style.display = "flex"
 //       exitCross.style.display = "flex";
 
-//       if (event.target.closest(".movie-card"))return
+//       if (event.target.cl osest(".movie-card"))return
 //       // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
 // })
 
