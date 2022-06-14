@@ -99,14 +99,31 @@ span.h2-line{
     height: 50px;
     width: 100%;
 }
-
 .nolan-title_navbar{
     margin:0;
     font-family: 'Radley', serif;
-    font-size: 50px;
+    font-size: 49px;
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 10px;
+}
+.nolan-title_navbar a{
+    text-decoration:none;
+    color: white;
+}
+.--active{
+    animation: 2.8s ease-in-out move-left forwards;
+}
+@keyframes move-left{
+    from{opacity:1;}
+    to{opacity:1;transform: translateX(-39vw)}
+}
+.--inactive{
+    animation: 2.8s ease-in-out move-right forwards;
+}
+@keyframes move-right{
+    from{transform: translateX(-39vw)}
+    to{transform: translateX(0vw)}
 }
 .menu-contain{
     display: flex;

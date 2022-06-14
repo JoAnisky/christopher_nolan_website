@@ -59,16 +59,28 @@ jQuery(function(){
 
 
 const header = document.querySelector('header');
-const titleNavbar = document.querySelector('.container-nolan-title_navbar')
+const titleNavbar = document.querySelector('.container-nolan-title_navbar');
+const titleNavbarText = document.querySelector('.nolan-title_navbar');
 
 // // On crée l'observer avant toute chose, l'ordre est important !!
 let observer = new IntersectionObserver(function (entries) {
+    
     for (let entrie of entries){
-        console.log(entrie.isIntersecting);
         console.log(entrie.intersectionRatio);
         if (entrie.intersectionRatio < 0.52){
+            console.log(entrie.intersectionRatio);
             titleNavbar.style.display ="flex";
+            titleNavbarText.classList.toggle('--active');
+        }else{
+            titleNavbar.style.display ="none";
+            titleNavbarText.classList.remove('--active');
+            titleNavbarText.classList.toggle('--inactive')
+        }  
+        if (entrie.intersectionRatio > 0.52){
+            titleNavbarText.classList.remove('--inactive');
+
         }
+    
     }
 }, {
     threshold: 0.52
