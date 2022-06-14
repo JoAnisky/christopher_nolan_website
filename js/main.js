@@ -68,19 +68,17 @@ let observer = new IntersectionObserver(function (entries) {
     for (let entrie of entries){
         console.log(entrie.intersectionRatio);
         if (entrie.intersectionRatio < 0.52){
-            console.log(entrie.intersectionRatio);
             titleNavbar.style.display ="flex";
             titleNavbarText.classList.toggle('--active');
         }else{
             titleNavbar.style.display ="none";
             titleNavbarText.classList.remove('--active');
-            titleNavbarText.classList.toggle('--inactive')
         }  
-        if (entrie.intersectionRatio > 0.52){
-            titleNavbarText.classList.remove('--inactive');
-
+        if (entrie.intersectionRatio > 0.52 && titleNavbarText.classList.contains('--active')){
+            console.log(('coucou'));
+            titleNavbarText.classList.remove('--active')
+            titleNavbarText.classList.toggle('--inactive')
         }
-    
     }
 }, {
     threshold: 0.52
