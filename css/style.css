@@ -89,9 +89,28 @@ span.h2-line{
 }
 
 /*MENU Up*/
+.container-nolan-title_navbar{
+    display:none;
+    z-index: 9999;
+    position: sticky;
+    justify-content:center;
+    align-items:center;
+    top: 0;
+    height: 50px;
+    width: 100%;
+}
+
+.nolan-title_navbar{
+    margin:0;
+    font-family: 'Radley', serif;
+    font-size: 50px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
 .menu-contain{
     display: flex;
-    z-index:9999;
+    z-index:150;
     align-items:center;
     position: sticky;
     top: 0;
@@ -153,6 +172,7 @@ p.nolan-title{
     text-transform: uppercase;
     letter-spacing: 4px;
 }
+
 .about-text{
     max-width: 35.25rem;
     text-align:justify;

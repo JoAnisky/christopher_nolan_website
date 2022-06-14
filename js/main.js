@@ -59,20 +59,23 @@ jQuery(function(){
 
 
 const header = document.querySelector('header');
-
+const titleNavbar = document.querySelector('.container-nolan-title_navbar')
 
 // // On crée l'observer avant toute chose, l'ordre est important !!
-// let observer = new IntersectionObserver(function (entries) {
-//     for (let entrie of entries){
-//         console.log(entrie);
-//     }
-// }, {
-//     rootMargin: '397px',
-//     treshold: .5
-// // Les paramètres d'intersection ICI
+let observer = new IntersectionObserver(function (entries) {
+    for (let entrie of entries){
+        console.log(entrie.isIntersecting);
+        console.log(entrie.intersectionRatio);
+        if (entrie.intersectionRatio < 0.52){
+            titleNavbar.style.display ="flex";
+        }
+    }
+}, {
+    threshold: 0.52
+// Les paramètres d'intersection ICI
 
-// });
-// observer.observe(header);
+});
+observer.observe(header);
 
 
 // Section 2 "COMING SOON"
