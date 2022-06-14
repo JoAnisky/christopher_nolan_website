@@ -2,12 +2,11 @@
 
 __General__
 - [ ] Reponsive mobile : 
-- [x] Ajout du menu burger
+    - Images format mobile
 - [ ] Responsive tablette
 
 __Header__
 - [ ] Effet : le texte "Nolan" devient un lien homepage avec animation dans le menu navBar
-- [x] Trait menu navBar suit la page en cours
 
 __Section Who Is__
 
@@ -19,7 +18,5 @@ __Section movies__
 - [ ] Navigation gauche/droite/sortie
 
 __Section Gallery__
-- [ ] Agrandissement de l'image au click.
 - [ ] Ajout d'une description de la photo
-- [ ] Navigation gauche/droite/sortie.
-- [ ] Régler pb d'images invisibles en mobile
+- [ ] Navigation gauche/droite/sortie => corriger bug fleches
