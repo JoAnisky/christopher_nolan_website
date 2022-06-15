@@ -57,7 +57,6 @@ jQuery(function(){
 
 // Intersection Observer for HEADER
 
-
 const header = document.querySelector('header');
 const titleH1 = document.querySelector('.title');
 const titleNavbar = document.querySelector('.container-nolan-title_navbar');
