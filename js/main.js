@@ -64,9 +64,8 @@ const titleNavbar = document.querySelector('.container-nolan-title_navbar');
 const titleNavbarText = document.querySelector('.nolan-title_navbar');
 
 // // On crée l'observer avant toute chose, l'ordre est important !!
-let observer = new IntersectionObserver(function (entries) {
+let observer = new IntersectionObserver(function(entries){
     for (let entrie of entries){
-        console.log(entrie.intersectionRatio);
         if (entrie.intersectionRatio < 0.52 && header.offsetWidth > 450){
             titleNavbar.style.display ="flex";
             titleNavbarText.classList.toggle('--active');
@@ -75,20 +74,24 @@ let observer = new IntersectionObserver(function (entries) {
             titleNavbar.style.display ="none";
             titleNavbarText.classList.remove('--active');
             titleH1.classList.remove('title--active');
-
         }  
-        if (entrie.intersectionRatio > 0.52 && titleNavbarText.classList.contains('--active')){
-            console.log(('coucou'));
-            titleNavbarText.classList.remove('--active')
-            titleNavbarText.classList.toggle('--inactive')
-        }
+        // if (titleNavbarText.classList.contains("--active")){
+        //     console.log("contient la classe active");
+        // }else{
+        // console.log('ne contient pas la classe active');
+        // }
+
+        // if (entrie.intersectionRatio > 0.52 && titleNavbarText.classList.contains("--active")){
+        //     console.log(('coucou'));
+        //     titleNavbarText.classList.remove('--active')
+        //     titleNavbarText.classList.add('--inactive');
+        // }
     }
 }, {
     threshold: 0.52
 // Les paramètres d'intersection ICI
 
 });
-console.log(body.offsetWidth);
 observer.observe(header);
 
 // Section 2 "COMING SOON"
@@ -286,11 +289,14 @@ fetch('js/galery.json').then((response) => {
 
             // List Item
             let listItem = document.createElement('LI');
-            listItem.setAttribute('class', 'list-img');
+            listItem.setAttribute('class', 'gallery-list-img');
 
             // Img creation
             let responsiveImg = document.createElement('IMG');
-            responsiveImg.setAttribute('src', imgFile[i].mobile);
+            responsiveImg.setAttribute('src', imgFile[i].mobile.url);
+            responsiveImg.setAttribute('width', imgFile[i].mobile.width);
+            responsiveImg.setAttribute('height', imgFile[i].mobile.height);
+            responsiveImg.setAttribute('alt', imgFile[i].mobile.alt);
 
             // Insertion des éléments
             carouselGal.append(listItem);

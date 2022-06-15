@@ -34,7 +34,7 @@ h1.title{
     text-shadow: 1px 1px 5px var(--black-color);
 }
 .title--active{
-    animation: .5s ease-in-out opacity forwards;
+    animation: .3s ease-in-out opacity forwards;
 }
 @keyframes opacity{
     from{opacity:1}
@@ -94,7 +94,6 @@ span.h2-line{
     background-size:cover;
     height: 100vh;
 }
-
 /*MENU Up*/
 .container-nolan-title_navbar{
     display:none;
@@ -109,7 +108,8 @@ span.h2-line{
 .nolan-title_navbar{
     margin:0;
     font-family: 'Radley', serif;
-    font-size: clamp(1.8rem, 4vw, 3rem);    font-weight: normal;
+    font-size: clamp(1.8rem, 4vw, 3rem);  
+    font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 10px;
 }
@@ -812,6 +812,11 @@ font-size:25px;
         letter-spacing:6px;
         font-size:2.3rem;
     } */
+    /*Header mobile*/
+    .header-up{
+        background: url('../img/backgrounds/mobile-bckg-header.png') no-repeat center ;
+        height: 49vh;
+    }
     .about-whois{
         font-size: 35px;
     }
@@ -893,6 +898,10 @@ font-size:25px;
     }
     #carousel-gal{
         scroll-snap-align: start;
+        align-items: center;
+    }
+    .gallery-list-img{
+       flex: 1 0 283px;
     }
     .picture-card{
         width:auto;
