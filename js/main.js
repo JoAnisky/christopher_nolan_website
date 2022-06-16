@@ -78,7 +78,6 @@ let observer = new IntersectionObserver(function(entries){
 }, {
     threshold: 0.52
 // Les paramètres d'intersection ICI
-
 });
 observer.observe(header);
 
