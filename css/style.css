@@ -19,7 +19,6 @@ body{
     background-color: var(--black-color);
     font-family: 'Raleway', sans-serif; 
 }
-
 /* TEXT STYLES */
 h1, li{
     color: var(--white-color);
@@ -536,16 +535,16 @@ p.movie-year{
 }
 #full-img-container{
     display:none;
+    z-index:9999;
+    position:absolute;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    width:100%;
+    width:99vw;
+    height:100vh;
     gap: 15px;
     top:0;
-    left:0;
-    height:100vh;
-    position:absolute;
-    z-index:9999;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 #full-img-contain{
     display: flex;
@@ -726,7 +725,64 @@ font-size:25px;
     font-style:italic;
     text-align: center;
 }
+.a_container{
+    display: flex;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #171717;
+}
+.a_contain{
+    display:flex;
+    flex-direction:column;
+    gap:0px;
+    width: 26.3125rem;
+    padding: 40px;
+    background:#1F1F1F;
+    border-radius: 1.875rem;
+}
+p.log{
+    margin:0;
+    font-size: 25px;
+    color:#fafafa;
+    font-weight:bold;
+}
+p.access{
+    color:#A1A1A1;
+}
+#form_connect{
+    display:flex;
+    gap: 14px;
+    flex-direction:column;
+}
+#form_connect input{
+    padding:10px;
+    border-radius:5px;
+}
+input[type="mail"]{
+    background:url('../img/icons/mail-icon.svg') no-repeat left center;
+    border: 1px solid #707070; 
+}
 
+input[type="password"]{
+    background:url('../img/icons/key-icon.svg') no-repeat left center;
+    border: 1px solid #707070; 
+}
+
+input::placeholder{
+    color:white;
+}
+#btn-submit{
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top:35px;
+    border: none;
+    background-color: #1463D3; 
+}
+#btn-submit:hover{
+    cursor:pointer;
+}
 /************ MEDIA QUERIE MOBILE 620px ************/
 
 @media all and (max-width:620px){

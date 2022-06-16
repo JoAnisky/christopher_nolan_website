@@ -74,17 +74,6 @@ let observer = new IntersectionObserver(function(entries){
             titleNavbarText.classList.remove('--active');
             titleH1.classList.remove('title--active');
         }  
-        // if (titleNavbarText.classList.contains("--active")){
-        //     console.log("contient la classe active");
-        // }else{
-        // console.log('ne contient pas la classe active');
-        // }
-
-        // if (entrie.intersectionRatio > 0.52 && titleNavbarText.classList.contains("--active")){
-        //     console.log(('coucou'));
-        //     titleNavbarText.classList.remove('--active')
-        //     titleNavbarText.classList.add('--inactive');
-        // }
     }
 }, {
     threshold: 0.52
@@ -274,7 +263,6 @@ fullImgExit.addEventListener('click', function(){
     leftArrow.style.display = "block";
     fullImg.remove();
 });
-
 
 const carouselGal = document.getElementById('carousel-gal');
 // Section 4 Reponsive Galery
