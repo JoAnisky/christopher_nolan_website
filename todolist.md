@@ -1,13 +1,11 @@
 **Nolan Website To Do List**
 
 __General__
-- [ ] Reponsive mobile : 
-- [x] Ajout du menu burger
+- [x] Reponsive mobile : Images format mobile
 - [ ] Responsive tablette
 
 __Header__
-- [ ] Effet : le texte "Nolan" devient un lien homepage avec animation dans le menu navBar
-- [x] Trait menu navBar suit la page en cours
+- [x] Effet : le texte "Nolan" devient un lien homepage avec animation dans le menu navBar
 
 __Section Who Is__
 
@@ -19,7 +17,21 @@ __Section movies__
 - [ ] Navigation gauche/droite/sortie
 
 __Section Gallery__
-- [ ] Agrandissement de l'image au click.
 - [ ] Ajout d'une description de la photo
-- [ ] Navigation gauche/droite/sortie.
-- [ ] Régler pb d'images invisibles en mobile
+- [ ] Navigation gauche/droite/sortie => corriger bug fleches
+
+**Bug fixes**
+
+__Header__
+- [ ] Effet Nolan - Animation inverse 
+- [ ] Animation mobile/tablette
+
+__Section Who Is__
+
+__Section Coming soon__
+- [ ] Etendre la fonction d'agrandissement aux deux div
+
+__Section movies__
+
+__Section Gallery__
+- [ ] Apparition des flèches
