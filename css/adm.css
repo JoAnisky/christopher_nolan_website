@@ -97,6 +97,11 @@ input:focus{
     cursor:pointer;
     background-color: hsl(215, 83%, 50%); 
 }
+
+/* Dashboard Table */
+th{
+    color: var(--light-blue);
+}
 @media (max-width: 576px) {
     .a_contain{
         display:flex;
