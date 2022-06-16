@@ -1,24 +1,30 @@
-
+:root{
+    --dark-grey: #171717;
+    --light-grey: #1F1F1F;
+    --light-blue: #2D7CEC;
+    --btn-blue: #1463D3;
+}
 body{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Raleway', sans-serif; 
-
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--dark-grey);
 }
+/* Global container */
 .a_container{
     display: flex;
     height:100vh;
     justify-content: center;
     align-items: center;
-    background-color: #171717;
 }
+/* Form container */
 .a_contain{
     display:flex;
     flex-direction:column;
     gap:0px;
     padding: 2.5rem;
-    background:#1F1F1F;
+    background:var(--light-grey);
     border-radius: 1.875rem;
 }
 p.log{
@@ -31,11 +37,26 @@ p.access{
     color:#A1A1A1;
     margin-bottom: 35px;
 }
+.dash_up_container{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding:15px;
+    color:white;
+}
+#logo-disconnect{
+    width:14px; 
+}
+.blue-text{
+    color: var(--light-blue);
+}
+/* Form */
 #form_connect{
     display:flex;
     gap: 14px;
     flex-direction:column;
 }
+/* Form INPUTS */ 
 #form_connect input{
     padding:13px;
     border-radius:5px;
@@ -46,13 +67,11 @@ input[type="mail"]{
     background:url('../img/icons/mail-icon.svg') no-repeat left 15px center;
     border: 1px solid #707070; 
 }
-
 input[type="password"]{
     background:url('../img/icons/key-icon.svg') no-repeat left 15px center;
     border: 1px solid #707070; 
     font-size:20px;
 }
-
 input::placeholder{
     color:#f2f2f2;
 }
@@ -61,11 +80,12 @@ input:focus::placeholder{
 }
 input:focus{
     border:none;
-    outline :1px solid #1463D3;
+    outline :1px solid var(--light-blue);
 }
+/* BTN Submit */
 #btn-submit{
     color: white;
-    background-color: #1463D3; 
+    background-color:var(--btn-blue);
     padding:10px;
     border-radius:5px;
     font-weight: bold;
