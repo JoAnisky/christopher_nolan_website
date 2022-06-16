@@ -229,12 +229,12 @@ const rightArrow = document.getElementById('arrow-right');
 const leftArrow = document.getElementById('arrow-left');
 const fullImg = document.createElement('IMG');
 
-fetch('js/galery.json').then((response) => {
-    response.json().then((galeryImg) => {
-        vignettes.forEach(item => {
+fetch('js/lol.json').then((response) => {
+    response.json()
+        .then((galeryImg) => {
+            vignettes.forEach(item => {
             item.addEventListener('click', function(){
                 for (let i=0; i<galeryImg.length; i++){
-
                     if(item.getAttribute('src') === galeryImg[i].min){
                         if(!document.getElementById('full')){
                             fullImg.setAttribute('src', galeryImg[i].full);
@@ -267,6 +267,7 @@ fetch('js/galery.json').then((response) => {
 });
 
 fullImgExit.addEventListener('click', function(){
+
     i=0;
     fullImgContainer.style.display = 'none';
     fullImgExit.style.display = "none";
@@ -278,7 +279,7 @@ fullImgExit.addEventListener('click', function(){
 
 const carouselGal = document.getElementById('carousel-gal');
 // Section 4 Reponsive Galery
-fetch('js/galery.json').then((response) => {
+fetch('js/lol.json').then((response) => {
     response.json().then((imgFile) => {
         for (let i=0; i<imgFile.length; i++){
 

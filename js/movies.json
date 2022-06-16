@@ -2,7 +2,7 @@
   {
     "title": "Tenet",
     "poster": {
-        "url":"../img/movies/affiche-tenet.webp",
+        "url":"img/movies/affiche-tenet.webp",
         "width":"263",
         "height":"357",
         "alt":"Affiche du film Tenet sorti en 2021 en France montrant le héros du film"
@@ -12,7 +12,7 @@
     {  
       "title": "Dunkerque",
       "poster": {
-          "url":"../img/movies/affiche-dunkerque.webp",
+          "url":"img/movies/affiche-dunkerque.webp",
           "width":"263",
           "height":"354",
           "alt":"Affiche du film Dunkerque montrant le héros en position de bataille"
@@ -22,7 +22,7 @@
   {
       "title": "Inception",
       "poster": {
-          "url":"../img/movies/affiche-inception.webp",
+          "url":"img/movies/affiche-inception.webp",
           "width":"264",
           "height":"354",
           "alt":"Affiche du film Inception"
@@ -32,7 +32,7 @@
   {
       "title": "Interstellar",
       "poster": {
-          "url":"../img/movies/affiche-interstellar.webp",
+          "url":"img/movies/affiche-interstellar.webp",
           "width":"263",
           "height":"356",
           "alt":"Affiche du film Interstellar montrant l'univers et un personnage devant un puits de lumière"
@@ -42,7 +42,7 @@
   {
       "title": "The Dark Knight",
       "poster": {
-          "url":"../img/movies/affiche-dark_knight.webp",
+          "url":"img/movies/affiche-dark_knight.webp",
           "width":"263",
           "height":"351",
           "alt":"Affiche du film Inception super jolie"
