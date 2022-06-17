@@ -11,6 +11,9 @@ body{
     font-family: 'Raleway', sans-serif;
     background-color: var(--dark-grey);
 }
+p{
+    margin:0;
+}
 /* Global container */
 .a_container{
     display: flex;
@@ -37,16 +40,13 @@ p.access{
     color:#A1A1A1;
     margin-bottom: 35px;
 }
-.dash_up_container{
-    display:flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding:15px;
-    color:white;
-}
 #logo-disconnect{
-    width:14px; 
+    width:18px; 
 }
+#logo-disconnect:hover{
+    cursor: pointer; 
+}
+
 .blue-text{
     color: var(--light-blue);
 }
@@ -98,19 +98,93 @@ input:focus{
     background-color: hsl(215, 83%, 50%); 
 }
 
-/* Dashboard Table */
+/* Dashboard */
+main{
+    padding:35px 25px;
+}
+.dash_up_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: white;
+}
+.dash_up_right{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+/* Table */
+.table_contain{
+    display: flex;
+    flex-direction: column;
+    margin-top:10vh;
+    padding:20px;
+    background: var(--light-grey);
+}   
+table{
+    border-radius: 4px;
+}
+thead{
+    text-align:left;
+}
+.table-head td{
+    color:white;
+}
+tr :nth-child(2){
+    text-align:right;
+}
+caption{
+    display: inline;
+}
+tbody, caption{
+    color: white;
+    background: var(--light-grey);
+}
+tr :nth-child(3){
+    text-align: right;
+}
+tr{
+    height:65px;
+}
 th{
     color: var(--light-blue);
+    border-bottom: 1px solid #525252;
+
+}
+td{
+    border-bottom: 1px solid #525252;
+}
+.arrow-array:hover{
+    cursor: pointer;
+}
+/* Delete user BTN */
+.btn-del-user{
+    padding-right:1.6666666666666667vw;
+}
+.btn-del-user:hover{
+    cursor: pointer;
+}
+/* Export CSV BTN*/
+#btn-export-csv{
+    padding:6px 20px;
+    border:none;
+    color: white;
+    font-weight: bold;
+    background-color: var(--btn-blue);
+}
+#btn-export-csv:hover{
+    cursor: pointer;
+    background-color: hsl(215, 83%, 50%); 
 }
 @media (max-width: 576px) {
     .a_contain{
-        display:flex;
+        display: flex;
         justify-content: center;
-        align-items:center;
-        padding:1.5rem 1.25rem;
+        align-items: center;
+        padding: 1.5rem 1.25rem;
     }
     input[type="password"]{
-        font-size:13px;
+        font-size: 13px;
     }
     #btn-submit{
         padding:4% 75px;

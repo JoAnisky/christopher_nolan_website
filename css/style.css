@@ -776,9 +776,6 @@ input[type="password"]{
 input::placeholder{
     color:white;
 }
-input:focus{
-
-}
 #btn-submit{
     color: white;
     background-color: #1463D3; 
