@@ -94,41 +94,75 @@ let observer = new IntersectionObserver(function(entries){
 observer.observe(header);
 
 // Section 2 "COMING SOON"
-const btn1 = document.getElementById("btn1");
-const btn2 = document.getElementById("btn2");
+//const btn1 = document.getElementById("btn1");
+//const btn2 = document.getElementById("btn2");
+const btnsReadMore = document.querySelectorAll('.btn-read-more');
 const videoDescContainer = document.querySelector('.video-desc_container');
 const videoPlayer = document.querySelector('.video-player');
 const videoDesc = document.querySelector('.video-desc');
 
 // Fonction qui lance l'animation au click sur le bouton "Read More"
 
-function readMore(){
-    //Si le bouton Contient "Read More"
-    if(btn1.innerHTML === "en savoir plus"){
-        // Action à réaliser si la condition est vraie :
-        videoDesc.style.overflow ='visible';
-        btn1.innerText = "Ok";
+function readMore(btnReadMore, index){
+    //Selection des container
+    const containersDescriptionVideo = document.querySelectorAll('.video-desc_container');
+    const videoPlayers = document.querySelectorAll('.video-player');
+    console.log(btnReadMore.innerText);
+    console.log(btnReadMore.innerText);
+    if( btnReadMore.dataset.position === "0" ){
+        console.log('hell');
+        btnReadMore.innerText = "Ok";
+        containersDescriptionVideo[index].style.overflow = 'visible';
+        containersDescriptionVideo[index].classList.remove('desc_left_anim');
+        containersDescriptionVideo[index].classList.add('desc_right_anim');
+        videoPlayers[index].classList.add('video_left_anim');
+        videoPlayers[index].classList.remove('video_right_anim');
+        btnReadMore.dataset.position = "1";
     }else{
-        videoDesc.style.overflow ='hidden';
-        btn1.innerText = "en savoir plus"
-    };
+        btnReadMore.innerText = "en savoir plus";
+        containersDescriptionVideo[index].style.overflow = 'hidden';
+        containersDescriptionVideo[index].classList.add('desc_left_anim');
+        containersDescriptionVideo[index].classList.remove('desc_right_anim');
+        videoPlayers[index].classList.add('video_right_anim');
+        videoPlayers[index].classList.remove('video_left_anim');
+    }
+    //Si le bouton Contient "Read More"
+   // if(btn1.innerHTML === "en savoir plus"){
+        // Action à réaliser si la condition est vraie :
+    //    videoDesc.style.overflow ='visible';
+    //    btn1.innerText = "Ok";
+  //  }else{
+        //videoDesc.style.overflow ='hidden';
+        //btn1.innerText = "en savoir plus"
+   // };
     // Si vidéo description contient la classe desc-left-anim
-    if (videoDescContainer.classList.contains('desc_left_anim')){
+   // if (videoDescContainer.classList.contains('desc_left_anim')){
     // supprime la classe desc-left-anim
-        videoDescContainer.classList.remove('desc_left_anim')
+    //    videoDescContainer.classList.remove('desc_left_anim')
     // et ajoute la classe desc-left-anim (animation inverse)
-        videoDescContainer.classList.toggle("desc_right_anim");
-    }
-    if (videoPlayer.classList.contains('video_right_anim')){
-        videoPlayer.classList.remove('video_right_anim')
-        videoPlayer.classList.toggle("video_left_anim");
-    }
-videoDescContainer.classList.toggle("desc_left_anim");
-videoPlayer.classList.toggle("video_right_anim");
+   //     videoDescContainer.classList.toggle("desc_right_anim");
+   // }
+   // if (videoPlayer.classList.contains('video_right_anim')){
+   //     videoPlayer.classList.remove('video_right_anim')
+   //     videoPlayer.classList.toggle("video_left_anim");
+  //  }
+//videoDescContainer.classList.toggle("desc_left_anim");
+//videoPlayer.classList.toggle("video_right_anim");
 }
 
-btn1.addEventListener('click', readMore);
-btn2.addEventListener('click', readMore);
+btnsReadMore.forEach( (btnReadMore, index) =>{
+    btnReadMore.addEventListener('click', function(){
+        readMore( this, index );
+    });
+});
+
+//{
+   // btnsReadMore.addEventListener('click' , () => {
+       // readMore(btnReadMore, index );
+   // });
+//}
+//btn1.addEventListener('click', readMore);
+//btn2.addEventListener('click', readMore);
      
 // SECTION 3 - MOVIES
 
