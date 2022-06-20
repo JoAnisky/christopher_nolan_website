@@ -159,7 +159,7 @@ td{
 }
 /* Delete user BTN */
 .btn-del-user{
-    padding-right:1.6666666666666667vw;
+    width :45px;
 }
 .btn-del-user:hover{
     cursor: pointer;

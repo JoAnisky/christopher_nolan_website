@@ -776,6 +776,9 @@ input[type="password"]{
 input::placeholder{
     color:white;
 }
+input:focus::placeholder{
+    visibility: hidden;
+}
 #btn-submit{
     color: white;
     background-color: #1463D3; 
