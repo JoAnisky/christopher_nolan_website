@@ -66,7 +66,12 @@
             </section>
             <!-- Go UP Logo displayed with jquery on main.js -->
             <div id="scrollUp">
-                <a href="#top"><img src="img/icons/to_top.png" width="38" height="38" alt="Remonter tout en haut du site"/></a>
+                <a href="#top">
+                    <svg width="38" fill="none" viewBox="0 0 58 58">
+                        <circle cx="29" cy="29" r="29" fill="#454545"/>
+                        <path stroke="#fff" stroke-linecap="round" stroke-width="4" d="m17 37 12.82-15L42 37"/>
+                    </svg>>
+                </a>
             </div>
 
             <!-- BEGIN SECTION 2 : Coming Soon-->
@@ -248,9 +253,12 @@
                 <p class="form-title">Inscrivez-vous à la newletter</p>
                 <p class="form-title2">Ne manquez aucune info !</p>
 
-                <form class="custom-field" id="newsletter-form">
-                    <input class="mail-input"type="email" placeholder="Your email"/>
-                    <input class="btn-submit"type="button" value="Je m'abonne">
+                <form action="#" class="custom-field" id="newsletter-form" novalidate>
+                    <div class="form-inputs">
+                        <input id="mail-input" type="email" placeholder="Your email"/>
+                        <input class="btn-submit" type="submit" value="Je m'abonne">
+                    </div>
+                    <label class="error-mail" for="email"></label>
                 </form>
             </div>
             <!-- END Form Container -->

@@ -644,7 +644,7 @@ font-size:25px;
     position:relative;
 }
 
-.mail-input{
+#mail-input{
     width: 374px;
     color:white;
     background-color: rgb(255, 255, 255, 0.2);
@@ -652,14 +652,19 @@ font-size:25px;
     border-radius: 8px;
     border: 1px solid black;
 }
-.mail-input::placeholder{
+#mail-input::placeholder{
     color:white;
     font-weight: 500;
  }
-.mail-input:focus {
+#mail-input:focus {
     border:1px solid rgba(251, 251, 251, 0.379);
     color:white;
     outline:none;
+}
+.error-mail{
+    display:block;
+    padding: .625rem 0.6rem;
+    color :var(--red-color);
 }
 /* Newsletter Btn */
 .btn-submit{
