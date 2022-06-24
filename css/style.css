@@ -208,7 +208,7 @@ p.nolan-title{
 }
 .circle{
     position:absolute;
-    top: 26%;
+    top: 80%;
     left: -7%;
     z-index: -1;
     width: 600px;
@@ -640,9 +640,6 @@ footer{
 font-size:25px;
 }
 /* NEWSLETTER Field */
-.custom-field{
-    position:relative;
-}
 
 #mail-input{
     width: 374px;
@@ -660,6 +657,9 @@ font-size:25px;
     border:1px solid rgba(251, 251, 251, 0.379);
     color:white;
     outline:none;
+}
+input:focus::placeholder{
+    visibility: hidden;
 }
 .error-mail{
     display:block;
@@ -730,60 +730,7 @@ font-size:25px;
     font-style:italic;
     text-align: center;
 }
-/* A page */
-.a_container{
-    display: flex;
-    height:100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: #171717;
-}
-.a_contain{
-    display:flex;
-    flex-direction:column;
-    gap:0px;
-    width: 26.3125rem;
-    padding: 40px;
-    background:#1F1F1F;
-    border-radius: 1.875rem;
-}
-p.log{
-    margin:0;
-    font-size: 25px;
-    color:#fafafa;
-    font-weight:bold;
-}
-p.access{
-    color:#A1A1A1;
-}
-#form_connect{
-    display:flex;
-    gap: 14px;
-    flex-direction:column;
-}
-#form_connect input{
-    padding:10px;
-    border-radius:5px;
-    padding-left:60px;
-    color:white;
-}
-input[type="mail"]{
-    background:url('../img/icons/mail-icon.svg') no-repeat left 15px center;
-    border: 1px solid #707070; 
-}
-input[type="password"]{
-    background:url('../img/icons/key-icon.svg') no-repeat left 15px center;
-    border: 1px solid #707070; 
-    padding-left:5px;
-    font-size:20px;
-}
 
-input::placeholder{
-    color:white;
-}
-input:focus::placeholder{
-    visibility: hidden;
-}
 #btn-submit{
     color: white;
     background-color: #1463D3; 
@@ -988,9 +935,15 @@ input:focus::placeholder{
         flex-direction: column;
         width: 100%;
     }
-    .mail-input{
-        width: auto;
+    .form-input{
+
+    }
+    #mail-input{
+        width: 94.2%;
         margin-bottom: 15px;
+    }
+    .btn-submit{
+        width: 98%;
     }
     .foot-components{
         flex-direction:column;

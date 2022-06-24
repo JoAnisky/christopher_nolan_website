@@ -293,20 +293,26 @@ fetch('js/galery.json').then((response) => {
     });
 });
 
-// Section Footer - Formulaire Newsletter
+// Section Footer 
+
+//***** FORMULAIRE NEWSLETTER ***//
 const form = document.getElementById("newsletter-form");
 const input = document.getElementById("mail-input")
 const label = document.querySelector("label")
 
-
 form.addEventListener("submit", function(e){
     e.preventDefault();
-    if (!input.validity.valueMissing){
+    if (input.validity.valueMissing){
         label.textContent = "Ce champ ne peut pas être vide"
         input.style.border = "1px solid red"
-    }
-    if (!input.validity.valid){
+    }else if (!input.validity.valid){
         label.textContent = "Adresse mail non valide"
         input.style.border = "1px solid red"
+    }else{
+        label.textContent = ""
+        input.style.border = "2px solid green"
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "add.php?variable="+input.value, true);
+        xhttp.send();
     }
 });
