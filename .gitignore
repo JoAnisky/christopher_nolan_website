@@ -1,1 +1,3 @@
 create_user.sql
+/vendor
+composer.lock
