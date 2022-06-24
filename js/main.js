@@ -6,7 +6,7 @@ const sections = document.querySelectorAll('section');
 // Menu - Burger
 function activeMenu(){
     let len=sections.length;
-    while(--len && window.scrollY + 100 < sections[len].offsetTop){}
+    while(--len && window.scrollY + 200 < sections[len].offsetTop){}
     menuLinks.forEach(ltx => ltx.classList.remove("active-link"));
     menuLinks[len].classList.add("active-link")
 }
@@ -297,22 +297,43 @@ fetch('js/galery.json').then((response) => {
 
 //***** FORMULAIRE NEWSLETTER ***//
 const form = document.getElementById("newsletter-form");
-const input = document.getElementById("mail-input")
-const label = document.querySelector("label")
+const inputMail = document.getElementById("mail-input");
+const label = document.querySelector("label");
 
 form.addEventListener("submit", function(e){
     e.preventDefault();
-    if (input.validity.valueMissing){
-        label.textContent = "Ce champ ne peut pas être vide"
-        input.style.border = "1px solid red"
-    }else if (!input.validity.valid){
-        label.textContent = "Adresse mail non valide"
-        input.style.border = "1px solid red"
+    if (inputMail.validity.valueMissing){
+
+        label.textContent = "Ce champ ne peut pas être vide !";
+        label.style.color = "red";
+        inputMail.style.border = "1px solid red";
+    }else if (inputMail.validity.typeMismatch){
+
+        label.textContent = "Adresse mail non valide";
+        label.style.color = "red";
+        inputMail.style.border = "1px solid red";
+
     }else{
-        label.textContent = ""
-        input.style.border = "2px solid green"
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", "add.php?variable="+input.value, true);
-        xhttp.send();
+        ajaxResponse();
+
+        label.textContent = "Merci de votre inscription !";
+        label.style.color = '#15ff00';
+        inputMail.style.border = "2px solid #15ff00";
+
     }
 });
+
+
+function ajaxResponse(){
+    const formData = new FormData(form);
+    // Lancement de la requête AJAX si tout est OK coté JS
+    fetch('add.php', {
+        method: "POST",
+        body : formData
+    })
+    .then(response => response.text())
+    .then(response=> {
+        console.log(formData);
+    });
+
+};

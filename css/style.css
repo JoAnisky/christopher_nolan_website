@@ -179,8 +179,7 @@ span.h2-line{
     align-items: center;
     z-index: 9999;
     justify-content: space-evenly;
-    padding-bottom: 100px;
-    padding-top: 44px;
+    padding: 100px;
 }
 
 
@@ -352,7 +351,7 @@ p.nolan-title{
     position:relative;
     align-items: center;
     flex-direction: column;
-    padding-bottom: 60px;
+    padding: 80px;
     background: url('../img/backgrounds/bckg-interstellar.webp') no-repeat bottom;
 }
 
@@ -618,7 +617,7 @@ transform:rotate(45deg);
 }
 /* FOOTER */
 footer{
-    padding-top: 95px;
+    padding-top: 240px;
     padding-bottom:1px;
     background: linear-gradient(rgba(1, 1, 1, 0.7), rgba(83, 83, 83, 0.7)), url('../img/backgrounds/bckg-inception.webp');
     background-repeat: no-repeat;
@@ -630,6 +629,7 @@ footer{
     flex-direction: column;
     align-items: center;
     gap: 18px;
+    padding-bottom: 50px;
 }
 .form-title{
     margin: 0;
@@ -640,7 +640,10 @@ footer{
 font-size:25px;
 }
 /* NEWSLETTER Field */
-
+label{
+    display:block;
+    margin: 7px 9px;
+}
 #mail-input{
     width: 374px;
     color:white;
@@ -661,10 +664,15 @@ font-size:25px;
 input:focus::placeholder{
     visibility: hidden;
 }
-.error-mail{
+.input-mail{
     display:block;
     padding: .625rem 0.6rem;
-    color :var(--red-color);
+}
+.input-mail--invalid{
+    border: 1px solid red;
+}
+.input-mail--valid{
+    border: 2px solid #15ff00;
 }
 /* Newsletter Btn */
 .btn-submit{
