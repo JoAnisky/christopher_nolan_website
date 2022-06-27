@@ -28,14 +28,14 @@ if (isset($_POST["email"])) {
                 // Définit les paramètres d'exceptions
                 $dbco->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-                // Ajout une sécurité (on précise le type de données attendu)
-                $dbco->bindParam(':mail', $_POST["email"], PDO::PARAM_STR);
-
                 // Prépare la requête SQL
                 $insertDB = $dbco->prepare("
                     INSERT INTO subscribes (mail) 
                     VALUES (:mail)
                     ");
+                // Ajout une sécurité (on précise le type de données attendu)
+                $insertDB->bindParam(':mail', $_POST["email"],PDO::PARAM_STR);
+                
                 $insertDB->execute([
                     'mail' => $_POST["email"]
                 ]);
