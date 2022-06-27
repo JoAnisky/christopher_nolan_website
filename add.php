@@ -30,14 +30,14 @@ if (isset($_POST["email"])) {
 
                 // Prépare la requête SQL
                 $insertDB = $dbco->prepare("
-                    INSERT INTO subscribes (mail) 
-                    VALUES (:mail)
+                    INSERT INTO subscribes (email) 
+                    VALUES (:email)
                     ");
                 // Ajout une sécurité (on précise le type de données attendu)
-                $insertDB->bindParam(':mail', $_POST["email"],PDO::PARAM_STR);
+                $insertDB->bindParam(':email', $_POST["email"],PDO::PARAM_STR);
 
                 $insertDB->execute([
-                    'mail' => $_POST["email"];
+                    'email' => $_POST["email"]
                 ]);
             
             } catch (PDOExeption $e){
@@ -48,4 +48,5 @@ if (isset($_POST["email"])) {
         }
     }
 }
+echo "Pas de formulaire envoyé ";
 ?>

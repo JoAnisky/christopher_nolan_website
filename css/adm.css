@@ -51,26 +51,28 @@ p.access{
     color: var(--light-blue);
 }
 /* Form */
-#form_connect{
+#form-connect{
     display:flex;
     gap: 14px;
     flex-direction:column;
 }
 /* Form INPUTS */ 
-#form_connect input{
-    padding:13px;
+#form-connect input{
     border-radius:5px;
-    padding-left:70px;
     color:white;
 }
-input[type="mail"]{
+input[type="text"]{
     background:url('../img/icons/mail-icon.svg') no-repeat left 15px center;
-    border: 1px solid #707070; 
+    border: 1px solid #707070;
+    padding:13px;
+    padding-left:70px;
 }
 input[type="password"]{
     background:url('../img/icons/key-icon.svg') no-repeat left 15px center;
     border: 1px solid #707070; 
     font-size:20px;
+    padding:13px;
+    padding-left:70px;
 }
 input::placeholder{
     color:#f2f2f2;
@@ -84,10 +86,8 @@ input:focus{
 }
 /* BTN Submit */
 #btn-submit{
-    color: white;
+    padding:13px;
     background-color:var(--btn-blue);
-    padding:10px;
-    border-radius:5px;
     font-weight: bold;
     font-size: 18px;
     margin-top:35px;

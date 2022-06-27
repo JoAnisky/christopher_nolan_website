@@ -315,11 +315,10 @@ form.addEventListener("submit", function(e){
 
     }else{
         ajaxResponse();
-
         label.textContent = "Merci de votre inscription !";
         label.style.color = '#15ff00';
         inputMail.style.border = "2px solid #15ff00";
-        inputMail.style.visibility = "hidden";
+        inputMail.value = " ";
     }
 });
 
@@ -333,7 +332,6 @@ function ajaxResponse(){
     })
     .then(response => response.text())
     .then(response=> {
-        console.log(formData);
+        console.log(response);
     });
-
 };
