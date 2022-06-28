@@ -1,7 +1,6 @@
 <?php
-// require 'functions/auth.php';
-session_start();
-// force_user_connect();
+require 'functions/auth.php';
+force_user_connect();
 ?>
 
 <!DOCTYPE html>
