@@ -10,7 +10,11 @@ function activeMenu(){
     menuLinks.forEach(ltx => ltx.classList.remove("active-link"));
     menuLinks[len].classList.add("active-link")
 }
+
 activeMenu();
+
+
+
 window.addEventListener("scroll", activeMenu)
 // End active links 
 
@@ -24,6 +28,8 @@ function isEven(n){
 }
 
 var mouseClick =0;
+
+
 link.addEventListener('click', function(e){
     mouseClick++
     e.preventDefault()
@@ -235,43 +241,60 @@ const fullImgExit = document.querySelector('.full-img-exit_cross');
 const rightArrow = document.getElementById('arrow-right');
 const leftArrow = document.getElementById('arrow-left');
 const fullImg = document.createElement('IMG');
-
-fetch('js/lol.json').then((response) => {
-    response.json()
-        .then((galeryImg) => {
-            vignettes.forEach(item => {
-            item.addEventListener('click', function(){
-                for (let i=0; i<galeryImg.length; i++){
-                    if(item.getAttribute('src') === galeryImg[i].min){
-                        if(!document.getElementById('full')){
+let listImg = "";
+fetch('js/lol.json')
+    .then( (response) => {
+        return response.json();
+    })
+    .then((galeryImg) => {
+        listImg = galeryImg;
+        vignettes.forEach(item => {
+            item.addEventListener('click', function () {
+                for (let i = 0; i < galeryImg.length; i++) {
+                    if (item.getAttribute('src') === galeryImg[i].min) {
+                        if (!document.getElementById('full')) {
                             fullImg.setAttribute('src', galeryImg[i].full);
                             fullImg.setAttribute('id', 'full');
                             fullImgContain.append(fullImg);
                             fullImgContainer.style.display = 'flex';
                             fullImgExit.style.display = "flex";
-                        }else{
+                            fullImgContain.dataset.indexpicture = i;
+                        } else {
                             fullImgContain.replaceChildren(fullImg);
                         }
-
-                        rightArrow.addEventListener('click', function(){
-                            i++
-                            fullImg.setAttribute('src', galeryImg[i].full);
-                            console.log("right : ", i);
-                            rightArrow.style.display="block";
-                        });
-
-                        leftArrow.addEventListener('click', function(){
-                            i--
-                            fullImg.setAttribute('src', galeryImg[i].full);
-                            console.log("left  : ", i);
-                        });
-
-                    };
-                };
+                    }
+                }
             });
         });
     });
-});
+
+    rightArrow.addEventListener('click', function(){
+
+        const currentIndex = parseInt(fullImgContain.dataset.indexpicture, 10);
+        let lastIndex = null;
+        if( currentIndex === (vignettes.length - 1) ){
+            lastIndex = 0;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }else{
+            lastIndex = currentIndex + 1;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }
+        fullImgContain.dataset.indexpicture = lastIndex;
+    });
+
+    leftArrow.addEventListener('click', function(){
+        const currentIndex = parseInt(fullImgContain.dataset.indexpicture, 10);
+        let lastIndex = null;
+        if( currentIndex === 0 ){
+            lastIndex = vignettes.length - 1;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }else{
+            lastIndex = currentIndex - 1;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }
+        fullImgContain.dataset.indexpicture = lastIndex;
+    });
+
 
 fullImgExit.addEventListener('click', function(){
 
