@@ -82,41 +82,46 @@ let observer = new IntersectionObserver(function(entries){
 observer.observe(header);
 
 // Section 2 "COMING SOON"
-const btn1 = document.getElementById("btn1");
-const btn2 = document.getElementById("btn2");
+const btnsReadMore = document.querySelectorAll('.btn-read-more');
 const videoDescContainer = document.querySelector('.video-desc_container');
 const videoPlayer = document.querySelector('.video-player');
 const videoDesc = document.querySelector('.video-desc');
 
 // Fonction qui lance l'animation au click sur le bouton "Read More"
 
-function readMore(){
-    //Si le bouton Contient "Read More"
-    if(btn1.innerHTML === "en savoir plus"){
-        // Action à réaliser si la condition est vraie :
-        videoDesc.style.overflow ='visible';
-        btn1.innerText = "Ok";
+// Fonction qui lance l'animation au click sur le bouton "Read More"
+
+function readMore(btnReadMore, index){
+    //Selection des container
+    const containersDescriptionVideo = document.querySelectorAll('.video-desc_container');
+    const videoPlayers = document.querySelectorAll('.video-player');
+    console.log(btnReadMore.innerText);
+    console.log(btnReadMore.innerText);
+    if( btnReadMore.dataset.position === "0" ){
+        console.log('hell');
+        btnReadMore.innerText = "Ok";
+        containersDescriptionVideo[index].style.overflow = 'visible';
+        containersDescriptionVideo[index].classList.remove('desc_left_anim');
+        containersDescriptionVideo[index].classList.add('desc_left_anim');
+        videoPlayers[index].classList.add('video_right_anim');
+        videoPlayers[index].classList.remove('video_left_anim');
+        btnReadMore.dataset.position = "1";
     }else{
-        videoDesc.style.overflow ='hidden';
-        btn1.innerText = "en savoir plus"
-    };
-    // Si vidéo description contient la classe desc-left-anim
-    if (videoDescContainer.classList.contains('desc_left_anim')){
-    // supprime la classe desc-left-anim
-        videoDescContainer.classList.remove('desc_left_anim')
-    // et ajoute la classe desc-left-anim (animation inverse)
-        videoDescContainer.classList.toggle("desc_right_anim");
+        btnReadMore.innerText = "en savoir plus";
+        containersDescriptionVideo[index].style.overflow = 'hidden';
+        containersDescriptionVideo[index].classList.add('desc_right_anim');
+        containersDescriptionVideo[index].classList.remove('desc_left_anim');
+        videoPlayers[index].classList.add('video_left_anim');
+        videoPlayers[index].classList.remove('video_right_anim');
     }
-    if (videoPlayer.classList.contains('video_right_anim')){
-        videoPlayer.classList.remove('video_right_anim')
-        videoPlayer.classList.toggle("video_left_anim");
-    }
-videoDescContainer.classList.toggle("desc_left_anim");
-videoPlayer.classList.toggle("video_right_anim");
+
 }
 
-btn1.addEventListener('click', readMore);
-btn2.addEventListener('click', readMore);
+btnsReadMore.forEach( (btnReadMore, index) =>{
+    btnReadMore.addEventListener('click', function(){
+        readMore( this, index );
+    });
+});
      
 // SECTION 3 - MOVIES
 
@@ -217,44 +222,63 @@ const rightArrow = document.getElementById('arrow-right');
 const leftArrow = document.getElementById('arrow-left');
 const fullImg = document.createElement('IMG');
 
-fetch('js/galery.json').then((response) => {
-    response.json().then((galeryImg) => {
+let listImg = "";
+fetch('js/galery.json')
+    .then( (response) => {
+        return response.json();
+    })
+    .then((galeryImg) => {
+        listImg = galeryImg;
         vignettes.forEach(item => {
-            item.addEventListener('click', function(){
-                for (let i=0; i<galeryImg.length; i++){
-
-                    if(item.getAttribute('src') === galeryImg[i].min){
-                        if(!document.getElementById('full')){
+            item.addEventListener('click', function () {
+                for (let i = 0; i < galeryImg.length; i++) {
+                    if (item.getAttribute('src') === galeryImg[i].min) {
+                        if (!document.getElementById('full')) {
                             fullImg.setAttribute('src', galeryImg[i].full);
                             fullImg.setAttribute('id', 'full');
                             fullImgContain.append(fullImg);
                             fullImgContainer.style.display = 'flex';
                             fullImgExit.style.display = "flex";
-                        }else{
+                            fullImgContain.dataset.indexpicture = i;
+                        } else {
                             fullImgContain.replaceChildren(fullImg);
                         }
-
-                        rightArrow.addEventListener('click', function(){
-                            i++
-                            fullImg.setAttribute('src', galeryImg[i].full);
-                            console.log("right : ", i);
-                            rightArrow.style.display="block";
-                        });
-
-                        leftArrow.addEventListener('click', function(){
-                            i--
-                            fullImg.setAttribute('src', galeryImg[i].full);
-                            console.log("left  : ", i);
-                        });
-
-                    };
-                };
+                    }
+                }
             });
         });
     });
-});
+
+    rightArrow.addEventListener('click', function(){
+
+        const currentIndex = parseInt(fullImgContain.dataset.indexpicture, 10);
+        let lastIndex = null;
+        if( currentIndex === (vignettes.length - 1) ){
+            lastIndex = 0;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }else{
+            lastIndex = currentIndex + 1;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }
+        fullImgContain.dataset.indexpicture = lastIndex;
+    });
+
+    leftArrow.addEventListener('click', function(){
+        const currentIndex = parseInt(fullImgContain.dataset.indexpicture, 10);
+        let lastIndex = null;
+        if( currentIndex === 0 ){
+            lastIndex = vignettes.length - 1;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }else{
+            lastIndex = currentIndex - 1;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }
+        fullImgContain.dataset.indexpicture = lastIndex;
+    });
+
 
 fullImgExit.addEventListener('click', function(){
+
     i=0;
     fullImgContainer.style.display = 'none';
     fullImgExit.style.display = "none";
