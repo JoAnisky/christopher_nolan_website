@@ -1,3 +1,9 @@
+<?php
+// require 'functions/auth.php';
+session_start();
+// force_user_connect();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>

@@ -21,11 +21,10 @@
 
         <form method="post" id="form-connect" novalidate>
             <label id="error-login" for="login"></label>
-            <input type="text" id="login" name="login" placeholder="Nom d'utilisateur" required>
+            <input type="text" name="login" id="login" placeholder="Nom d'utilisateur" required>
 
-            <label id="error-password" for="password"></label>
-            <input type="password" id="password" name="password" placeholder="••••••••••••••••••" required>
-            <input id="btn-submit" type="submit" value="Sign in">
+            <input type="password" name="password" id="password"  placeholder="••••••••••••••••••" required>
+            <input type="submit" name="envoi" id="btn-submit" value="Sign in">
         </form>
 
     </div>
