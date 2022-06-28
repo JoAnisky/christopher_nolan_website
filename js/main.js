@@ -95,10 +95,8 @@ function readMore(btnReadMore, index){
     //Selection des container
     const containersDescriptionVideo = document.querySelectorAll('.video-desc_container');
     const videoPlayers = document.querySelectorAll('.video-player');
-    console.log(btnReadMore.innerText);
-    console.log(btnReadMore.innerText);
+
     if( btnReadMore.dataset.position === "0" ){
-        console.log('hell');
         btnReadMore.innerText = "Ok";
         containersDescriptionVideo[index].style.overflow = 'visible';
         containersDescriptionVideo[index].classList.remove('desc_left_anim');
