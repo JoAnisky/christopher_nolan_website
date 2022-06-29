@@ -21,6 +21,7 @@
 
         <form method="post" id="form-connect" novalidate>
             <label id="error-login" for="login"></label>
+            <p id="incorrect"></p>
             <input type="text" name="login" id="login" placeholder="Nom d'utilisateur" required>
 
             <input type="password" name="password" id="password"  placeholder="••••••••••••••••••" required>

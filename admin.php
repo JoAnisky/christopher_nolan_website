@@ -1,12 +1,10 @@
 <?php 
-
 // Charger le fichier autoload.php (pour gérer le fichier .env)
 require __DIR__ .'/vendor/autoload.php';
 // Spécifie d'aller chercher le fichier .env (_DIR_, nomfichier(si il possède un nom))
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 // Charger la méthode dotenv
 $dotenv->load();
-
 // Récupère les variables contenues dans le fichier .env
 $DB_HOST= $_ENV['DB_HOST'];
 $DB_USER= $_ENV['DB_USER'];
@@ -26,17 +24,18 @@ if(isset($_POST['login']) && isset($_POST['password']) && !empty($_POST['login']
         // On empeche l'insertion de HTML
         $pseudo = htmlspecialchars($_POST['login']);
 
-        // On crypte le mot de passe selon la meme méthode que dans le BDD
+        // On récupère le mot de passe 
+        // On peut aussi le crypter selon la meme méthode que dans la BDD
         $mdp = ($_POST['password']);
 
+        // Initialise la requête SQL
         $recupUser = $bdd->prepare('SELECT * FROM users WHERE login = :pseudo AND password = :mdp');
         $recupUser->bindParam(':pseudo', $pseudo,PDO::PARAM_STR);
         $recupUser->bindParam(':mdp', $mdp,PDO::PARAM_STR);
-        // On fait correspondre le pseudo entré et le MDP entré
-        $recupUser->execute();
-        
-        // COMPARER
 
+        // Execute la requête SQL
+        $recupUser->execute();
+        // COMPARER
         // On dit a PHP que si on a récupéré au moins un des élément on peut se connecter
         if($recupUser->rowCount() == 1){
             // Creer une session de connexion
@@ -44,15 +43,17 @@ if(isset($_POST['login']) && isset($_POST['password']) && !empty($_POST['login']
             $_SESSION['pseudo'] = $pseudo;
             $_SESSION['mdp'] = $mdp;
             $_SESSION['id'] = $recupUser->fetch()['id'];
-            
+            // Test si ok
+            $response = array("reponse"=>"Connecté",$bool=true);
+            echo json_encode($response);
         }else{
-            echo "Pseudo ou mot de passe incorrect";
+            $response = array("reponse"=>"Pseudo ou mot de passe incorrect", $bool=false);
+            echo json_encode($response);
         }
-    
     }catch(PDOExeption $e){
         echo $e->getMessage();
     }
-
 }else{
-    echo "Vous devez compléter les champs";
+    $response = array("reponse"=>"vous devez remplir les deux champs", $bool=false);
+    echo json_encode($response,$bool);
 }

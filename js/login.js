@@ -2,6 +2,7 @@ const form = document.querySelector("form");
 const inputLogin = document.getElementById("login");
 const inputPassword = document.getElementById("password");
 const labelErrorLogin = document.getElementById('error-login');
+const incorrect = document.getElementById("incorrect");
 
 form.addEventListener("submit", function(e){
     e.preventDefault();
@@ -16,13 +17,28 @@ form.addEventListener("submit", function(e){
         labelErrorLogin.style.color = '#15ff00';
     }
 });
+function newDoc() {
+    // envoyer en JSON avec le booleen
+    window.location.assign("dashboard.php");
+}
+
 function ajaxResponse(){
     const formData = new FormData(form);
     // Lancement de la requête AJAX si tout est OK coté JS
     fetch('admin.php', {
         method: "POST",
         body : formData
-    }).then(response => response.text())
+    }).then(response => response.json())
     .then(response=> {
+
+        console.log(response);
+        incorrect.innerText = response.reponse;
+
+        if(response[0] !== true){
+            console.log("reponse fausse");
+        }else{
+            console.log("reponse vraie");
+            newDoc();
+        }
     });
 };

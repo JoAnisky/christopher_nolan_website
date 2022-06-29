@@ -84,6 +84,9 @@ input:focus{
     border:none;
     outline :1px solid var(--light-blue);
 }
+#incorrect{
+    color:red;
+}
 /* BTN Submit */
 #btn-submit{
     padding:13px;

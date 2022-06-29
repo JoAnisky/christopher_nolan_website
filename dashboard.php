@@ -1,4 +1,5 @@
 <?php
+var_dump(session_status());
 require 'functions/auth.php';
 force_user_connect();
 ?>
@@ -10,7 +11,7 @@ force_user_connect();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Website Fanpage de Christopher Nolan crée dans le cadre de la formation ACCES CODE SCHOOL Developpeur web/web mobile">
+        <meta name="description" content="Website Fanpage de Christopher Nolan crée dans le cadre de la formation ACCESS CODE SCHOOL Developpeur web/web mobile">
         <meta name="keywords" content="conception web, creation web, creation site internet, erol conception">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
