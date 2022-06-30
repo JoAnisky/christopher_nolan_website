@@ -41,7 +41,8 @@ p.access{
     margin-bottom: 35px;
 }
 #logo-disconnect{
-    width:18px; 
+    width:18px;
+    height:23px;
 }
 #logo-disconnect:hover{
     cursor: pointer; 
@@ -103,7 +104,7 @@ input:focus{
 
 /* Dashboard */
 main{
-    padding:35px 25px;
+    padding:35px 45px;
 }
 .dash_up_container{
     display: flex;
