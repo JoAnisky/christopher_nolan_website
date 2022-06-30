@@ -3,9 +3,7 @@ session_start();
 if (!isset($_SESSION['id'])){
     header('Location: login.php');
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -19,6 +17,7 @@ if (!isset($_SESSION['id'])){
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/adm.css" />
+        <script src="js/dashboard.js" defer></script>
     </head>
 <body>
     <main>
@@ -29,11 +28,13 @@ if (!isset($_SESSION['id'])){
             </div>
             <div class="dash_up_right">
                 <p>Se déconnecter</p>
-                <svg id="logo-disconnect" >
-                    <path fill="#E1090F" fill-rule="evenodd" d="M6.09 4v2.945c-2.353 1.208-3.69 3.747-3.22 6.361.524 2.923 3.13 5.021 6.188 4.995 3.059-.027 5.626-2.187 6.096-5.118.415-2.59-.922-5.087-3.244-6.271v-2.9c3.074 1.022 5.282 3.54 5.911 6.494a8.43 8.43 0 0 1 .07 3.091c-.676 4.214-4.414 7.364-8.81 7.403-4.395.038-8.194-3.045-8.947-7.246-.753-4.2 1.76-8.339 5.911-9.743.016-.005.03-.006.046-.011Z" clip-rule="evenodd"/>
-                    <path fill="#E1090F" d="M9 2v8Z"/>
-                    <path stroke="#E1090F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 2v8"/>
-                </svg>
+                    <a href="functions/logout.php">
+                        <svg name='disconnect-btn' id="logo-disconnect">
+                            <path fill="#E1090F" fill-rule="evenodd" d="M6.09 4v2.945c-2.353 1.208-3.69 3.747-3.22 6.361.524 2.923 3.13 5.021 6.188 4.995 3.059-.027 5.626-2.187 6.096-5.118.415-2.59-.922-5.087-3.244-6.271v-2.9c3.074 1.022 5.282 3.54 5.911 6.494a8.43 8.43 0 0 1 .07 3.091c-.676 4.214-4.414 7.364-8.81 7.403-4.395.038-8.194-3.045-8.947-7.246-.753-4.2 1.76-8.339 5.911-9.743.016-.005.03-.006.046-.011Z" clip-rule="evenodd"/>
+                            <path fill="#E1090F" d="M9 2v8Z"/>
+                            <path stroke="#E1090F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 2v8"/>
+                        </svg>
+                    </a>
             </div>
         </div>
         <div class="table_contain">
