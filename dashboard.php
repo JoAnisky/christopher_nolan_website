@@ -15,12 +15,14 @@ if (!isset($_SESSION['id'])){
         <meta name="keywords" content="conception web, creation web, creation site internet, erol conception">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Radley&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/adm.css" />
         <script src="js/dashboard.js" defer></script>
     </head>
 <body>
+
     <main>
+    <h1 class="title">Nolan</h1>
         <div class="dash_up_container">
             <div class="dash_up_left">
                 <p class="log">Dashboard</p>
@@ -38,6 +40,13 @@ if (!isset($_SESSION['id'])){
             </div>
         </div>
         <div class="table_contain">
+            <div class="research">
+                <label for="mail-search"></label>
+                <input type="search" id="mail-search">
+                    <svg class="search-btn" width="18" height="18" fill="none" viewBox="0 0 16 16">
+                    <path fill="#FAFAFA" fill-rule="evenodd" d="m11.46 10.319 4.304 4.304a.807.807 0 0 1-1.142 1.14L10.32 11.46a6.4 6.4 0 1 1 1.14-1.141h.001Zm-5.06.88a4.8 4.8 0 1 0 0-9.599 4.8 4.8 0 0 0 0 9.6Z" clip-rule="evenodd"/>
+                    </svg>
+            </div>
             <table>
                 <thead>
                     <tr class="table-head">

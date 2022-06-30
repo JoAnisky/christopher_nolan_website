@@ -11,8 +11,6 @@ $DB_USER= $_ENV['DB_USER'];
 $DB_PASS= $_ENV['DB_PASS'];
 $DB_NAME= $_ENV['DB_NAME'];
 
-// if(isset($_POST['envoi'])){
-
 if(isset($_POST['login']) && isset($_POST['password']) && !empty($_POST['login']) && !empty($_POST['password'])){
     try{
         // Initialise un objet PDO avec les données de connexions transmises depuis le fichier .env
@@ -59,6 +57,6 @@ if(isset($_POST['login']) && isset($_POST['password']) && !empty($_POST['login']
     $response = array("reponse"=>"vous devez remplir les deux champs", $bool=false);
     echo json_encode($response,$bool);
 
-    // Si les deux champs sont vides -> redirection page login.pgp
+    // Si les deux champs sont vides -> redirection page login.php
     header('Location: login.php');
 }

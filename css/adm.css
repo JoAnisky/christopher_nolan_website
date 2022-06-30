@@ -11,6 +11,15 @@ body{
     font-family: 'Raleway', sans-serif;
     background-color: var(--dark-grey);
 }
+h1{
+    color: #fafafa;
+    font-family: 'Radley', serif;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: 11px;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    text-shadow: 1px 1px 5px var(--black-color);
+}
 p{
     margin:0;
 }
@@ -104,7 +113,7 @@ input:focus{
 
 /* Dashboard */
 main{
-    padding:35px 45px;
+    padding:0 45px;
 }
 .dash_up_container{
     display: flex;
@@ -161,9 +170,25 @@ td{
 .arrow-array:hover{
     cursor: pointer;
 }
+/* Research */
+.research{
+    display: flex;
+    align-items: center;
+}
+#mail-search{
+    padding:4px 30px;
+}
+#mail-search:focus{
+    border:initial;
+    box-sizing: border-box;
+
+}
+.search-btn{
+    margin-left:10px;
+}
 /* Delete user BTN */
 .btn-del-user{
-    width :45px;
+    width :48px;
 }
 .btn-del-user:hover{
     cursor: pointer;
