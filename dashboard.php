@@ -1,7 +1,9 @@
 <?php
-var_dump(session_status());
-require 'functions/auth.php';
-force_user_connect();
+session_start();
+if (!isset($_SESSION['id'])){
+    header('Location: login.php');
+}
+
 ?>
 
 <!DOCTYPE html>

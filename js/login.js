@@ -17,10 +17,10 @@ form.addEventListener("submit", function(e){
         labelErrorLogin.style.color = '#15ff00';
     }
 });
-function newDoc() {
-    // envoyer en JSON avec le booleen
-    window.location.assign("dashboard.php");
-}
+// function newDoc() {
+//     // envoyer en JSON avec le booleen
+//     window.location.assign("dashboard.php");
+// }
 
 function ajaxResponse(){
     const formData = new FormData(form);
@@ -33,12 +33,11 @@ function ajaxResponse(){
 
         console.log(response);
         incorrect.innerText = response.reponse;
-
         if(response[0] !== true){
             console.log("reponse fausse");
+            incorrect.innerText = response.reponse;
         }else{
-            console.log("reponse vraie");
-            newDoc();
+            window.location.assign("dashboard.php");
         }
     });
 };

@@ -40,8 +40,6 @@ if(isset($_POST['login']) && isset($_POST['password']) && !empty($_POST['login']
         if($recupUser->rowCount() == 1){
             // Creer une session de connexion
             session_start();
-            $_SESSION['pseudo'] = $pseudo;
-            $_SESSION['mdp'] = $mdp;
             $_SESSION['id'] = $recupUser->fetch()['id'];
             // Test si ok
             $response = array("reponse"=>"Connecté",$bool=true);
