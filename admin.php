@@ -42,7 +42,11 @@ if(isset($_POST['login']) && isset($_POST['password']) && !empty($_POST['login']
             session_start();
             $_SESSION['id'] = $recupUser->fetch()['id'];
             // Test si ok
-            $response = array("reponse"=>"Connecté",$bool=true);
+
+            // Initialise le tableau qui contient la réponse à afficher en JS et le booleen connexion OK ou non
+            $response = array("reponse"=>"",$bool=true);
+
+            // Encode la réponse au format JSON pour être reçu par JS
             echo json_encode($response);
         }else{
             $response = array("reponse"=>"Pseudo ou mot de passe incorrect", $bool=false);
@@ -54,4 +58,7 @@ if(isset($_POST['login']) && isset($_POST['password']) && !empty($_POST['login']
 }else{
     $response = array("reponse"=>"vous devez remplir les deux champs", $bool=false);
     echo json_encode($response,$bool);
+
+    // Si les deux champs sont vides -> redirection page login.pgp
+    header('Location: login.php');
 }

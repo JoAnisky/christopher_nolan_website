@@ -47,6 +47,8 @@ if (isset($_POST["email"])) {
             echo "L'adresse e-mail n'est pas valide";
         }
     }
+}else{
+    echo "Pas de formulaire envoyé ";
+    header('Location: index.html');
 }
-echo "Pas de formulaire envoyé ";
 ?>
