@@ -17,10 +17,6 @@ form.addEventListener("submit", function(e){
         labelErrorLogin.style.color = '#15ff00';
     }
 });
-// function newDoc() {
-//     // envoyer en JSON avec le booleen
-//     window.location.assign("dashboard.php");
-// }
 
 function ajaxResponse(){
     const formData = new FormData(form);

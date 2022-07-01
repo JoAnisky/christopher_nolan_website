@@ -1,8 +1,20 @@
-// const disconnectBtn = document.getElementById("logo-disconnect");
+const tBody = document.querySelector('tbody');
 
-// disconnectBtn.addEventListener('click', disconnect);
+function mailList(){
+    // Lancement de la requête AJAX vers le script mail-list.php
+    const ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.open('GET', 'mail-list.php', false);
+    ajaxRequest.setRequestHeader("Content-Type", "text/html; charset=utf-8");
 
-// function disconnect(){
-//     var result="<?php php_func(); ?>"
-//     console.log(result);
-// }
+    ajaxRequest.onreadystatechange = function () {
+        if (ajaxRequest.readyState == 4) {
+            if (ajaxRequest.status == 200) {
+                var data = ajaxRequest.responseText;
+                tBody.innerHTML= data;
+            }
+        }
+    };
+    ajaxRequest.send();
+}
+
+mailList();

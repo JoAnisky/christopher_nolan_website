@@ -1,8 +1,16 @@
 <?php
+
+//***** SECURISER L'ACCES A LA PAGE *****//
+// Toujours démarrer la session en premier
 session_start();
+
+// Tester si la variable $_SESSION['id'] generée dans admin.php n'existe pas
 if (!isset($_SESSION['id'])){
+//Si elle n'existe pas, redirection page login.php
     header('Location: login.php');
 }
+// Sinon le reste de la page s'affiche 
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -69,35 +77,7 @@ if (!isset($_SESSION['id'])){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>email@email.com</td>
-                        <td>17/06/2022</td>
-                        <td><svg class="btn-del-user" width="10" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H1zm3 9H3V7h1v7zm2 0H5V7h1v7zm2 0H7V7h1v7zm2 0H9V7h1v7zm2.25-12H9V.75A.753.753 0 0 0 8.25 0h-3.5A.753.753 0 0 0 4 .75V2H.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM8 2H5v-.987h3V2z" fill="#fff"/></svg></td>
-                    </tr>
-                    <tr>
-                        <td>email@email.com</td>
-                        <td>17/06/2022</td>
-                        <td>
-                            <svg class="btn-del-user" width="13" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H1zm3 9H3V7h1v7zm2 0H5V7h1v7zm2 0H7V7h1v7zm2 0H9V7h1v7zm2.25-12H9V.75A.753.753 0 0 0 8.25 0h-3.5A.753.753 0 0 0 4 .75V2H.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM8 2H5v-.987h3V2z" fill="#fff"/>
-                            </svg>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>email@email.com</td>
-                        <td>17/06/2022</td>
-                        <td>
-                            <svg class="btn-del-user" width="13" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H1zm3 9H3V7h1v7zm2 0H5V7h1v7zm2 0H7V7h1v7zm2 0H9V7h1v7zm2.25-12H9V.75A.753.753 0 0 0 8.25 0h-3.5A.753.753 0 0 0 4 .75V2H.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM8 2H5v-.987h3V2z" fill="#fff"/>
-                            </svg>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>email@email.com</td>
-                        <td>17/06/2022</td>
-                        <td>
-                            <svg class="btn-del-user" width="13" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H1zm3 9H3V7h1v7zm2 0H5V7h1v7zm2 0H7V7h1v7zm2 0H9V7h1v7zm2.25-12H9V.75A.753.753 0 0 0 8.25 0h-3.5A.753.753 0 0 0 4 .75V2H.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM8 2H5v-.987h3V2z" fill="#fff"/>
-                            </svg>
-                        </td>
-                    </tr>
+                    <!-- Injecter PHP ici -->
                 </tbody>
             </table>
         </div>
