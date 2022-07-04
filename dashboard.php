@@ -80,6 +80,12 @@ if (!isset($_SESSION['id'])){
                     <!-- Injecter PHP ici -->
                 </tbody>
             </table>
+            <template id="productrow">
+                <tr>
+                    <td class="mail"></td>
+                    <td></td>
+                </tr>
+            </template>
         </div>
     </main>    
 </body>
