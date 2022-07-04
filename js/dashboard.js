@@ -1,6 +1,6 @@
 // Fetch affichage adresse mail du script mail-list.php
-async function mailList(){
-    await fetch('mail-list.php')
+function mailList(){
+  fetch('mail-list.php')
     .then(response => {
         if (!response.ok) {
           throw new Error(`Error status: ${response.status}`);
@@ -24,24 +24,33 @@ async function mailList(){
           // Injection adresse mail dans TD
           td[1].textContent = `${data[i].date_inscription}`;  
 
-          deleteMail(); 
           tBody.appendChild(clone);
+        
       }
+
    })
     .catch(err => {console.log(err)});
 };
 mailList();
 
+// Bouton delete
+const tdDel = document.querySelectorAll('.delete-rows');
+const arrayDel = Array.from(tdDel);
 
-// Bouton delete 
-function deleteMail(){
-  const tdDel = document.querySelectorAll('.delete-rows');
-  const arrayDel = Array.from(tdDel);
+tdDel.forEach(elem => {
 
-  arrayDel.forEach(elem => {
-      elem.addEventListener('click', ()=> {
-        let delClicked =  arrayDel.indexOf(elem);
-        console.log(delClicked, 'coucou');
-      });
-  })
-};
+    elem.addEventListener('click', (e)=> {
+        let delClicked = (e.currentTarget);
+        const index = arrayDel.indexOf(delClicked);
+
+        const mailDeleted = data[index].email;     
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "delete-user.php", true);
+        xhr.send(`selectedMail=${mailDeleted}`);
+
+        console.log(mailDeleted)
+        elem.parentElement.remove()
+    });
+
+});
