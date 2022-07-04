@@ -84,6 +84,8 @@ if (!isset($_SESSION['id'])){
                 <tr>
                     <td class="mail"></td>
                     <td></td>
+                    <td><svg class='btn-del-user' width='10' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H1zm3 9H3V7h1v7zm2 0H5V7h1v7zm2 0H7V7h1v7zm2 0H9V7h1v7zm2.25-12H9V.75A.753.753 0 0 0 8.25 0h-3.5A.753.753 0 0 0 4 .75V2H.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM8 2H5v-.987h3V2z' fill='#fff'/>
+                    </svg></td>
                 </tr>
             </template>
         </div>
