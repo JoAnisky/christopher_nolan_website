@@ -35,9 +35,9 @@ try{
     // Boucle dans la bdd
     $result = $mailList->fetchAll(PDO::FETCH_ASSOC);
 
-    // PDO::FETCH_ASSOC permet de créer un tableau
+    // PDO::FETCH_ASSOC permet de créer un tableau associatif
 
-    // On encode la répense en json
+    // On encode la réponse en json
     echo json_encode($result);
 
     if ($mailList === false){
