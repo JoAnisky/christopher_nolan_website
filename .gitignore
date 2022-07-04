@@ -1,4 +1,4 @@
-create_user.sql
+/SQL/create_user.sql
 /vendor
 composer.lock
 .env
