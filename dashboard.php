@@ -6,8 +6,9 @@ session_start();
 
 // Tester si la variable $_SESSION['id'] generée dans admin.php n'existe pas
 if (!isset($_SESSION['id'])){
-//Si elle n'existe pas, redirection page login.php
+    //Si elle n'existe pas, redirection page login.php
     header('Location: login.php');
+    exit();
 }
 // Sinon le reste de la page s'affiche 
 

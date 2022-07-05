@@ -1,5 +1,13 @@
 <?php
 // ***** SCRIPT AFFICHAGE DE LA BDD nolan_newsletter ET LISTE DES EMAILS INSCRITS ***** //
+// Toujours démarrer la session en premier
+session_start();
+// Tester si la variable $_SESSION['id'] generée dans admin.php n'existe pas
+if (!isset($_SESSION['id'])){
+//Si elle n'existe pas, redirection page login.php
+    header('Location: index.html');
+    exit();
+}
 
 // Charger le fichier autoload.php (pour récupérer les variables dans le fichier .env)
 require __DIR__ .'/vendor/autoload.php';
