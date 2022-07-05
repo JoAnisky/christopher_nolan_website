@@ -21,11 +21,29 @@ function mailList(){
           // Injection adresse mail dans TD
           td[0].textContent = `${data[i].email}`;
 
-          // Injection adresse mail dans TD
+          // Injection date inscription dans TD
           td[1].textContent = `${data[i].date_inscription}`;  
-
+          td[2].setAttribute('data-value', `${data[i].id}`);
           tBody.appendChild(clone);
-        
+
+          // Bouton delete
+          const tdDel = document.querySelectorAll('.delete-rows');
+
+          tdDel.forEach(elem => {
+              elem.addEventListener('click', (e)=> {
+
+                  const mailDelete = e.currentTarget.dataset.value;
+
+                  console.log(mailDelete);
+                  elem.parentElement.remove();
+                  const getMethod = {
+                    method: 'GET' // 
+                    // We send data in JSON format
+                  }
+                  fetch(`delete-user.php?mailToSuppID=${mailDelete}`, getMethod)
+              });
+
+          });
       }
 
    })
@@ -33,24 +51,3 @@ function mailList(){
 };
 mailList();
 
-// Bouton delete
-const tdDel = document.querySelectorAll('.delete-rows');
-const arrayDel = Array.from(tdDel);
-
-tdDel.forEach(elem => {
-
-    elem.addEventListener('click', (e)=> {
-        let delClicked = (e.currentTarget);
-        const index = arrayDel.indexOf(delClicked);
-
-        const mailDeleted = data[index].email;     
-
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "delete-user.php", true);
-        xhr.send(`selectedMail=${mailDeleted}`);
-
-        console.log(mailDeleted)
-        elem.parentElement.remove()
-    });
-
-});
