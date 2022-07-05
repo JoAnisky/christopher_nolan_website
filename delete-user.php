@@ -16,24 +16,26 @@ $DB_NAME= $_ENV['DB_NAME'];
 
 // *** Reqûete SQL de suppression *** 
 
-$mailDeletedID = ($_GET['mailToSuppID']);
+
 // Tester la requête vers la BDD
 try{
     // Initialise un objet PDO avec les données de connexions transmises depuis le fichier .env
     $bdd = new PDO('mysql:dbname='.$DB_NAME.';host='.$DB_HOST, $DB_USER, $DB_PASS);
 
     // Créer la reqûete SQL
-    $sqlDeleteUser = "DELETE id, email, date_inscription FROM subscribes WHERE id=:id";
+    // Définit les paramètres d'exceptions
+    $bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
     // Préparer la reqûete dans la base de données
-    $mailList = $bdd->prepare($sqlDeleteUser);
+    $deleteMail = $bdd->prepare("DELETE FROM subscribes WHERE id=:id");
 
-    $bdd->bindParam(':id', $mailDeletedID);
+    $deleteMail->bindParam(':id', $_GET['mailToSuppID'], PDO::PARAM_INT);
+
     // Executer la requête
-    $mailList->execute();
+    $deleteMail->execute(['id' => $_GET['mailToSuppID']]);
     // PDO::FETCH_ASSOC permet de créer un tableau associatif
     // On encode la réponse en json
-    if ($mailList === false){
+    if ($deleteMail === false){
         die("Erreur");
     }
 
@@ -41,5 +43,4 @@ try{
 }catch(PDOExeption $e){
     echo $e->getMessage();
 }
-
 ?>

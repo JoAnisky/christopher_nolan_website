@@ -31,16 +31,15 @@ function mailList(){
 
           tdDel.forEach(elem => {
               elem.addEventListener('click', (e)=> {
+                  const mailDeleteId = e.currentTarget.dataset.value;
 
-                  const mailDelete = e.currentTarget.dataset.value;
-
-                  console.log(mailDelete);
+                  console.log(mailDeleteId);
                   elem.parentElement.remove();
                   const getMethod = {
                     method: 'GET' // 
                     // We send data in JSON format
                   }
-                  fetch(`delete-user.php?mailToSuppID=${mailDelete}`, getMethod)
+                  fetch(`delete-user.php?mailToSuppID=${mailDeleteId}`, getMethod)
               });
 
           });
