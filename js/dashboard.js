@@ -25,7 +25,7 @@ fetch('mail-list.php')
         td[0].setAttribute('data-value', `${data[i].mail}`);
 
         // Injection date inscription dans TD
-        td[1].textContent = `${data[i].date_sub}`;  
+        td[1].textContent = `${data[i].date_inscription}`;  
         td[1].setAttribute('data-value', `${data[i].date_inscription}`);
 
         td[2].setAttribute('data-value', `${data[i].id}`);
