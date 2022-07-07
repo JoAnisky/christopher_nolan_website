@@ -29,4 +29,8 @@ CREATE TABLE users(
     login VARCHAR(30) UNIQUE NOT NULL,
     password VARCHAR(30) NOT NULL
 );
+<<<<<<< HEAD
 INSERT INTO users (login,password) VALUES ('nom_utilisateur','password');
+=======
+INSERT INTO users (login,password) VALUES ('admin','1234!letsgo');
+>>>>>>> 75a5d54b4dbf36d33d9048476a184e32ab893999
