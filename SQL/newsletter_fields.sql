@@ -13,6 +13,6 @@ DROP TABLE IF EXISTS subscribes;
 -- Date d'inscription de la date courante
 CREATE TABLE subscribes(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    mail VARCHAR(100) UNIQUE,
+    email VARCHAR(100) UNIQUE,
     date_inscription DATE DEFAULT CURRENT_DATE
 );

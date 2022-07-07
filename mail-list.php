@@ -4,7 +4,7 @@
 require('dbconnect.php');
 
 // Créer la reqûete SQL
-$sqlSelectMails = "SELECT * FROM subscribes";
+$sqlSelectMails = "SELECT id,email,date_inscription FROM subscribes";
 // Tester la requête vers la BDD
 try{
     // Initialise un objet PDO avec les données de connexions transmises depuis le fichier .env

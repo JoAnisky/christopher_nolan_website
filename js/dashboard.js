@@ -54,7 +54,7 @@ fetch('mail-list.php')
         // Fin bouton Delete
     }
     const orderMail = document.getElementById('order-mail');
-    orderMail.addEventListener('click', triAlpha)
+    orderMail.addEventListener('click', triAlpha);
     // Fin boucle affichage liste adresse mails
   });
 
