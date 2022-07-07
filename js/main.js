@@ -229,6 +229,7 @@ fetch('js/galery.json')
         listImg = galeryImg;
         vignettes.forEach(item => {
             item.addEventListener('click', function () {
+                console.log(item);
                 for (let i = 0; i < galeryImg.length; i++) {
                     if (item.getAttribute('src') === galeryImg[i].min) {
                         if (!document.getElementById('full')) {
@@ -276,7 +277,6 @@ fetch('js/galery.json')
 
 
 fullImgExit.addEventListener('click', function(){
-
     i=0;
     fullImgContainer.style.display = 'none';
     fullImgExit.style.display = "none";

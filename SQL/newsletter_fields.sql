@@ -8,13 +8,11 @@ USE nolan_newsletter;
 DROP TABLE IF EXISTS subscribes;
 
 -- Créer les champs suivants dans la table subscribes :
+-- Clé Chiffre, clé primaire auto incrémentée
+-- 100 caracteres max , unique (pour ne pas avoir 2 mails identiques)
+-- Date d'inscription de la date courante
 CREATE TABLE subscribes(
-
-    -- Clé Chiffre, clé primaire auto incrémentée
     id INT PRIMARY KEY AUTO_INCREMENT,
-
-    -- 100 caracteres max , unique (pour ne pas avoir 2 mails identiques)
     mail VARCHAR(100) UNIQUE,
-    -- Date d'inscription de la date courante
     date_inscription DATE DEFAULT CURRENT_DATE
 );

@@ -19,9 +19,14 @@ h1{
     letter-spacing: 11px;
     font-size: clamp(1.8rem, 4vw, 3rem);
     text-shadow: 1px 1px 5px var(--black-color);
+    padding-left: 1vw;
 }
 p{
     margin:0;
+}
+a{
+    text-decoration:none;
+    color:#fafafa;
 }
 /* Global container */
 .a_container{
@@ -120,6 +125,7 @@ main{
     justify-content: space-between;
     align-items: flex-end;
     color: white;
+    padding-left: 1.2vw;
 }
 .dash_up_right{
     display: flex;
@@ -206,6 +212,9 @@ td{
     background-color: hsl(215, 83%, 50%); 
 }
 @media (max-width: 576px) {
+    main{
+        padding :0 15px;
+    }
     .a_contain{
         display: flex;
         justify-content: center;

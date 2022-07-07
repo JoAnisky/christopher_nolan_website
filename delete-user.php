@@ -2,28 +2,18 @@
 // ***** SCRIPT AFFICHAGE DE LA BDD nolan_newsletter ET LISTE DES EMAILS INSCRITS ***** //
 // Toujours démarrer la session en premier
 session_start();
+
 // Tester si la variable $_SESSION['id'] generée dans admin.php n'existe pas
 if (!isset($_SESSION['id'])){
 //Si elle n'existe pas, redirection page login.php
     header('Location: index.html');
-    exit();
+        exit();
 }
 
-// Charger le fichier autoload.php (pour récupérer les variables dans le fichier .env)
-require __DIR__ .'/vendor/autoload.php';
-// Spécifie d'aller chercher le fichier .env
-// Si il possède un nom -> (_DIR_, nomfichier)
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-// Charger la méthode dotenv
-$dotenv->load();
-// Récupère les variables contenues dans le fichier .env
-$DB_HOST= $_ENV['DB_HOST'];
-$DB_USER= $_ENV['DB_USER'];
-$DB_PASS= $_ENV['DB_PASS'];
-$DB_NAME= $_ENV['DB_NAME'];
+// Charger les informations de connexion a la DB
+require('dbconnect.php');
 
 // *** Reqûete SQL de suppression *** 
-
 
 // Tester la requête vers la BDD
 try{

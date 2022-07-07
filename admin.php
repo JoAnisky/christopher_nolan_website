@@ -1,15 +1,6 @@
 <?php 
-// Charger le fichier autoload.php (pour gérer le fichier .env)
-require __DIR__ .'/vendor/autoload.php';
-// Spécifie d'aller chercher le fichier .env (_DIR_, nomfichier(si il possède un nom))
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-// Charger la méthode dotenv
-$dotenv->load();
-// Récupère les variables contenues dans le fichier .env
-$DB_HOST= $_ENV['DB_HOST'];
-$DB_USER= $_ENV['DB_USER'];
-$DB_PASS= $_ENV['DB_PASS'];
-$DB_NAME= $_ENV['DB_NAME'];
+// Charger les informations de connexion à la DB
+require('dbconnect.php');
 
 if(isset($_POST['login']) && isset($_POST['password']) && !empty($_POST['login']) && !empty($_POST['password'])){
     try{

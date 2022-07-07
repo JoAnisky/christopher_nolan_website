@@ -1,9 +1,7 @@
 <?php
-
 //***** SECURISER L'ACCES A LA PAGE *****//
 // Toujours démarrer la session en premier
 session_start();
-
 // Tester si la variable $_SESSION['id'] generée dans admin.php n'existe pas
 if (!isset($_SESSION['id'])){
     //Si elle n'existe pas, redirection page login.php
@@ -39,7 +37,7 @@ if (!isset($_SESSION['id'])){
             </div>
             <div class="dash_up_right">
                 <p>Se déconnecter</p>
-                    <a href="functions/logout.php">
+                    <a href="logout.php">
                         <svg name='disconnect-btn' id="logo-disconnect">
                             <path fill="#E1090F" fill-rule="evenodd" d="M6.09 4v2.945c-2.353 1.208-3.69 3.747-3.22 6.361.524 2.923 3.13 5.021 6.188 4.995 3.059-.027 5.626-2.187 6.096-5.118.415-2.59-.922-5.087-3.244-6.271v-2.9c3.074 1.022 5.282 3.54 5.911 6.494a8.43 8.43 0 0 1 .07 3.091c-.676 4.214-4.414 7.364-8.81 7.403-4.395.038-8.194-3.045-8.947-7.246-.753-4.2 1.76-8.339 5.911-9.743.016-.005.03-.006.046-.011Z" clip-rule="evenodd"/>
                             <path fill="#E1090F" d="M9 2v8Z"/>
@@ -61,12 +59,12 @@ if (!isset($_SESSION['id'])){
                     <tr class="table-head">
                         <td>Inscriptions</td>
                         <td colspan="2">
-                            <button type ="submit" id="btn-export-csv">Export .CSV </button>
+                            <button type="submit" id="btn-export-csv"><a href="export-csv.php">Export .CSV</a></button>
                         </td>
                     </tr> 
                     <tr>
-                        <th style="width:45%">Email inscrits 
-                            <svg class="arrow-array" width="12" height="9" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 5.196-9H.804L6 9z" fill="#E9E9E9"/>
+                        <th style="width:35%">Email inscrits 
+                            <svg id="order-mail" class="arrow-array" width="12" height="9" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 5.196-9H.804L6 9z" fill="#E9E9E9"/>
                             </svg>
                         </th>
                         <th style="width:45%">Date d'inscription 
@@ -74,7 +72,7 @@ if (!isset($_SESSION['id'])){
                                 <path d="m6 9 5.196-9H.804L6 9z" fill="#E9E9E9"/>
                             </svg>
                         </th>
-                        <th style="width:8%">Désinscrire</th>
+                        <th style="width:10%">Désinscrire</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,11 +80,12 @@ if (!isset($_SESSION['id'])){
                 </tbody>
             </table>
             <template id="productrow">
-                <tr>
-                    <td class="mail"></td>
-                    <td></td>
+                <tr class="rows">
+                    <td class="td0"></td>
+                    <td class="td1"></td>
                     <td class="delete-rows" data-value="0"><svg class='btn-del-user' width='10' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H1zm3 9H3V7h1v7zm2 0H5V7h1v7zm2 0H7V7h1v7zm2 0H9V7h1v7zm2.25-12H9V.75A.753.753 0 0 0 8.25 0h-3.5A.753.753 0 0 0 4 .75V2H.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM8 2H5v-.987h3V2z' fill='#fff'/>
-                    </svg></td>
+                    </svg>
+                    </td>
                 </tr>
             </template>
         </div>

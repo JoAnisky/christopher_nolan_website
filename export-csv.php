@@ -1,10 +1,10 @@
 <?php
 // ***** SCRIPT AFFICHAGE DE LA BDD nolan_newsletter ET LISTE DES EMAILS INSCRITS *****
-
 require('dbconnect.php');
 
 // Créer la reqûete SQL
-$sqlSelectMails = "SELECT * FROM subscribes";
+$sqlSelectMails = "SELECT id, email, date_inscription FROM subscribes
+INTO OUTFILE '/mnt/c/Users/Acs/Desktop/subscribes.csv'";
 // Tester la requête vers la BDD
 try{
     // Initialise un objet PDO avec les données de connexions transmises depuis le fichier .env
@@ -20,9 +20,6 @@ try{
     $result = $mailList->fetchAll(PDO::FETCH_ASSOC);
 
     // PDO::FETCH_ASSOC permet de créer un tableau associatif
-
-    // On encode la réponse en json
-    echo json_encode($result);
 
     if ($mailList === false){
         die("Erreur");
