@@ -11,7 +11,7 @@ fetch('mail-list.php')
     const myArr = [];
 
     // Parcourt la longueur du fichier JSON
-    for (i=0; i<data.length; i++){
+    for (i = 0; i < data.length; i ++){
         // On récupere la balise template contenue dans le HTML
         let template = document.querySelector('#productrow');
         // On récupere la balise tbody contenue dans le HTML
@@ -54,7 +54,9 @@ fetch('mail-list.php')
         // Fin bouton Delete
     }
     const orderMail = document.getElementById('order-mail');
-    orderMail.addEventListener('click', triAlpha);
+    orderMail.addEventListener('click', function(){
+      triAlpha();
+    });
     // Fin boucle affichage liste adresse mails
   });
 
