@@ -21,11 +21,11 @@ fetch('mail-list.php')
         let clone = document.importNode(template.content, true);
         let td = clone.querySelectorAll("td");
         // Injection adresse mail dans TD
-        td[0].textContent = `${data[i].mail}`;
-        td[0].setAttribute('data-value', `${data[i].mail}`);
+        td[0].textContent = `${data[i].email}`;
+        td[0].setAttribute('data-value', `${data[i].email}`);
 
         // Injection date inscription dans TD
-        td[1].textContent = `${data[i].date_sub}`;  
+        td[1].textContent = `${data[i].date_inscription}`;  
         td[1].setAttribute('data-value', `${data[i].date_inscription}`);
 
         td[2].setAttribute('data-value', `${data[i].id}`);
