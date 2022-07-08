@@ -9,13 +9,12 @@ fetch('mail-list.php')
   .then(data => {
     // initialise le tableau
     const myArr = [];
-
+    // On récupere la balise tbody contenue dans le HTML
+    const tBody = document.querySelector('tbody')
     // Parcourt la longueur du fichier JSON
     for (i = 0; i < data.length; i ++){
         // On récupere la balise template contenue dans le HTML
         let template = document.querySelector('#productrow');
-        // On récupere la balise tbody contenue dans le HTML
-        let tBody = document.querySelector('tbody')
 
         // Crée un clone du contenu (TD) à partir du template
         let clone = document.importNode(template.content, true);
@@ -53,7 +52,6 @@ fetch('mail-list.php')
         });
         // Fin bouton Delete
     }
-    const orderMail = document.getElementById('order-mail');
     orderMail.addEventListener('click', function(){
       triAlpha();
     });
@@ -64,20 +62,22 @@ fetch('mail-list.php')
 function triAlpha(){
   // Récupère tous les TR contenus dans tbody
   let trRows = document.querySelectorAll(".rows");
-  for (let i = 0; i < trRows.length; i ++){
 
-    trRows = document.querySelectorAll(".rows");
+    // On récupere la balise tbody contenue dans le HTML
+    const tBody = document.querySelector('tbody')
+  for (let i = 0; i < trRows.length; i ++){ 
     let email = trRows[i].querySelector(".td0").dataset.value;
 
     for (let k = i + 1; k<trRows.length; k++){
       let emailK = trRows[k].querySelector(".td0").dataset.value;
 
       if (email > emailK){
-        console.log(email, emailK);
-        console.log(trRows);
-        trRows[i].before(trRows[k]);
+        tBody.insertBefore(trRows[k],trRows[i])
+        trRows = document.querySelectorAll(".rows");
+        email = trRows[i].querySelector(".td0").dataset.value;
       }
 
     }
   }
 }
+const orderMail = document.getElementById('order-mail');
