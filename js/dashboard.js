@@ -52,32 +52,36 @@ fetch('mail-list.php')
         });
         // Fin bouton Delete
     }
-    orderMail.addEventListener('click', function(){
-      triAlpha();
-    });
-    // Fin boucle affichage liste adresse mails
+// Fin boucle affichage liste adresse mails
   });
+const orderMail = document.getElementById('order-mail');
+orderMail.addEventListener('click', function(){
+  triAlpha(0);
+});
 
+const orderDate = document.getElementById('order-date');
+orderDate.addEventListener('click', function(){
+  triAlpha(1);
+})
 // Tri à bulles de la liste d'adresse mails
-function triAlpha(){
+function triAlpha(a){
   // Récupère tous les TR contenus dans tbody
   let trRows = document.querySelectorAll(".rows");
 
     // On récupere la balise tbody contenue dans le HTML
     const tBody = document.querySelector('tbody')
-  for (let i = 0; i < trRows.length; i ++){ 
-    let email = trRows[i].querySelector(".td0").dataset.value;
+    for (let i = 0; i < trRows.length; i ++){ 
+    let email = trRows[i].querySelector(`.td${a}`).dataset.value;
 
     for (let k = i + 1; k<trRows.length; k++){
-      let emailK = trRows[k].querySelector(".td0").dataset.value;
+      let emailK = trRows[k].querySelector(`.td${a}`).dataset.value;
 
       if (email > emailK){
         tBody.insertBefore(trRows[k],trRows[i])
         trRows = document.querySelectorAll(".rows");
-        email = trRows[i].querySelector(".td0").dataset.value;
+        email = trRows[i].querySelector(`.td${a}`).dataset.value;
       }
 
     }
   }
 }
-const orderMail = document.getElementById('order-mail');

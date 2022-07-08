@@ -68,7 +68,7 @@ if (!isset($_SESSION['id'])){
                             </svg>
                         </th>
                         <th style="width:45%">Date d'inscription 
-                            <svg class="arrow-array" width="12" height="9" xmlns="http://www.w3.org/2000/svg">
+                            <svg id="order-date" class="arrow-array" width="12" height="9" xmlns="http://www.w3.org/2000/svg">
                                 <path d="m6 9 5.196-9H.804L6 9z" fill="#E9E9E9"/>
                             </svg>
                         </th>
