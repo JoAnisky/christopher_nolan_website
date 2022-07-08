@@ -55,8 +55,18 @@ fetch('mail-list.php')
 // Fin boucle affichage liste adresse mails
   });
 const orderMail = document.getElementById('order-mail');
+let moduloMail = 0;
+let b;
 orderMail.addEventListener('click', function(){
-  triAlpha(0);
+  moduloMail ++;
+  if (isEven(moduloMail)){
+    b = true;
+     triAlpha(0, b);
+  }else{
+    triAlpha(0, b);
+    b = false;
+  }
+ 
 });
 
 const orderDate = document.getElementById('order-date');
@@ -64,24 +74,30 @@ orderDate.addEventListener('click', function(){
   triAlpha(1);
 })
 // Tri à bulles de la liste d'adresse mails
-function triAlpha(a){
+function triAlpha(a, b){
   // Récupère tous les TR contenus dans tbody
   let trRows = document.querySelectorAll(".rows");
 
-    // On récupere la balise tbody contenue dans le HTML
-    const tBody = document.querySelector('tbody')
-    for (let i = 0; i < trRows.length; i ++){ 
-    let email = trRows[i].querySelector(`.td${a}`).dataset.value;
+  // On récupere la balise tbody contenue dans le HTML
+  const tBody = document.querySelector('tbody');
+  for (let i = 0; i < trRows.length; i ++){ 
+  let email = trRows[i].querySelector(`.td${a}`).dataset.value;
 
     for (let k = i + 1; k<trRows.length; k++){
-      let emailK = trRows[k].querySelector(`.td${a}`).dataset.value;
-
-      if (email > emailK){
-        tBody.insertBefore(trRows[k],trRows[i])
+    let emailK = trRows[k].querySelector(`.td${a}`).dataset.value;
+      if (b == true && emailK > email){
+          tBody.insertBefore(trRows[k],trRows[i])
+          trRows = document.querySelectorAll(".rows");
+          email = trRows[i].querySelector(`.td${a}`).dataset.value;
+      }else{
+        tBody.insertBefore(trRows[i],trRows[k]);
         trRows = document.querySelectorAll(".rows");
         email = trRows[i].querySelector(`.td${a}`).dataset.value;
       }
 
     }
   }
+}
+function isEven(m){
+  return m % 2 === 0;
 }

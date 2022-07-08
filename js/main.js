@@ -99,7 +99,7 @@ function readMore(btnReadMore, index){
     if( btnReadMore.dataset.position === "0" ){
         btnReadMore.innerText = "Ok";
         containersDescriptionVideo[index].style.overflow = 'visible';
-        containersDescriptionVideo[index].classList.remove('desc_left_anim');
+        containersDescriptionVideo[index].classList.remove('desc_right_anim');
         containersDescriptionVideo[index].classList.add('desc_left_anim');
         videoPlayers[index].classList.add('video_right_anim');
         videoPlayers[index].classList.remove('video_left_anim');
@@ -111,6 +111,7 @@ function readMore(btnReadMore, index){
         containersDescriptionVideo[index].classList.remove('desc_left_anim');
         videoPlayers[index].classList.add('video_left_anim');
         videoPlayers[index].classList.remove('video_right_anim');
+        btnReadMore.dataset.position = "0";
     }
 
 }
@@ -229,7 +230,6 @@ fetch('js/galery.json')
         listImg = galeryImg;
         vignettes.forEach(item => {
             item.addEventListener('click', function () {
-                console.log(item);
                 for (let i = 0; i < galeryImg.length; i++) {
                     if (item.getAttribute('src') === galeryImg[i].min) {
                         if (!document.getElementById('full')) {
