@@ -175,18 +175,7 @@ fetch("js/movies.json").then((response) => {
     });
 });
 
-/* SECTION 3 - MOVIES  Parallax Test
-
-Parallax Test
-movieCard.addEventListener("mousemove", parallax);
-function parallax(e){
-    document.querySelectorAll(".object").forEach(function(move){
-        var moving_value = move.getAttribute("data-value");
-        var x = e.clientX * moving_value /800;
-        var y = e.clientY * moving_value /800;
-        move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
-    });
-}
+/* SECTION 3 - MOVIES
 
 On click movie
 function togg(){
@@ -214,10 +203,6 @@ function togg(){
 //       // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
 // })
 
-// document.addEventListener('keypress', logKey);
-// function logKey(e) {
-//   console.log(` ${e.code}`);
-// }
 
 // Section 4 Image Gallery
 const vignettes = document.querySelectorAll('.gal-pict');

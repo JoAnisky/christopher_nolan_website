@@ -1,18 +1,21 @@
 <?php
-// ***** SCRIPT AFFICHAGE DE LA BDD nolan_newsletter ET LISTE DES EMAILS INSCRITS *****
+// // ***** SCRIPT AFFICHAGE DE LA BDD nolan_newsletter ET LISTE DES EMAILS INSCRITS *****
 
 require('dbconnect.php');
-
+$showMore = $_GET['value'];
 // Créer la reqûete SQL
-$sqlSelectMails = "SELECT id,email,date_inscription FROM subscribes LIMIT 10";
+$sqlSelectMails = 'SELECT id,email,date_inscription FROM subscribes LIMIT 10 OFFSET :nbr';
 // Tester la requête vers la BDD
 try{
     // Initialise un objet PDO avec les données de connexions transmises depuis le fichier .env
-    $bdd = new PDO('mysql:dbname='.$DB_NAME.';host='.$DB_HOST, $DB_USER, $DB_PASS);
+    $bdd = new PDO("mysql:dbname=$DB_NAME;host=$DB_HOST;charset=$DB_CHAR", $DB_USER, $DB_PASS, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ]
+    );
 
     // Préparer la reqûete dans la base de données
     $mailList = $bdd->prepare($sqlSelectMails);
-
+    $mailList->bindParam(':nbr', $showMore, PDO::PARAM_INT);
     // Executer la requête
     $mailList->execute();
 
@@ -32,4 +35,3 @@ try{
 }catch(PDOExeption $e){
     echo $e->getMessage();
 }
-?>

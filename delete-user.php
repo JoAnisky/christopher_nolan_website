@@ -18,7 +18,10 @@ require('dbconnect.php');
 // Tester la requête vers la BDD
 try{
     // Initialise un objet PDO avec les données de connexions transmises depuis le fichier .env
-    $bdd = new PDO('mysql:dbname='.$DB_NAME.';host='.$DB_HOST, $DB_USER, $DB_PASS);
+    $bdd = new PDO("mysql:dbname=$DB_NAME;host=$DB_HOST;charset=$DB_CHAR", $DB_USER, $DB_PASS, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ]
+    );
 
     // Créer la reqûete SQL
     // Définit les paramètres d'exceptions

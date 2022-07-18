@@ -88,7 +88,11 @@ if (!isset($_SESSION['id'])){
                     </td>
                 </tr>
             </template>
+
         </div>
     </main>    
+    <div class="more">            
+        <button id="btn-show-more">Voir plus</button>
+    </div>
 </body>
 </html>

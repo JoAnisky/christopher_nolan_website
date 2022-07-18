@@ -2,31 +2,41 @@
 // ***** SCRIPT AFFICHAGE DE LA BDD nolan_newsletter ET LISTE DES EMAILS INSCRITS *****
 require('dbconnect.php');
 
-// Créer la reqûete SQL
-$sqlSelectMails = "SELECT id, email, date_inscription FROM subscribes
-INTO OUTFILE '/mnt/c/Users/Acs/Desktop/subscribes.csv'";
 // Tester la requête vers la BDD
 try{
-    // Initialise un objet PDO avec les données de connexions transmises depuis le fichier .env
-    $bdd = new PDO('mysql:dbname='.$DB_NAME.';host='.$DB_HOST, $DB_USER, $DB_PASS);
-
-    // Préparer la reqûete dans la base de données
-    $mailList = $bdd->prepare($sqlSelectMails);
-
-    // Executer la requête
-    $mailList->execute();
-
-    // Boucle dans la bdd
-    $result = $mailList->fetchAll(PDO::FETCH_ASSOC);
-
-    // PDO::FETCH_ASSOC permet de créer un tableau associatif
-
-    if ($mailList === false){
-        die("Erreur");
-    }
+    // Initialise un objet PDO avec les données de connexions transmises depuis le fichier .env (dbconnect.php)
+    $bdd = new PDO("mysql:dbname=$DB_NAME;host=$DB_HOST;charset=$DB_CHAR", $DB_USER, $DB_PASS, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ]
+    );
 
 // Attraper l'erreur si la connexion a la BDD Echoue
 }catch(PDOExeption $e){
     echo $e->getMessage();
 }
-?>
+
+// HTTP Headers - Download AS CSV
+header("Content-Type: application/octet-stream");
+header("Content-Transfer-Encoding: Binary");
+header("Content-disposition: attachment; filename=\"nolan-newsletter-mailist.csv\"");
+
+// GET MAIL LIST
+$stmt = $bdd->prepare("SELECT * FROM `subscribes`");
+$stmt->execute();
+
+$fieldsName = [
+    "ID",
+    "Mail",
+    "Date d'inscription",
+    "\n",
+];
+echo implode(",",$fieldsName);
+
+while ($row = $stmt->fetch(PDO::FETCH_NAMED)) {
+    // ROW séparées par des virgules
+    echo implode(",", [
+        $row['id'], $row['email'], $row['date_inscription']
+    ]);
+    // NEXT ROW
+    echo "\r\n";
+}

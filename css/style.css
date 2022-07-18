@@ -973,9 +973,6 @@ input:focus::placeholder{
         flex-direction: column;
         width: 100%;
     }
-    .form-input{
-
-    }
     #mail-input{
         width: 94.2%;
         margin-bottom: 15px;
