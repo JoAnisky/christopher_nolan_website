@@ -29,7 +29,7 @@ if (!isset($_SESSION['id'])){
 <body>
 
     <main>
-    <h1 class="title">Nolan</h1>
+    <h1 class="title"><a href="index.html">Nolan</a></h1>
         <div class="dash_up_container">
             <div class="dash_up_left">
                 <p class="log">Dashboard</p>

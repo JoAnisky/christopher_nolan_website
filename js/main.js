@@ -10,8 +10,9 @@ function activeMenu(){
     menuLinks.forEach(ltx => ltx.classList.remove("active-link"));
     menuLinks[len].classList.add("active-link")
 }
-activeMenu();
-window.addEventListener("scroll", activeMenu)
+window.addEventListener("scroll", function(){
+    activeMenu();
+})
 // End active links 
 
 // Menu - Burger
