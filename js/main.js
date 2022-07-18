@@ -8,10 +8,17 @@ function activeMenu(){
     let len=sections.length;
     while(--len && window.scrollY + 200 < sections[len].offsetTop){}
     menuLinks.forEach(ltx => ltx.classList.remove("active-link"));
-    menuLinks[len].classList.add("active-link")
+    menuLinks[len].classList.add("active-link");
 }
+const scrollUp = document.querySelector('.scrollUp');
 window.addEventListener("scroll", function(){
     activeMenu();
+    if(window.scrollY > 300){
+        scrollUp.style.display = "block";
+        scrollUp.classList.add("visible");
+    }else if (window.scrollY < 300){
+        scrollUp.style.display = "none";
+    }
 })
 // End active links 
 
@@ -42,22 +49,21 @@ link.addEventListener('click', function(e){
 
 
 // Section 1 "Header"
-var intElemScrollTop = body.scrollTop;
-// Script pour le logo UP (remonter la page)
-jQuery(function(){
-    $(function () {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 200 ) { 
-                $('#scrollUp').css('right','10px');
-            } else { 
-                $('#scrollUp').removeAttr( 'style' );
-            }
-        });
-    });
-});
+
+// Script logo UP (remonter la page)
+// jQuery(function(){
+//     $(function () {
+//         $(window).scroll(function () {
+//             if ($(this).scrollTop() > 200 ) { 
+//                 $('#scrollUp').css('right','10px');
+//             } else { 
+//                 $('#scrollUp').removeAttr( 'style' );
+//             }
+//         });
+//     });
+// });
 
 // Intersection Observer for HEADER
-
 const header = document.querySelector('header');
 const titleH1 = document.querySelector('.title');
 const titleNavbar = document.querySelector('.container-nolan-title_navbar');

@@ -220,15 +220,16 @@ p.nolan-title{
     100%{box-shadow:0 0 5px #184158, 0 0 10px #020607, 0 0 15px #05080f}
 }
 /* UP arrow */
-#scrollUp{
+.scrollUp{
+    display:none;
     position: fixed;
-    bottom : 25px;
-    right: -100px;
-    opacity: 0.5;
+    bottom : 35px;
+    opacity:0.5;
+    right: 5px;
     z-index:9999;
 }
-#scrollUp .active{
-    transform: scale(15px);
+.scrollUp .visible{
+transform: scale(1.2);
 }
  /* SECTION 2 : COMING SOON - DIVs */
 .coming{
