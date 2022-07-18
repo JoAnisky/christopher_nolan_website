@@ -15,7 +15,7 @@ try{
     echo $e->getMessage();
 }
 
-// HTTP Headers - Download AS CSV
+// HTTP Headers - Download en CSV
 header("Content-Type: application/octet-stream");
 header("Content-Transfer-Encoding: Binary");
 header("Content-disposition: attachment; filename=\"nolan-newsletter-mailist.csv\"");

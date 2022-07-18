@@ -9,7 +9,6 @@ if (!isset($_SESSION['id'])){
     exit();
 }
 // Sinon le reste de la page s'affiche 
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
