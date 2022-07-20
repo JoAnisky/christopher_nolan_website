@@ -58,7 +58,8 @@ function mailList(a){
   // Fin boucle affichage liste adresse mails
   });
 }
-// Fetch pour l'affichage des adresses mails
+
+// Fetch bouton "VOIR PLUS" adresses mails
 mailList(`mail-list.php?value=0`);
 let nbrShowMore = 0;
 const showMoreBtn = document.getElementById('btn-show-more');
@@ -66,30 +67,39 @@ const showMoreBtn = document.getElementById('btn-show-more');
 showMoreBtn.addEventListener('click', () =>{
   nbrShowMore = nbrShowMore + 10;
   mailList(`mail-list.php?value=${nbrShowMore}`);
-})
+});
+
+
+// Modulo pour le tri croissant/décroissant
+function isEven(m){
+  return m % 2 === 0;
+};
 
 // Tri de l'affichage des adresses mails
 const orderMail = document.getElementById('order-mail');
 let moduloMail = 0;
-let b;
 
 orderMail.addEventListener('click', function(){
-  // moduloMail ++;
-  triAlpha(0);
-
-  // if (isEven(moduloMail)){
-  //   console.log("pair");
-  // }else{
-  //   console.log("impair");
-  // }
+  moduloMail ++;
+  if (!isEven(moduloMail)){
+    triAlphaAsc(0);
+  }else{
+    triAlphaDesc(0);
+  }
 });
 
 const orderDate = document.getElementById('order-date');
+let moduloDate = 0;
 orderDate.addEventListener('click', function(){
-  triAlpha(1);
+  moduloDate ++;
+  if (!isEven(moduloDate)){
+    triAlphaAsc(1);
+  }else{
+    triAlphaDesc(1);
+  }
 });
-// Tri à bulles de la liste d'adresse mails
-function triAlpha(a){
+// Tri à bulles croissant de la liste d'adresse mails
+function triAlphaAsc(a){
   // Récupère tous les TR contenus dans tbody
   let trRows = document.querySelectorAll(".rows");
 
@@ -109,6 +119,25 @@ function triAlpha(a){
     }
   }
 };
-function isEven(m){
-  return m % 2 === 0;
+
+// Tri à bulles décroissant de la liste d'adresse mails
+function triAlphaDesc(a){
+  // Récupère tous les TR contenus dans tbody
+  let trRows = document.querySelectorAll(".rows");
+
+  // On récupere la balise tbody contenue dans le HTML
+  const tBody = document.querySelector('tbody');
+  for (let i = 0; i < trRows.length; i ++){ 
+  let email = trRows[i].querySelector(`.td${a}`).dataset.value;
+
+    for (let k = i + 1; k<trRows.length; k++){
+    let emailK = trRows[k].querySelector(`.td${a}`).dataset.value;
+
+      if (email < emailK){
+        tBody.insertBefore(trRows[k],trRows[i]);
+        trRows = document.querySelectorAll(".rows");
+        email = trRows[i].querySelector(`.td${a}`).dataset.value;
+      }
+    }
+  }
 };
