@@ -10,8 +10,6 @@ function mailList(a){
       return response.json();
     })
     .then(data => {
-      // initialise le tableau
-      const myArr = [];
       // On récupere la balise tbody contenue dans le HTML
       const tBody = document.querySelector('tbody')
       // Parcourt la longueur du fichier JSON
@@ -33,16 +31,40 @@ function mailList(a){
           td[2].setAttribute('data-value', `${data[i].id}`);
           tBody.appendChild(clone);
 
-          // Bouton delete suppression au click
-          const tdSup = document.querySelectorAll('.delete-rows');
+          // Bouton delete :: Création fenêtre confirmation au click
+              td[2].addEventListener('click', (e)=> {
+                // Création de la fenêtre de confirmation de suppression
+                // DIV container
+                const divConfirmationContainer = document.createElement('DIV');
+                divConfirmationContainer.setAttribute('id', "delete-confirmation-container");
+                // DIV box choix
+                const divConfirmation = document.createElement('DIV');
+                divConfirmation.setAttribute('id', 'delete-confirmation');
+                // Texte de confirmation
+                const textConfirmation = document.createElement('P');
+                textConfirmation.innerText = "Etes-vous sûr de vouloir supprimer cet utilisateur ?";
+                // Bouton Yes
+                const btnYes = document.createElement('BUTTON');
+                btnYes.setAttribute('id','btn-yes');
+                // Bouton No
+                const btnNo = document.createElement('BUTTON');
+                btnNo.setAttribute('id','btn-no');
 
-          tdSup.forEach(elem => {
-              elem.addEventListener('click', (e)=> {
+                textConfirmation.appendChild(divConfirmation);
+                divConfirmationContainer.appendChild(divConfirmation);
+                btnYes.appendChild(divConfirmation);
+                btnNo.appendChild(divConfirmation);
+                document.body.appendChild(divConfirmationContainer);
+
+                // Delete fetch on click "Yes"
+                btnYes.addEventListener('click', () => {
+                  // Récupère l'ID de l'user à suppr
                   const mailDeleteId = e.currentTarget.dataset.value;
+                  // Supprime la ligne corespondante
                   elem.parentElement.remove();
                   const getMethod = {
                     method: 'GET'
-                    // We send data in JSON format
+                    // Data JSON format
                   }
                   fetch(`delete-user.php?mailToSuppID=${mailDeleteId}`, getMethod)
                   .then(response => {
@@ -51,8 +73,14 @@ function mailList(a){
                     }
                     return response.json();
                   })
+                  divConfirmationContainer.remove();
+                });
+
+                btnNo.addEventListener('click', ()=>{
+                  divConfirmationContainer.remove();
+                });
+
               });
-          });
           // Fin bouton Delete
       }
   // Fin boucle affichage liste adresse mails

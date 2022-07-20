@@ -75,7 +75,6 @@ if (!isset($_SESSION['id'])){
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Injecter PHP ici -->
                 </tbody>
             </table>
             <template id="productrow">
@@ -93,5 +92,14 @@ if (!isset($_SESSION['id'])){
     <div class="more">            
         <button id="btn-show-more">Voir plus</button>
     </div>
+
+    <!-- Modal suppression utilisateur -->
+    <!-- <div id="delete-confirmation-container">
+        <div id="delete-confirmation">
+            <p>Etes-vous sûr de vouloir supprimer cet utilisateur ?</p>
+            <button id="btn-yes">Oui</button>
+            <button id="btn-no">Non</button>
+        </div>
+    </div> -->
 </body>
 </html>

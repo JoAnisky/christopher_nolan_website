@@ -19,7 +19,7 @@ h1{
     letter-spacing: 11px;
     font-size: clamp(1.8rem, 4vw, 3rem);
     text-shadow: 1px 1px 5px var(--black-color);
-    padding-left: 1vw;
+    padding-left: 1.2vw;
 }
 p{
     margin:0;
@@ -230,6 +230,45 @@ td{
 #btn-export-csv:hover{
     cursor: pointer;
     background-color: hsl(215, 83%, 50%); 
+}
+
+/* Delete user modal */
+#delete-confirmation-container{
+    display:flex;
+    z-index:9999;
+    position:fixed;
+    align-items: center;
+    justify-content: center;
+    width:100vw;
+    height:100vh;
+    top:0;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+#delete-confirmation{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    text-align: center;
+    justify-content: space-evenly;
+    padding: 15px;
+    position:relative;
+    background-color: #fafafa;
+    width:25%;
+    height:15%;
+}
+#delete-confirmation > button{
+    background-color:var(--btn-blue);
+    color:#fafafa;
+    border:none;
+    padding:8px 18px;
+    cursor:pointer;
+}
+#btn-yes{
+
+}
+#btn-yes{
+
 }
 @media (max-width: 576px) {
     main{
