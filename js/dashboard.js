@@ -29,10 +29,15 @@ function mailList(a){
           td[1].setAttribute('data-value', `${data[i].date_inscription}`);
 
           td[2].setAttribute('data-value', `${data[i].id}`);
+          td[2].setAttribute('data-mail', `${data[i].email}`);
           tBody.appendChild(clone);
 
           // Bouton delete :: Création fenêtre confirmation au click
-              td[2].addEventListener('click', (e)=> {
+            td[2].addEventListener('click', (e)=> {
+               let mailToSupp = e.currentTarget.dataset.mail;
+                // Récupère l'ID de l'user à suppr
+               let mailDeleteId = e.currentTarget.dataset.value;
+               let rowToSupp = td[2].parentElement;
                 // Création de la fenêtre de confirmation de suppression
                 // DIV container
                 const divConfirmationContainer = document.createElement('DIV');
@@ -42,26 +47,28 @@ function mailList(a){
                 divConfirmation.setAttribute('id', 'delete-confirmation');
                 // Texte de confirmation
                 const textConfirmation = document.createElement('P');
-                textConfirmation.innerText = "Etes-vous sûr de vouloir supprimer cet utilisateur ?";
+                textConfirmation.innerText = `Etes-vous sûr de vouloir supprimer cet utilisateur : ${mailToSupp} ?`;
                 // Bouton Yes
                 const btnYes = document.createElement('BUTTON');
                 btnYes.setAttribute('id','btn-yes');
+                btnYes.textContent = "Oui";
                 // Bouton No
                 const btnNo = document.createElement('BUTTON');
                 btnNo.setAttribute('id','btn-no');
+                btnNo.textContent = "Non";
 
-                textConfirmation.appendChild(divConfirmation);
-                divConfirmationContainer.appendChild(divConfirmation);
-                btnYes.appendChild(divConfirmation);
-                btnNo.appendChild(divConfirmation);
+                divConfirmationContainer.append(divConfirmation);
+                divConfirmation.appendChild(textConfirmation);
+                divConfirmation.appendChild(btnYes);
+                divConfirmation.appendChild(btnNo);
                 document.body.appendChild(divConfirmationContainer);
 
                 // Delete fetch on click "Yes"
-                btnYes.addEventListener('click', () => {
-                  // Récupère l'ID de l'user à suppr
-                  const mailDeleteId = e.currentTarget.dataset.value;
+                btnYes.addEventListener('click', (e) => {
                   // Supprime la ligne corespondante
-                  elem.parentElement.remove();
+                  console.log(mailDeleteId);
+                  console.log(rowToSupp);
+                  rowToSupp.remove();
                   const getMethod = {
                     method: 'GET'
                     // Data JSON format
@@ -80,7 +87,7 @@ function mailList(a){
                   divConfirmationContainer.remove();
                 });
 
-              });
+            });
           // Fin bouton Delete
       }
   // Fin boucle affichage liste adresse mails
