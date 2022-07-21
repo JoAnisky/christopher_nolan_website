@@ -35,7 +35,6 @@ try{
     // Executer la requête
     $deleteMail->execute(['id' => $_GET['mailToSuppID']]);
     // PDO::FETCH_ASSOC permet de créer un tableau associatif
-    // On encode la réponse en json
     if ($deleteMail === false){
         die("Erreur");
     }

@@ -34,9 +34,11 @@ function mailList(a){
 
           // Bouton delete :: Création fenêtre confirmation au click
             td[2].addEventListener('click', (e)=> {
+                // Récupère le mail de l'user à suppr
                let mailToSupp = e.currentTarget.dataset.mail;
                 // Récupère l'ID de l'user à suppr
                let mailDeleteId = e.currentTarget.dataset.value;
+               // Récupère
                let rowToSupp = td[2].parentElement;
                 // Création de la fenêtre de confirmation de suppression
                 // DIV container
@@ -64,25 +66,17 @@ function mailList(a){
                 document.body.appendChild(divConfirmationContainer);
 
                 // Delete fetch on click "Yes"
-                btnYes.addEventListener('click', (e) => {
+                btnYes.addEventListener('click', () => {
                   // Supprime la ligne corespondante
-                  console.log(mailDeleteId);
-                  console.log(rowToSupp);
                   rowToSupp.remove();
                   const getMethod = {
                     method: 'GET'
                     // Data JSON format
                   }
-                  fetch(`delete-user.php?mailToSuppID=${mailDeleteId}`, getMethod)
-                  .then(response => {
-                    if (!response.ok) {
-                      throw new Error(`Error status: ${response.status}`);
-                    }
-                    return response.json();
-                  })
+                  fetch(`delete-user.php?mailToSuppID=${mailDeleteId}`, getMethod);
                   divConfirmationContainer.remove();
                 });
-
+                // Click sur No
                 btnNo.addEventListener('click', ()=>{
                   divConfirmationContainer.remove();
                 });
@@ -99,7 +93,7 @@ mailList(`mail-list.php?value=0`);
 let nbrShowMore = 0;
 const showMoreBtn = document.getElementById('btn-show-more');
 
-showMoreBtn.addEventListener('click', () =>{
+showMoreBtn.addEventListener('click',()=>{
   nbrShowMore = nbrShowMore + 10;
   mailList(`mail-list.php?value=${nbrShowMore}`);
 });
@@ -114,7 +108,8 @@ function isEven(m){
 const orderMail = document.getElementById('order-mail');
 let moduloMail = 0;
 
-orderMail.addEventListener('click', function(){
+// Click pour ordonner les mails
+orderMail.addEventListener('click',()=>{
   moduloMail ++;
   if (!isEven(moduloMail)){
     triAlphaAsc(0);
@@ -123,9 +118,10 @@ orderMail.addEventListener('click', function(){
   }
 });
 
+// Click pour ordonner les dates
 const orderDate = document.getElementById('order-date');
 let moduloDate = 0;
-orderDate.addEventListener('click', function(){
+orderDate.addEventListener('click',()=>{
   moduloDate ++;
   if (!isEven(moduloDate)){
     triAlphaAsc(1);
@@ -133,19 +129,19 @@ orderDate.addEventListener('click', function(){
     triAlphaDesc(1);
   }
 });
-// Tri à bulles croissant de la liste d'adresse mails
+
+// Tri à bulles CROISSANT de la liste d'adresse mails
 function triAlphaAsc(a){
   // Récupère tous les TR contenus dans tbody
   let trRows = document.querySelectorAll(".rows");
-
   // On récupere la balise tbody contenue dans le HTML
   const tBody = document.querySelector('tbody');
   for (let i = 0; i < trRows.length; i ++){ 
+
   let email = trRows[i].querySelector(`.td${a}`).dataset.value;
-
     for (let k = i + 1; k<trRows.length; k++){
-    let emailK = trRows[k].querySelector(`.td${a}`).dataset.value;
 
+    let emailK = trRows[k].querySelector(`.td${a}`).dataset.value;
       if (email > emailK){
         tBody.insertBefore(trRows[k],trRows[i]);
         trRows = document.querySelectorAll(".rows");
@@ -155,11 +151,10 @@ function triAlphaAsc(a){
   }
 };
 
-// Tri à bulles décroissant de la liste d'adresse mails
+// Tri à bulles DECROISSANT de la liste d'adresse mails
 function triAlphaDesc(a){
   // Récupère tous les TR contenus dans tbody
   let trRows = document.querySelectorAll(".rows");
-
   // On récupere la balise tbody contenue dans le HTML
   const tBody = document.querySelector('tbody');
   for (let i = 0; i < trRows.length; i ++){ 
@@ -175,4 +170,28 @@ function triAlphaDesc(a){
       }
     }
   }
+};
+
+const formSearch = document.getElementById('search-form');
+formSearch.addEventListener('submit', function(e){
+  e.preventDefault();
+  search();
+})
+
+function search(){
+  const formDataSearch = new FormData(formSearch);
+  // Lancement de la requête AJAX si tout est OK coté JS
+  fetch('search.php', {
+      method: "POST",
+      body : formDataSearch
+  })
+  .then((response) => {
+    if (response.ok) {
+      return console.log(response.json());
+    }
+    throw new Error('Something went wrong');
+  })
+  .catch((error) => {
+    console.log(error)
+  });
 };

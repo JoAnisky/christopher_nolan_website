@@ -46,13 +46,16 @@ if (!isset($_SESSION['id'])){
             </div>
         </div>
         <div class="table_contain">
-            <div class="research">
-                <label for="mail-search"></label>
-                <input type="search" id="mail-search">
-                    <svg class="search-btn" width="18" height="18" fill="none" viewBox="0 0 16 16">
+
+            <form id="search-form" novalidate>
+                <label for="search"></label>
+                <input type="search" id="search" name="search">
+                <input type="submit" value="Rechercher">
+                    <!-- <svg class="search-btn" width="18" height="18" fill="none" viewBox="0 0 16 16">
                     <path fill="#FAFAFA" fill-rule="evenodd" d="m11.46 10.319 4.304 4.304a.807.807 0 0 1-1.142 1.14L10.32 11.46a6.4 6.4 0 1 1 1.14-1.141h.001Zm-5.06.88a4.8 4.8 0 1 0 0-9.599 4.8 4.8 0 0 0 0 9.6Z" clip-rule="evenodd"/>
-                    </svg>
-            </div>
+                    </svg> -->
+            </form>
+
             <table>
                 <thead>
                     <tr class="table-head">
