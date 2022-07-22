@@ -204,14 +204,32 @@ td{
 #mail-search{
     padding:4px 30px;
 }
-#mail-search:focus{
+#mail-search, .search-icon:focus{
     border:initial;
     box-sizing: border-box;
+}
+/* Search Field */
+.search-style{
+    display:flex;
+    align-items: center;
+}
+.input-search{
+    color:white;
+    background-color: #121212;
+    border: 1px solid #303030;
+    padding:6px 15px;
+}
+.search-icon{
+    padding:3px 15px;
+    border: 1px solid #303030;
+    background-color:#303030;
+}
+.search-icon:hover{
+    cursor:pointer;
+    border: 1px solid #505050;
+    background-color:#505050;
+}
 
-}
-.search-btn{
-    margin-left:10px;
-}
 /* Delete user BTN */
 .btn-del-user{
     width :48px;

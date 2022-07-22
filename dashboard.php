@@ -47,13 +47,14 @@ if (!isset($_SESSION['id'])){
         </div>
         <div class="table_contain">
 
-            <form id="search-form" novalidate>
+            <form id="search-form" class="search-style" novalidate>
                 <label for="search"></label>
-                <input type="search" id="search" name="search">
-                <input type="submit" value="Rechercher">
-                    <!-- <svg class="search-btn" width="18" height="18" fill="none" viewBox="0 0 16 16">
+                <input type="search" id="search" class="input-search" name="search">
+                <button class="search-icon">
+                    <svg class="search-btn" width="18" height="18" fill="none" viewBox="0 0 16 16">
                     <path fill="#FAFAFA" fill-rule="evenodd" d="m11.46 10.319 4.304 4.304a.807.807 0 0 1-1.142 1.14L10.32 11.46a6.4 6.4 0 1 1 1.14-1.141h.001Zm-5.06.88a4.8 4.8 0 1 0 0-9.599 4.8 4.8 0 0 0 0 9.6Z" clip-rule="evenodd"/>
-                    </svg> -->
+                    </svg>
+                </button>
             </form>
 
             <table>
