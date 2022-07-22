@@ -1,7 +1,8 @@
 // Affichage liste des adresses mails de la BDD (mail-list.php)
-function mailList(a){
+function mailList(a,b){
   fetch(a, {
-    method: "GET"
+    method: "POST",
+    body: b,
   })
     .then(response => {
       if (!response.ok) {
@@ -49,7 +50,13 @@ function mailList(a){
                 divConfirmation.setAttribute('id', 'delete-confirmation');
                 // Texte de confirmation
                 const textConfirmation = document.createElement('P');
-                textConfirmation.innerText = `Etes-vous sûr de vouloir supprimer cet utilisateur : ${mailToSupp} ?`;
+                textConfirmation.innerText = `Etes-vous sûr de vouloir supprimer cet utilisateur ? `;
+
+                // Mail à supprimer
+                const mailConfirmation = document.createElement('SPAN');
+                mailConfirmation.innerText= `${mailToSupp}`;
+                mailConfirmation.style.fontWeight = 'bold';
+
                 // Bouton Yes
                 const btnYes = document.createElement('BUTTON');
                 btnYes.setAttribute('id','btn-yes');
@@ -61,6 +68,7 @@ function mailList(a){
 
                 divConfirmationContainer.append(divConfirmation);
                 divConfirmation.appendChild(textConfirmation);
+                textConfirmation.appendChild(mailConfirmation);
                 divConfirmation.appendChild(btnYes);
                 divConfirmation.appendChild(btnNo);
                 document.body.appendChild(divConfirmationContainer);
@@ -69,11 +77,11 @@ function mailList(a){
                 btnYes.addEventListener('click', () => {
                   // Supprime la ligne corespondante
                   rowToSupp.remove();
-                  const getMethod = {
-                    method: 'GET'
+                  const postMethod = {
+                    method: 'POST'
                     // Data JSON format
                   }
-                  fetch(`delete-user.php?mailToSuppID=${mailDeleteId}`, getMethod);
+                  fetch(`delete-user.php?mailToSuppID=${mailDeleteId}`, postMethod);
                   divConfirmationContainer.remove();
                 });
                 // Click sur No
@@ -87,17 +95,24 @@ function mailList(a){
   // Fin boucle affichage liste adresse mails
   });
 }
+// Chargement de la liste au DOM Load
+window.addEventListener('DOMContentLoaded', ()=>{
+  const load = new FormData;
+  load.append("value", 0);
+  mailList(`mail-list.php`, load);
+})
+
 
 // Fetch bouton "VOIR PLUS" adresses mails
-mailList(`mail-list.php?value=0`);
 let nbrShowMore = 0;
 const showMoreBtn = document.getElementById('btn-show-more');
 
 showMoreBtn.addEventListener('click',()=>{
+  const showMore = new FormData;
   nbrShowMore = nbrShowMore + 10;
-  mailList(`mail-list.php?value=${nbrShowMore}`);
+  showMore.append("value", nbrShowMore);
+  mailList(`mail-list.php`, showMore);
 });
-
 
 // Modulo pour le tri croissant/décroissant
 function isEven(m){
@@ -172,26 +187,19 @@ function triAlphaDesc(a){
   }
 };
 
+// Fonction de recherche
 const formSearch = document.getElementById('search-form');
+
 formSearch.addEventListener('submit', function(e){
   e.preventDefault();
-  search();
-})
+  let trRows = document.querySelectorAll(".rows");
 
-function search(){
-  const formDataSearch = new FormData(formSearch);
-  // Lancement de la requête AJAX si tout est OK coté JS
-  fetch('search.php', {
-      method: "POST",
-      body : formDataSearch
-  })
-  .then((response) => {
-    if (response.ok) {
-      return console.log(response.json());
-    }
-    throw new Error('Something went wrong');
-  })
-  .catch((error) => {
-    console.log(error)
+  trRows.forEach(row => {
+    row.remove();
   });
-};
+
+  const search = new FormData(formSearch);
+  console.log(search);
+  mailList('search.php', search);
+
+})

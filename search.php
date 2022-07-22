@@ -1,39 +1,36 @@
 <?php
 // // ***** SCRIPT AFFICHAGE DE LA BDD nolan_newsletter ET LISTE DES EMAILS INSCRITS *****
-
 require('dbconnect.php');
-$search = $_POST['search'];
-echo json_encode($search);
 
-// Créer la reqûete SQL
-// $sqlSelectMails = 'SELECT id,email,date_inscription FROM subscribes LIMIT 10 OFFSET :nbr';
-// Tester la requête vers la BDD
-// try{
-//     // Initialise un objet PDO avec les données de connexions transmises depuis le fichier .env
-//     $bdd = new PDO("mysql:dbname=$DB_NAME;host=$DB_HOST;charset=$DB_CHAR", $DB_USER, $DB_PASS, [
-//         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-//         ]
-//     );
+if (isset($_POST['search']) && !empty($_POST['search'])){
+    $search = htmlspecialchars($_POST['search']);
+    // Tester la requête vers la BDD
+    try{
+        // Initialise un objet PDO avec les données de connexions transmises depuis le fichier .env
+        $bdd = new PDO("mysql:dbname=$DB_NAME;host=$DB_HOST;charset=$DB_CHAR", $DB_USER, $DB_PASS, [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ]
+        );
+        // Créer la reqûete SQL
+        $sqlSelectMails = 'SELECT id,email,date_inscription FROM subscribes WHERE email LIKE :search';
 
-//     // Préparer la reqûete dans la base de données
-//     $mailList = $bdd->prepare($sqlSelectMails);
-//     $mailList->bindParam(':nbr', $showMore, PDO::PARAM_INT);
-//     // Executer la requête
-//     $mailList->execute();
+        // Préparer la reqûete dans la base de données
+        $sql = $bdd->prepare($sqlSelectMails);
 
-//     // Boucle dans la bdd
-//     $result = $mailList->fetchAll(PDO::FETCH_ASSOC);
+        $sql->bindValue(':search','%'.$search.'%', PDO::PARAM_STR);
+        // Executer la requête
+        $sql->execute();
+        // Boucle dans la bdd
+        $search = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-//     // PDO::FETCH_ASSOC permet de créer un tableau associatif
+        // PDO::FETCH_ASSOC permet de créer un tableau associatif
 
-//     // On encode la réponse en json
-//     echo json_encode($result);
+        // On encode la réponse en json
+        print json_encode($search);
 
-//     if ($mailList === false){
-//         die("Erreur");
-//     }
+    // Attraper l'erreur si la connexion a la BDD Echoue
+    }catch(PDOExeption $e){
+        echo $e->getMessage();
+    }
 
-// // Attraper l'erreur si la connexion a la BDD Echoue
-// }catch(PDOExeption $e){
-//     echo $e->getMessage();
-// }
+}

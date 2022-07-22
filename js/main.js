@@ -317,7 +317,6 @@ const label = document.querySelector("label");
 form.addEventListener("submit", function(e){
     e.preventDefault();
     if (inputMail.validity.valueMissing){
-
         label.textContent = "Ce champ ne peut pas être vide !";
         label.style.color = "red";
         inputMail.style.border = "1px solid red";

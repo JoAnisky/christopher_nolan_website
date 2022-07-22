@@ -2,7 +2,7 @@
 // // ***** SCRIPT AFFICHAGE DE LA BDD nolan_newsletter ET LISTE DES EMAILS INSCRITS *****
 
 require('dbconnect.php');
-$showMore = $_GET['value'];
+$showMore = $_POST['value'];
 // Créer la reqûete SQL
 $sqlSelectMails = 'SELECT id,email,date_inscription FROM subscribes LIMIT 10 OFFSET :nbr';
 // Tester la requête vers la BDD
@@ -25,7 +25,7 @@ try{
     // PDO::FETCH_ASSOC permet de créer un tableau associatif
 
     // On encode la réponse en json
-    echo json_encode($result);
+    print json_encode($result);
 
     if ($mailList === false){
         die("Erreur");
