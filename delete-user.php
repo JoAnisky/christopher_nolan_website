@@ -30,10 +30,10 @@ try{
     // Préparer la reqûete dans la base de données
     $deleteMail = $bdd->prepare("DELETE FROM subscribes WHERE id=:id");
 
-    $deleteMail->bindParam(':id', $_POST['mailToSuppID'], PDO::PARAM_INT);
+    $deleteMail->bindParam(':id', $_GET['mailToSuppID'], PDO::PARAM_INT);
 
     // Executer la requête
-    $deleteMail->execute(['id' => $_POST['mailToSuppID']]);
+    $deleteMail->execute(['id' => $_GET['mailToSuppID']]);
     // PDO::FETCH_ASSOC permet de créer un tableau associatif
     if ($deleteMail === false){
         die("Erreur");
