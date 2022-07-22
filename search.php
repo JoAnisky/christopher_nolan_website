@@ -29,7 +29,7 @@ if (isset($_POST['search']) && !empty($_POST['search'])){
         print json_encode($search);
 
     // Attraper l'erreur si la connexion a la BDD Echoue
-    }catch(PDOExeption $e){
+    }catch(Exception $e){
         echo $e->getMessage();
     }
 

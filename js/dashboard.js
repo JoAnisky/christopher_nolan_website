@@ -60,11 +60,11 @@ function mailList(a,b){
                 // Bouton Yes
                 const btnYes = document.createElement('BUTTON');
                 btnYes.setAttribute('id','btn-yes');
-                btnYes.textContent = "Oui";
+                btnYes.textContent = "SUPPRIMER";
                 // Bouton No
                 const btnNo = document.createElement('BUTTON');
                 btnNo.setAttribute('id','btn-no');
-                btnNo.textContent = "Non";
+                btnNo.textContent = "RETOUR";
 
                 divConfirmationContainer.append(divConfirmation);
                 divConfirmation.appendChild(textConfirmation);
@@ -72,16 +72,31 @@ function mailList(a,b){
                 divConfirmation.appendChild(btnYes);
                 divConfirmation.appendChild(btnNo);
                 document.body.appendChild(divConfirmationContainer);
-
+                let delStatus = document.getElementById('del-status');
                 // Delete fetch on click "Yes"
                 btnYes.addEventListener('click', () => {
+                  toast();
                   // Supprime la ligne corespondante
                   rowToSupp.remove();
                   const postMethod = {
                     method: 'POST'
                     // Data JSON format
                   }
-                  fetch(`delete-user.php?mailToSuppID=${mailDeleteId}`, postMethod);
+                  fetch(`delete-user.php?mailToSuppID=${mailDeleteId}`, postMethod)
+                  .then(response => {
+                    if (!response.ok) {
+                      throw new Error(`Error status: ${response.status}`);
+                    }
+                    return response.json();
+                  })
+                  .then(response=> {
+                    if(response[0] == true){
+                      delStatus.innerText = "Utilisateur supprimé";
+                    }else{
+                      console.log('pas supprimé');
+                      delStatus.innerText = "Un problème est survenu";
+                    }
+                });
                   divConfirmationContainer.remove();
                 });
                 // Click sur No
@@ -102,11 +117,19 @@ window.addEventListener('DOMContentLoaded', ()=>{
   mailList(`mail-list.php`, load);
 })
 
+function toast(){
+  const snackbar = document.getElementById("snackbar");
+  snackbar.className = "show";
+  setTimeout(
+    function(){
+      snackbar.className = snackbar.className.replace("show", ""); 
+    }, 
+  3000);
+};
 
 // Fetch bouton "VOIR PLUS" adresses mails
 let nbrShowMore = 0;
 const showMoreBtn = document.getElementById('btn-show-more');
-
 showMoreBtn.addEventListener('click',()=>{
   const showMore = new FormData;
   nbrShowMore = nbrShowMore + 10;
@@ -189,17 +212,17 @@ function triAlphaDesc(a){
 
 // Fonction de recherche
 const formSearch = document.getElementById('search-form');
-
-formSearch.addEventListener('submit', function(e){
+formSearch.addEventListener('keyup', function(e){
   e.preventDefault();
-  let trRows = document.querySelectorAll(".rows");
 
-  trRows.forEach(row => {
-    row.remove();
-  });
-
-  const search = new FormData(formSearch);
-  console.log(search);
-  mailList('search.php', search);
-
+  // if (!e.key === "Enter"){
+    let trRows = document.querySelectorAll(".rows");
+    trRows.forEach(row => {
+      row.remove();
+    });
+  
+    const search = new FormData(formSearch);
+    console.log(search);
+    mailList('search.php', search);
+  
 })

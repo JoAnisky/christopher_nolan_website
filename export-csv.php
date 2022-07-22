@@ -11,7 +11,7 @@ try{
     );
 
 // Attraper l'erreur si la connexion a la BDD Echoue
-}catch(PDOExeption $e){
+}catch(Exception $e){
     echo $e->getMessage();
 }
 

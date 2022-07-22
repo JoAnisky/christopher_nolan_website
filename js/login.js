@@ -26,11 +26,8 @@ function ajaxResponse(){
         body : formData
     }).then(response => response.json())
     .then(response=> {
-
-        console.log(response);
         incorrect.innerText = response.reponse;
         if(response[0] !== true){
-            console.log("reponse fausse");
             incorrect.innerText = response.reponse;
         }else{
             window.location.assign("dashboard.php");

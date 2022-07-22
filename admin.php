@@ -41,7 +41,7 @@ if(isset($_POST['login']) && isset($_POST['password']) && !empty($_POST['login']
             $response = array("reponse"=>"Pseudo ou mot de passe incorrect", $bool=false);
             echo json_encode($response);
         }
-    }catch(PDOExeption $e){
+    }catch(Exception $e){
         echo $e->getMessage();
     }
 }else{

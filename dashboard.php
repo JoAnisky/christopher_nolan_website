@@ -26,7 +26,6 @@ if (!isset($_SESSION['id'])){
         <script src="js/dashboard.js" defer></script>
     </head>
 <body>
-
     <main>
     <h1 class="title"><a href="index.html">Nolan</a></h1>
         <div class="dash_up_container">
@@ -46,7 +45,6 @@ if (!isset($_SESSION['id'])){
             </div>
         </div>
         <div class="table_contain">
-
             <form id="search-form" class="search-style" novalidate>
                 <label for="search"></label>
                 <input type="search" id="search" class="input-search" name="search">
@@ -56,7 +54,6 @@ if (!isset($_SESSION['id'])){
                     </svg>
                 </button>
             </form>
-
             <table>
                 <thead>
                     <tr class="table-head">
@@ -96,14 +93,6 @@ if (!isset($_SESSION['id'])){
     <div class="more">            
         <button id="btn-show-more">Voir plus</button>
     </div>
-
-    <!-- Modal suppression utilisateur -->
-    <!-- <div id="delete-confirmation-container">
-        <div id="delete-confirmation">
-            <p>Etes-vous sûr de vouloir supprimer cet utilisateur ?</p>
-            <button id="btn-yes">Oui</button>
-            <button id="btn-no">Non</button>
-        </div>
-    </div> -->
+    <div id="snackbar"><span id="del-status"></span></div>
 </body>
 </html>
