@@ -34,15 +34,15 @@ try{
         $response = true;
 
         // Encode la réponse au format JSON pour être reçu par JS
-        print json_encode($response);
+        echo json_encode($response);
     }else{
         $response = false;
-        print json_encode($response);
+        echo json_encode($response);
     }
 
-// Attraper l'erreur si la connexion a la BDD printue
+// Attraper l'erreur si la connexion a la BDD Echoue
 }catch(Exception $e){
     $response = false;
-    print json_encode($response);
+    echo json_encode($response);
 }
 ?>

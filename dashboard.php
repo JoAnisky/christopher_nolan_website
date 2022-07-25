@@ -57,7 +57,9 @@ if (!isset($_SESSION['id'])){
             <table>
                 <thead>
                     <tr class="table-head">
-                        <td>Inscriptions - <span id="total-mail"></span></td>
+                        <td>Affichage
+                            <p id="mail-count">0 /<span id="total-mail"></span></p>
+                        </td>
                         <td colspan="2">
                             <button type="submit" id="btn-export-csv"><a href="export-csv.php">Export .CSV</a></button>
                         </td>
@@ -92,6 +94,8 @@ if (!isset($_SESSION['id'])){
     </main>    
     <div class="more">            
         <button id="btn-show-more">Voir plus</button>
+        <div>
+        </div>
     </div>
     <div id="snackbar"><span id="del-status"></span></div>
 </body>

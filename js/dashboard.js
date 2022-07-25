@@ -91,12 +91,10 @@ function mailList(a,b){
                   })
                   .then(response=> {
                     if(response == true){
-                      console.log(response[0]);
                       delStatus.innerText = "Utilisateur supprimé";
                       totalMail();
-                      totalMailNbr.textContent = totalResponse -1;
+                      totalMailNbr.textContent = this.textContent -1;
                     }else{
-                      console.log('pas supprimé');
                       delStatus.innerText = "Un problème est survenu";
                     }
                 });
@@ -113,15 +111,21 @@ function mailList(a,b){
   // Fin boucle affichage liste adresse mails
   });
 }
+const totalMailNbr = document.getElementById('total-mail');
+const mailView = document.getElementById('mail-count');
+
+function mailViewed(){
+  
+}
 // Chargement de la liste au DOM Load
 window.addEventListener('DOMContentLoaded', ()=>{
   const load = new FormData;
   load.append("value", 0);
   mailList(`mail-list.php`, load);
+  mailViewed();
+  totalMail();
 })
 
-let totalMailNbr = document.getElementById('total-mail');
-totalMail();
 function totalMail(){
   fetch('total-mail.php')
   .then(response => {
@@ -132,7 +136,6 @@ function totalMail(){
   })
   .then(totalResponse=> {
     let totalMailResponse = Number(totalResponse);
-    console.log(typeof totalMailResponse);
     totalMailNbr.textContent = totalResponse;
   })
 }

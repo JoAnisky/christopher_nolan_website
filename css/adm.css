@@ -122,6 +122,9 @@ input:focus{
     position:fixed;
     bottom:10px;
 }
+#total-mail{
+    font-weight:bold;
+}
 #btn-show-more{
     cursor:pointer;
     padding:5px 10px;
