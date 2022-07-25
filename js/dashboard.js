@@ -90,8 +90,11 @@ function mailList(a,b){
                     return response.json();
                   })
                   .then(response=> {
-                    if(response[0] == true){
+                    if(response == true){
+                      console.log(response[0]);
                       delStatus.innerText = "Utilisateur supprimé";
+                      totalMail();
+                      totalMailNbr.textContent = totalResponse -1;
                     }else{
                       console.log('pas supprimé');
                       delStatus.innerText = "Un problème est survenu";
@@ -116,6 +119,23 @@ window.addEventListener('DOMContentLoaded', ()=>{
   load.append("value", 0);
   mailList(`mail-list.php`, load);
 })
+
+let totalMailNbr = document.getElementById('total-mail');
+totalMail();
+function totalMail(){
+  fetch('total-mail.php')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Error status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(totalResponse=> {
+    let totalMailResponse = Number(totalResponse);
+    console.log(typeof totalMailResponse);
+    totalMailNbr.textContent = totalResponse;
+  })
+}
 
 function toast(){
   const snackbar = document.getElementById("snackbar");
@@ -150,9 +170,11 @@ let moduloMail = 0;
 orderMail.addEventListener('click',()=>{
   moduloMail ++;
   if (!isEven(moduloMail)){
+    orderMail.style.transform = "rotate(0)";
     triAlphaAsc(0);
   }else{
     triAlphaDesc(0);
+    orderMail.style.transform = "rotate(180deg)";
   }
 });
 
@@ -162,8 +184,10 @@ let moduloDate = 0;
 orderDate.addEventListener('click',()=>{
   moduloDate ++;
   if (!isEven(moduloDate)){
+    orderDate.style.transform = "rotate(0)";
     triAlphaAsc(1);
   }else{
+    orderDate.style.transform = "rotate(180deg)";
     triAlphaDesc(1);
   }
 });
@@ -212,17 +236,13 @@ function triAlphaDesc(a){
 
 // Fonction de recherche
 const formSearch = document.getElementById('search-form');
-formSearch.addEventListener('keyup', function(e){
+formSearch.addEventListener('submit', function(e){
   e.preventDefault();
-
-  // if (!e.key === "Enter"){
     let trRows = document.querySelectorAll(".rows");
     trRows.forEach(row => {
       row.remove();
     });
-  
     const search = new FormData(formSearch);
     console.log(search);
     mailList('search.php', search);
-  
 })

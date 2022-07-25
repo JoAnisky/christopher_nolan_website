@@ -153,6 +153,12 @@ main{
     column-gap: 15px;
 }
 /* Table */
+#order-mail{
+    transform: rotate(180deg);
+}
+#order-date{
+    transform: rotate(180deg);
+}
 .table_contain{
     display: flex;
     flex-direction: column;
@@ -293,7 +299,7 @@ to {bottom: 0; opacity: 0;}
 }
 #btn-export-csv:hover{
     cursor: pointer;
-    background-color: hsl(215, 83%, 50%); 
+    background-color: #166ee9; 
 }
 
 /* Delete user modal */

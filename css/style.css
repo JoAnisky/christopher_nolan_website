@@ -704,6 +704,9 @@ input:focus::placeholder{
     text-transform: none;
     color: var(--white-color);
 }
+.foot-components a:hover{
+    text-decoration: underline;
+}
 .sitemap{
     display:flex;
     flex-direction: column;

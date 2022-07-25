@@ -57,7 +57,7 @@ if (!isset($_SESSION['id'])){
             <table>
                 <thead>
                     <tr class="table-head">
-                        <td>Inscriptions</td>
+                        <td>Inscriptions - <span id="total-mail"></span></td>
                         <td colspan="2">
                             <button type="submit" id="btn-export-csv"><a href="export-csv.php">Export .CSV</a></button>
                         </td>
