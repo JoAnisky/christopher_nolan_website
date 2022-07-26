@@ -26,6 +26,15 @@ if (!isset($_SESSION['id'])){
         <script src="js/dashboard.js" defer></script>
     </head>
 <body>
+    <!-- Go UP Logo displayed main.js -->
+    <div class="scrollUp">
+        <a href="#top">
+            <svg width="38" fill="none" viewBox="0 0 58 58">
+                <circle cx="29" cy="29" r="29" fill="#454545"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-width="4" d="m17 37 12.82-15L42 37"/>
+            </svg>
+        </a>
+    </div>
     <main>
     <h1 class="title"><a href="index.html">Nolan</a></h1>
         <div class="dash_up_container">
@@ -58,7 +67,13 @@ if (!isset($_SESSION['id'])){
                 <thead>
                     <tr class="table-head">
                         <td>Affichage
-                            <p id="mail-count">0 /<span id="total-mail"></span></p>
+                            <div id="viewed">
+                                <p> 
+                                    <span id="mail-count"></span>
+                                    /
+                                    <span id="total-mail"></span>
+                                </p>
+                            </div>       
                         </td>
                         <td colspan="2">
                             <button type="submit" id="btn-export-csv"><a href="export-csv.php">Export .CSV</a></button>
@@ -92,7 +107,7 @@ if (!isset($_SESSION['id'])){
 
         </div>
     </main>    
-    <div class="more">            
+    <div id="div-more" class="more">            
         <button id="btn-show-more">Voir plus</button>
         <div>
         </div>
