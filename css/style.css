@@ -228,6 +228,9 @@ p.nolan-title{
     right: 5px;
     z-index:9999;
 }
+.scrollUp:hover{
+    opacity:1;
+}
 .scrollUp .visible{
 transform: scale(1.2);
 }
