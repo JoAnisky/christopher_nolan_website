@@ -1,3 +1,6 @@
+const mailView = document.getElementById('mail-count');
+const totalMailNbr = document.getElementById('total-mail');
+const divMore = document.getElementById('div-more');
 // Affichage liste des adresses mails de la BDD (mail-list.php)
 function mailList(a,b){
   fetch(a, {
@@ -8,6 +11,13 @@ function mailList(a,b){
       if (!response.ok) {
         throw new Error(`Error status: ${response.status}`);
       }
+
+      let mailCount = response.headers.get('nbr');
+      let mailTotal = response.headers.get('nbrTotal');
+      mailView.textContent = mailCount;
+      totalMailNbr.textContent = mailTotal;
+      removeShowMore(mailCount,mailTotal);
+
       return response.json();
     })
     .then(data => {
@@ -111,33 +121,28 @@ function mailList(a,b){
   // Fin boucle affichage liste adresse mails
   });
 }
-const totalMailNbr = document.getElementById('total-mail');
-const mailView = document.getElementById('mail-count');
 
-function mailViewed(){
-  
-}
 // Chargement de la liste au DOM Load
 window.addEventListener('DOMContentLoaded', ()=>{
   const load = new FormData;
   load.append("value", 0);
   mailList(`mail-list.php`, load);
-  mailViewed();
-  totalMail();
+})
+// ScrollUp
+const scrollUp = document.querySelector('.scrollUp');
+window.addEventListener("scroll", function(){
+    if(window.scrollY > 300){
+        scrollUp.style.display = "block";
+        scrollUp.classList.add("visible");
+    }else if (window.scrollY < 300){
+        scrollUp.style.display = "none";
+    }
 })
 
-function totalMail(){
-  fetch('total-mail.php')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`Error status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(totalResponse=> {
-    let totalMailResponse = Number(totalResponse);
-    totalMailNbr.textContent = totalResponse;
-  })
+function removeShowMore(a, b){
+  if(a == b){
+    divMore.remove();
+  }
 }
 
 function toast(){

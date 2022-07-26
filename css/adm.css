@@ -4,6 +4,9 @@
     --light-blue: #2D7CEC;
     --btn-blue: #1463D3;
 }
+html{
+    scroll-behavior:smooth;
+}
 body{
     margin:0;
     padding:0;
@@ -122,8 +125,12 @@ input:focus{
     position:fixed;
     bottom:10px;
 }
+/* Mail viewed */
+#viewed{
+    display: flex;
+}
 #total-mail{
-    font-weight:bold;
+    font-weight: bold;
 }
 #btn-show-more{
     cursor:pointer;
@@ -139,6 +146,23 @@ input:focus{
     font-weight:500;
     opacity:1;
 }
+/* ScrollUp */
+/* UP arrow */
+.scrollUp{
+    display:none;
+    position: fixed;
+    bottom : 35px;
+    opacity:0.5;
+    right: 7px;
+    z-index:9999;
+}
+.scrollUp:hover{
+    opacity:1;
+}
+.scrollUp .visible{
+    transform: scale(1.2);
+}
+
 /* Dashboard */
 main{
     padding:0 45px;
