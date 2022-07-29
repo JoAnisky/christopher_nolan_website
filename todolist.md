@@ -1,25 +1,24 @@
 **Nolan Website To Do List**
 
 __General__
-- [ ] Reponsive mobile : 
-- [x] Ajout du menu burger
-- [ ] Responsive tablette
 
 __Header__
-- [ ] Effet : le texte "Nolan" devient un lien homepage avec animation dans le menu navBar
-- [x] Trait menu navBar suit la page en cours
+
+- [ ] Effet Nolan - Animation inverse 
+- [ ] Animation mobile/tablette à régler
 
 __Section Who Is__
 
 __Section Coming soon__
-- [ ] Etendre la fonction d'agrandissement aux deux div
 
 __Section movies__
 - [ ] Fonction pour creer une DIV au click sur un film
-- [ ] Navigation gauche/droite/sortie
 
 __Section Gallery__
-- [ ] Agrandissement de l'image au click.
 - [ ] Ajout d'une description de la photo
-- [ ] Navigation gauche/droite/sortie.
-- [ ] Régler pb d'images invisibles en mobile
+
+
+**BackOffice**
+
+- [ ] Cryptage du mot de passe dans la BDD
+- [ ] Affichage de la liste des adresses mails inscrites

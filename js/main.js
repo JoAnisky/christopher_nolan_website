@@ -1,17 +1,25 @@
 const body = document.body;
 // Menu navBar active links
-
 const menuLinks = document.querySelectorAll('.links');
 const sections = document.querySelectorAll('section');
 
+// Menu - Burger
 function activeMenu(){
     let len=sections.length;
-    while(--len && window.scrollY + 100 < sections[len].offsetTop){}
+    while(--len && window.scrollY + 200 < sections[len].offsetTop){}
     menuLinks.forEach(ltx => ltx.classList.remove("active-link"));
-    menuLinks[len].classList.add("active-link")
+    menuLinks[len].classList.add("active-link");
 }
-activeMenu();
-window.addEventListener("scroll", activeMenu)
+const scrollUp = document.querySelector('.scrollUp');
+window.addEventListener("scroll", function(){
+    activeMenu();
+    if(window.scrollY > 300){
+        scrollUp.style.display = "block";
+        scrollUp.classList.add("visible");
+    }else if (window.scrollY < 300){
+        scrollUp.style.display = "none";
+    }
+})
 // End active links 
 
 // Menu - Burger
@@ -29,12 +37,9 @@ link.addEventListener('click', function(e){
     e.preventDefault()
     burger.classList.toggle('open');
 
-    console.log(mouseClick);
-
     if(!isEven(mouseClick)){
         ul.classList.remove('close');    
         ul.classList.add('active');
-    console.log("impair");
     }else{
         ul.classList.remove('active');
         ul.classList.add('close');
@@ -44,44 +49,85 @@ link.addEventListener('click', function(e){
 
 
 // Section 1 "Header"
-var intElemScrollTop = body.scrollTop;
+
+// Script logo UP (remonter la page)
+// jQuery(function(){
+//     $(function () {
+//         $(window).scroll(function () {
+//             if ($(this).scrollTop() > 200 ) { 
+//                 $('#scrollUp').css('right','10px');
+//             } else { 
+//                 $('#scrollUp').removeAttr( 'style' );
+//             }
+//         });
+//     });
+// });
+
+// Intersection Observer for HEADER
+const header = document.querySelector('header');
+const titleH1 = document.querySelector('.title');
+const titleNavbar = document.querySelector('.container-nolan-title_navbar');
+const titleNavbarText = document.querySelector('.nolan-title_navbar');
+
+// // On crée l'observer avant toute chose, l'ordre est important !!
+let observer = new IntersectionObserver(function(entries){
+    for (let entrie of entries){
+        if (entrie.intersectionRatio < 0.52 && header.offsetWidth > 450){
+            titleNavbar.style.display ="flex";
+            titleNavbarText.classList.toggle('--active');
+            titleH1.classList.toggle('title--active');
+        }else{
+            titleNavbar.style.display ="none";
+            titleNavbarText.classList.remove('--active');
+            titleH1.classList.remove('title--active');
+        }  
+    }
+}, {
+    threshold: 0.52
+// Les paramètres d'intersection ICI
+});
+observer.observe(header);
 
 // Section 2 "COMING SOON"
-const btn1 = document.getElementById("btn1");
-const btn2 = document.getElementById("btn2");
+const btnsReadMore = document.querySelectorAll('.btn-read-more');
 const videoDescContainer = document.querySelector('.video-desc_container');
 const videoPlayer = document.querySelector('.video-player');
 const videoDesc = document.querySelector('.video-desc');
 
 // Fonction qui lance l'animation au click sur le bouton "Read More"
 
-function readMore(){
-    //Si le bouton Contient "Read More"
-    if(btn1.innerHTML === "en savoir plus"){
-        // Action à réaliser si la condition est vraie :
-        videoDesc.style.overflow ='visible';
-        btn1.innerText = "Ok";
+// Fonction qui lance l'animation au click sur le bouton "Read More"
+
+function readMore(btnReadMore, index){
+    //Selection des container
+    const containersDescriptionVideo = document.querySelectorAll('.video-desc_container');
+    const videoPlayers = document.querySelectorAll('.video-player');
+
+    if( btnReadMore.dataset.position === "0" ){
+        btnReadMore.innerText = "Ok";
+        containersDescriptionVideo[index].style.overflow = 'visible';
+        containersDescriptionVideo[index].classList.remove('desc_right_anim');
+        containersDescriptionVideo[index].classList.add('desc_left_anim');
+        videoPlayers[index].classList.add('video_right_anim');
+        videoPlayers[index].classList.remove('video_left_anim');
+        btnReadMore.dataset.position = "1";
     }else{
-        videoDesc.style.overflow ='hidden';
-        btn1.innerText = "en savoir plus"
-    };
-    // Si vidéo description contient la classe desc-left-anim
-    if (videoDescContainer.classList.contains('desc_left_anim')){
-    // supprime la classe desc-left-anim
-        videoDescContainer.classList.remove('desc_left_anim')
-    // et ajoute la classe desc-left-anim (animation inverse)
-        videoDescContainer.classList.toggle("desc_right_anim");
+        btnReadMore.innerText = "en savoir plus";
+        containersDescriptionVideo[index].style.overflow = 'hidden';
+        containersDescriptionVideo[index].classList.add('desc_right_anim');
+        containersDescriptionVideo[index].classList.remove('desc_left_anim');
+        videoPlayers[index].classList.add('video_left_anim');
+        videoPlayers[index].classList.remove('video_right_anim');
+        btnReadMore.dataset.position = "0";
     }
-    if (videoPlayer.classList.contains('video_right_anim')){
-        videoPlayer.classList.remove('video_right_anim')
-        videoPlayer.classList.toggle("video_left_anim");
-    }
-videoDescContainer.classList.toggle("desc_left_anim");
-videoPlayer.classList.toggle("video_right_anim");
+
 }
 
-btn1.addEventListener('click', readMore);
-btn2.addEventListener('click', readMore);
+btnsReadMore.forEach( (btnReadMore, index) =>{
+    btnReadMore.addEventListener('click', function(){
+        readMore( this, index );
+    });
+});
      
 // SECTION 3 - MOVIES
 
@@ -129,18 +175,7 @@ fetch("js/movies.json").then((response) => {
     });
 });
 
-/* SECTION 3 - MOVIES  Parallax Test
-
-Parallax Test
-movieCard.addEventListener("mousemove", parallax);
-function parallax(e){
-    document.querySelectorAll(".object").forEach(function(move){
-        var moving_value = move.getAttribute("data-value");
-        var x = e.clientX * moving_value /800;
-        var y = e.clientY * moving_value /800;
-        move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
-    });
-}
+/* SECTION 3 - MOVIES
 
 On click movie
 function togg(){
@@ -156,7 +191,7 @@ function togg(){
 //       d1.style.display = "flex"
 //       exitCross.style.display = "flex";
 
-//       if (event.target.closest(".movie-card"))return
+//       if (event.target.cl osest(".movie-card"))return
 //       // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
 // })
 
@@ -168,7 +203,148 @@ function togg(){
 //       // Si l'utilisateur clique en dehors de l'élément, alors faire ceci
 // })
 
-// document.addEventListener('keypress', logKey);
-// function logKey(e) {
-//   console.log(` ${e.code}`);
-// }
+
+// Section 4 Image Gallery
+const vignettes = document.querySelectorAll('.gal-pict');
+const fullImgContain = document.getElementById('full-img-contain');
+const fullImgContainer = document.getElementById('full-img-container');
+const fullImgExit = document.querySelector('.full-img-exit_cross');
+const rightArrow = document.getElementById('arrow-right');
+const leftArrow = document.getElementById('arrow-left');
+const fullImg = document.createElement('IMG');
+
+let listImg = "";
+fetch('js/galery.json')
+    .then( (response) => {
+        return response.json();
+    })
+    .then((galeryImg) => {
+        listImg = galeryImg;
+        vignettes.forEach(item => {
+            item.addEventListener('click', function () {
+                for (let i = 0; i < galeryImg.length; i++) {
+                    if (item.getAttribute('src') === galeryImg[i].min) {
+                        if (!document.getElementById('full')) {
+                            fullImg.setAttribute('src', galeryImg[i].full);
+                            fullImg.setAttribute('id', 'full');
+                            fullImgContain.append(fullImg);
+                            fullImgContainer.style.display = 'flex';
+                            fullImgExit.style.display = "flex";
+                            fullImgContain.dataset.indexpicture = i;
+                        } else {
+                            fullImgContain.replaceChildren(fullImg);
+                        }
+                    }
+                }
+            });
+        });
+    });
+
+    rightArrow.addEventListener('click', function(){
+
+        const currentIndex = parseInt(fullImgContain.dataset.indexpicture, 10);
+        let lastIndex = null;
+        if( currentIndex === (vignettes.length - 1) ){
+            lastIndex = 0;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }else{
+            lastIndex = currentIndex + 1;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }
+        fullImgContain.dataset.indexpicture = lastIndex;
+    });
+
+    leftArrow.addEventListener('click', function(){
+        const currentIndex = parseInt(fullImgContain.dataset.indexpicture, 10);
+        let lastIndex = null;
+        if( currentIndex === 0 ){
+            lastIndex = vignettes.length - 1;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }else{
+            lastIndex = currentIndex - 1;
+            fullImg.setAttribute('src', listImg[lastIndex].full);
+        }
+        fullImgContain.dataset.indexpicture = lastIndex;
+    });
+
+
+fullImgExit.addEventListener('click', function(){
+    i=0;
+    fullImgContainer.style.display = 'none';
+    fullImgExit.style.display = "none";
+    rightArrow.style.display="block";
+    leftArrow.style.display = "block";
+    fullImg.remove();
+});
+
+const carouselGal = document.getElementById('carousel-gal');
+// Section 4 Reponsive Galery
+fetch('js/galery.json').then((response) => {
+    response.json().then((imgFile) => {
+        for (let i=0; i<imgFile.length; i++){
+
+            // Div for IMG
+            let pictureCardDiv = document.createElement('DIV');
+            pictureCardDiv.setAttribute('class', 'picture-card');
+
+            // List Item
+            let listItem = document.createElement('LI');
+            listItem.setAttribute('class', 'gallery-list-img');
+
+            // Img creation
+            let responsiveImg = document.createElement('IMG');
+            responsiveImg.setAttribute('src', imgFile[i].mobile.url);
+            responsiveImg.setAttribute('width', imgFile[i].mobile.width);
+            responsiveImg.setAttribute('height', imgFile[i].mobile.height);
+            responsiveImg.setAttribute('alt', imgFile[i].mobile.alt);
+
+            // Insertion des éléments
+            carouselGal.append(listItem);
+            listItem.append(pictureCardDiv);
+            pictureCardDiv.append(responsiveImg);
+
+        };
+    });
+});
+
+// Section Footer 
+
+//***** FORMULAIRE NEWSLETTER ***//
+const form = document.getElementById("newsletter-form");
+const inputMail = document.getElementById("mail-input");
+const label = document.querySelector("label");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (inputMail.validity.valueMissing){
+        label.textContent = "Ce champ ne peut pas être vide !";
+        label.style.color = "red";
+        inputMail.style.border = "1px solid red";
+    }else if (inputMail.validity.typeMismatch){
+
+        label.textContent = "Adresse mail non valide";
+        label.style.color = "red";
+        inputMail.style.border = "1px solid red";
+
+    }else{
+        ajaxResponse();
+        label.textContent = "Merci de votre inscription !";
+        label.style.color = '#15ff00';
+        inputMail.style.border = "2px solid #15ff00";
+        inputMail.value = " ";
+    }
+});
+
+
+function ajaxResponse(){
+    const formData = new FormData(form);
+    // Lancement de la requête AJAX si tout est OK coté JS
+    fetch('add.php', {
+        method: "POST",
+        body : formData
+    })
+    .then(response => response.text())
+    .then(response=> {
+        console.log(response);
+    });
+};

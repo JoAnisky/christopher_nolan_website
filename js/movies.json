@@ -2,7 +2,7 @@
   {
     "title": "Tenet",
     "poster": {
-        "url":"../img/movies/affiche-tenet.jpg",
+        "url":"img/movies/affiche-tenet.webp",
         "width":"263",
         "height":"357",
         "alt":"Affiche du film Tenet sorti en 2021 en France montrant le héros du film"
@@ -12,7 +12,7 @@
     {  
       "title": "Dunkerque",
       "poster": {
-          "url":"../img/movies/affiche-dunkerque.jpg",
+          "url":"img/movies/affiche-dunkerque.webp",
           "width":"263",
           "height":"354",
           "alt":"Affiche du film Dunkerque montrant le héros en position de bataille"
@@ -22,7 +22,7 @@
   {
       "title": "Inception",
       "poster": {
-          "url":"../img/movies/affiche-inception.jpg",
+          "url":"img/movies/affiche-inception.webp",
           "width":"264",
           "height":"354",
           "alt":"Affiche du film Inception"
@@ -32,9 +32,9 @@
   {
       "title": "Interstellar",
       "poster": {
-          "url":"../img/movies/affiche-interstellar.jpg",
-          "width":"264",
-          "height":"354",
+          "url":"img/movies/affiche-interstellar.webp",
+          "width":"263",
+          "height":"356",
           "alt":"Affiche du film Interstellar montrant l'univers et un personnage devant un puits de lumière"
         },
       "description": "La Terre est devenue hostile pour l'Homme. Un groupe d'explorateurs utilise une faille récemment découverte dans l'espace-temps pour tenter de sauver l'Humanité"
@@ -42,9 +42,9 @@
   {
       "title": "The Dark Knight",
       "poster": {
-          "url":"../img/movies/affiche-dark_knight.jpg",
+          "url":"img/movies/affiche-dark_knight.webp",
           "width":"263",
-          "height":"357",
+          "height":"351",
           "alt":"Affiche du film Inception super jolie"
         },
       "description": "Bruce Wayne est Batman, le chevalier noir. Bien décidé à rétablir l'ordre à Gotham City, il traque sans relâche le crime organisé qui sème le chaos dans la ville"

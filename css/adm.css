@@ -1,0 +1,393 @@
+:root{
+    --dark-grey: #171717;
+    --light-grey: #1F1F1F;
+    --light-blue: #2D7CEC;
+    --btn-blue: #1463D3;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--dark-grey);
+}
+h1{
+    color: #fafafa;
+    font-family: 'Radley', serif;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: 11px;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    text-shadow: 1px 1px 5px var(--black-color);
+    padding-left: 1.2vw;
+}
+p{
+    margin:0;
+}
+a{
+    text-decoration:none;
+    color:#fafafa;
+}
+/* Global container */
+.a_container{
+    display: flex;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+}
+/* Form container */
+.a_contain{
+    display:flex;
+    flex-direction:column;
+    gap:0px;
+    padding: 2.5rem;
+    background:var(--light-grey);
+    border-radius: 1.875rem;
+}
+.log{
+    margin:0;
+    font-size: clamp(1.5rem, 4vw, 2rem);    
+    color:#fafafa;
+    font-weight:bold;
+}
+.access{
+    color:#A1A1A1;
+    margin-bottom: 35px;
+}
+#logo-disconnect{
+    width:18px;
+    height:23px;
+}
+#logo-disconnect:hover{
+    cursor: pointer; 
+}
+
+.blue-text{
+    color: var(--light-blue);
+}
+/* Form */
+#form-connect{
+    display:flex;
+    gap: 14px;
+    flex-direction:column;
+}
+/* Form INPUTS */ 
+#form-connect input{
+    border-radius:5px;
+    color:white;
+}
+input[type="text"]{
+    background:url('../img/icons/mail-icon.svg') no-repeat left 15px center;
+    border: 1px solid #707070;
+    padding:13px;
+    padding-left:70px;
+}
+input[type="password"]{
+    background:url('../img/icons/key-icon.svg') no-repeat left 15px center;
+    border: 1px solid #707070; 
+    font-size:20px;
+    padding:13px;
+    padding-left:70px;
+}
+input::placeholder{
+    color:#f2f2f2;
+}
+input:focus::placeholder{
+    visibility: hidden;
+}
+input:focus{
+    border:none;
+    outline :1px solid var(--light-blue);
+}
+#incorrect{
+    color:red;
+}
+/* BTN Submit */
+#btn-submit{
+    padding:13px;
+    background-color:var(--btn-blue);
+    font-weight: bold;
+    font-size: 18px;
+    margin-top:35px;
+    border: none;
+}
+#btn-submit:hover{
+    cursor:pointer;
+    background-color: hsl(215, 83%, 50%); 
+}
+.more{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    position:fixed;
+    bottom:10px;
+}
+/* Mail viewed */
+#viewed{
+    display: flex;
+}
+#total-mail{
+    font-weight: bold;
+}
+#btn-show-more{
+    cursor:pointer;
+    padding:5px 10px;
+    border:none;
+    font-weight:500;
+    background-color:#1463D3;
+    color:#fff;
+    opacity:0.6;
+}
+#btn-show-more:hover{
+    cursor:pointer;
+    font-weight:500;
+    opacity:1;
+}
+/* ScrollUp */
+/* UP arrow */
+.scrollUp{
+    display:none;
+    position: fixed;
+    bottom : 35px;
+    opacity:0.5;
+    right: 7px;
+    z-index:9999;
+}
+.scrollUp:hover{
+    opacity:1;
+}
+.scrollUp .visible{
+    transform: scale(1.2);
+}
+
+/* Dashboard */
+main{
+    padding:0 45px;
+}
+.dash_up_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: white;
+    padding-left: 1.2vw;
+}
+.dash_up_right{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+/* Table */
+#order-mail{
+    transform: rotate(180deg);
+}
+#order-date{
+    transform: rotate(180deg);
+}
+.table_contain{
+    display: flex;
+    flex-direction: column;
+    margin-top:10vh;
+    padding:20px;
+    background: var(--light-grey);
+}   
+table{
+    border-radius: 4px;
+}
+thead{
+    text-align:left;
+}
+.table-head td{
+    color:white;
+}
+tr :nth-child(2){
+    text-align:right;
+}
+caption{
+    display: inline;
+}
+tbody, caption{
+    color: white;
+    background: var(--light-grey);
+}
+tr :nth-child(3){
+    text-align: right;
+}
+tr{
+    height:65px;
+}
+th{
+    color: var(--light-blue);
+    border-bottom: 1px solid #525252;
+
+}
+td{
+    border-bottom: 1px solid #525252;
+}
+.arrow-array:hover{
+    cursor: pointer;
+}
+/* Research */
+.research{
+    display: flex;
+    align-items: center;
+}
+#mail-search{
+    padding:4px 30px;
+}
+#mail-search, .search-icon:focus{
+    border:initial;
+    box-sizing: border-box;
+}
+/* Search Field */
+.search-style{
+    display:flex;
+    align-items: center;
+}
+.input-search{
+    color:white;
+    background-color: #121212;
+    border: 1px solid #303030;
+    padding:6px 15px;
+}
+.search-icon{
+    padding:3px 15px;
+    border: 1px solid #303030;
+    background-color:#303030;
+}
+.search-icon:hover{
+    cursor:pointer;
+    border: 1px solid #505050;
+    background-color:#505050;
+}
+/* Snackbar */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible; /* Show the snackbar */
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+  
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+from {bottom: 0; opacity: 0;}
+to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+from {bottom: 0; opacity: 0;}
+to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+from {bottom: 30px; opacity: 1;}
+to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+from {bottom: 30px; opacity: 1;}
+to {bottom: 0; opacity: 0;}
+}
+/* SnackBar END */
+
+/* Delete user BTN */
+.btn-del-user{
+    width :48px;
+}
+.btn-del-user:hover{
+    cursor: pointer;
+}
+/* Export CSV BTN*/
+#btn-export-csv{
+    padding:6px 20px;
+    border:none;
+    color: white;
+    font-weight: bold;
+    background-color: var(--btn-blue);
+}
+#btn-export-csv:hover{
+    cursor: pointer;
+    background-color: #166ee9; 
+}
+
+/* Delete user modal */
+#delete-confirmation-container{
+    display:flex;
+    z-index:9999;
+    position:fixed;
+    align-items: center;
+    justify-content: center;
+    width:100vw;
+    height:100vh;
+    top:0;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+#delete-confirmation{
+    box-sizing:border-box;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    text-align: center;
+    justify-content: space-evenly;
+    padding: 15px;
+    position:relative;
+    background-color: #fafafa;
+    width:25%;
+    height:25%;
+}
+#delete-confirmation > button{
+    color:#fafafa;
+    border:none;
+    padding:8px 18px;
+    cursor:pointer;
+}
+
+#btn-yes{
+    background-color:rgb(255, 0, 0);
+}
+#btn-yes:hover{
+    background-color:rgb(225, 0, 0);
+}
+#btn-no{
+    background-color:rgb(58, 58, 58);
+}
+#btn-no:hover{
+    background-color:var(--btn-blue);
+}
+@media (max-width: 576px) {
+    main{
+        padding :0 15px;
+    }
+    .a_contain{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem 1.25rem;
+    }
+    input[type="password"]{
+        font-size: 13px;
+    }
+    #btn-submit{
+        padding:4% 75px;
+    }
+}
