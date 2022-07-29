@@ -66,11 +66,11 @@ if (!isset($_SESSION['id'])){
             <table>
                 <thead>
                     <tr class="table-head">
-                        <td>Affichage
+                        <td>Inscrits
                             <div id="viewed">
                                 <p> 
                                     <span id="mail-count"></span>
-                                    /
+                                    sur
                                     <span id="total-mail"></span>
                                 </p>
                             </div>       

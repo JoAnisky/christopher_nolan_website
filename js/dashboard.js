@@ -14,6 +14,7 @@ function mailList(a,b){
 
       let mailCount = response.headers.get('nbr');
       let mailTotal = response.headers.get('nbrTotal');
+      let errorMsg = response.headers.get('error');
       mailView.textContent = mailCount;
       totalMailNbr.textContent = mailTotal;
       removeShowMore(mailCount,mailTotal);
@@ -102,48 +103,48 @@ function mailList(a,b){
                   .then(response=> {
                     if(response == true){
                       delStatus.innerText = "Utilisateur supprimé";
-                      totalMail();
-                      totalMailNbr.textContent = this.textContent -1;
+                      mailView.textContent --;
+                      totalMailNbr.textContent --;
                     }else{
                       delStatus.innerText = "Un problème est survenu";
                     }
-                });
+                  });
                   divConfirmationContainer.remove();
                 });
                 // Click sur No
-                btnNo.addEventListener('click', ()=>{
+                btnNo.addEventListener('click', () => {
                   divConfirmationContainer.remove();
                 });
 
             });
           // Fin bouton Delete
       }
-  // Fin boucle affichage liste adresse mails
-  });
-}
+    // Fin boucle affichage liste adresse mails
+    });
+};
 
 // Chargement de la liste au DOM Load
-window.addEventListener('DOMContentLoaded', ()=>{
+window.addEventListener('DOMContentLoaded', () => {
   const load = new FormData;
   load.append("value", 0);
   mailList(`mail-list.php`, load);
-})
+});
 // ScrollUp
 const scrollUp = document.querySelector('.scrollUp');
-window.addEventListener("scroll", function(){
+window.addEventListener("scroll", () => {
     if(window.scrollY > 300){
         scrollUp.style.display = "block";
         scrollUp.classList.add("visible");
     }else if (window.scrollY < 300){
         scrollUp.style.display = "none";
     }
-})
+});
 
 function removeShowMore(a, b){
   if(a == b){
     divMore.remove();
   }
-}
+};
 
 function toast(){
   const snackbar = document.getElementById("snackbar");
@@ -244,13 +245,49 @@ function triAlphaDesc(a){
 
 // Fonction de recherche
 const formSearch = document.getElementById('search-form');
-formSearch.addEventListener('submit', function(e){
+const inputSearch = document.getElementById('search');
+
+formSearch.addEventListener('input', function(e){
+
   e.preventDefault();
-    let trRows = document.querySelectorAll(".rows");
-    trRows.forEach(row => {
-      row.remove();
-    });
-    const search = new FormData(formSearch);
-    console.log(search);
-    mailList('search.php', search);
-})
+  let inputSearchValue = inputSearch.value;
+
+  if (inputSearchValue !== ""){
+
+    if (inputSearchValue.length >= 3){
+      mailSearch();
+
+      // keyDownEnter();
+    }
+
+  }else{
+    const test = new FormData();
+    test.append("value", 0);
+    mailList(`mail-list.php`,test);
+  }
+
+});
+
+function mailSearch(){
+  let trRows = document.querySelectorAll(".rows");
+  trRows.forEach(row => {
+    row.remove();
+  });
+  const search = new FormData(formSearch);
+  mailList('search.php', search);
+}
+keyDownEnter();
+function keyDownEnter(){
+  // Add event listener on keydown
+  document.addEventListener('keydown', (event) => {
+    var name = event.key;
+    var code = event.code;
+    // Alert the key name and key code on keydown
+    console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
+    if(code == "Enter"){
+      console.log('Touche entrée pressée');
+    }else{
+      console.log("try again");
+    }
+  }, false);
+}

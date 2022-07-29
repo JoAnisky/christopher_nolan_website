@@ -22,9 +22,6 @@ if (isset($_POST['search']) && !empty($_POST['search'])){
         $sql->execute();
         // Boucle dans la bdd
         $search = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-        // PDO::FETCH_ASSOC permet de créer un tableau associatif
-
         // On encode la réponse en json
         print json_encode($search);
 
@@ -33,4 +30,8 @@ if (isset($_POST['search']) && !empty($_POST['search'])){
         echo $e->getMessage();
     }
 
+}else{
+    echo "";
+    $errorMsg = json_encode("Le champ ne peut pas etre vide !");
+    header('error:'.$errorMsg);
 }
