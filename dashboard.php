@@ -51,10 +51,8 @@ if (!isset($_SESSION['id'])){
         </div>
 
         <div class="dash_up_container">
-            <div class="dash_up_left">
-                <p class="log">Dashboard</p>
-                <p class="blue-text">Inscriptions à la newsletter</p>
-            </div>
+            <p class="log">Dashboard</p>
+            <p class="blue-text">Inscriptions à la newsletter</p>
         </div>
         <div class="table_contain">
             <form id="search-form" class="search-style" novalidate>
@@ -92,7 +90,7 @@ if (!isset($_SESSION['id'])){
                                 <path d="m6 9 5.196-9H.804L6 9z" fill="#E9E9E9"/>
                             </svg>
                         </th>
-                        <th style="width:10%">Désinscrire</th>
+                        <th>Désinscrire</th>
                     </tr>
                 </thead>
                 <tbody>
