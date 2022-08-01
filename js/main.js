@@ -325,6 +325,10 @@ function ajaxResponse(){
             label.textContent = "L'adresse mail existe déjà !";
             label.style.color = "red";
             inputMail.style.border = "1px solid red";
+        }else if (errorMsg == 1){
+            label.textContent = "L'adresse mail n'es pas au bon format";
+            label.style.color = "red";
+            inputMail.style.border = "1px solid red";
         }else{
             label.textContent = "Merci de votre inscription !";
             label.style.color = '#15ff00';

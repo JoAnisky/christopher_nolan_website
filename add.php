@@ -44,7 +44,8 @@ if (isset($_POST["email"])) {
             }
 
         }else{
-            echo "L'adresse e-mail n'est pas valide";
+            $errorResponse = 1;
+            header('errorResponse:'.($errorResponse));
         }
     }
 }else{
