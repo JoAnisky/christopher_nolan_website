@@ -40,7 +40,7 @@ if (!isset($_SESSION['id'])){
             <h1 class="title"><a href="index.html">Nolan</a></h1>
             <div class="dash_top_right">
             <p>Se déconnecter</p>
-                    <a href="logout.php">
+                    <a href="functions/logout.php">
                         <svg name='disconnect-btn' id="logo-disconnect">
                             <path fill="#E1090F" fill-rule="evenodd" d="M6.09 4v2.945c-2.353 1.208-3.69 3.747-3.22 6.361.524 2.923 3.13 5.021 6.188 4.995 3.059-.027 5.626-2.187 6.096-5.118.415-2.59-.922-5.087-3.244-6.271v-2.9c3.074 1.022 5.282 3.54 5.911 6.494a8.43 8.43 0 0 1 .07 3.091c-.676 4.214-4.414 7.364-8.81 7.403-4.395.038-8.194-3.045-8.947-7.246-.753-4.2 1.76-8.339 5.911-9.743.016-.005.03-.006.046-.011Z" clip-rule="evenodd"/>
                             <path fill="#E1090F" d="M9 2v8Z"/>
