@@ -980,11 +980,11 @@ input:focus::placeholder{
         width: 100%;
     }
     #mail-input{
-        width: 94.2%;
+        width: 93.2%;
         margin-bottom: 15px;
     }
     .btn-submit{
-        width: 98%;
+        width: 100%;
     }
     .foot-components{
         flex-direction:column;

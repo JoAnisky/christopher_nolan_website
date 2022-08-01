@@ -36,14 +36,10 @@ if (!isset($_SESSION['id'])){
         </a>
     </div>
     <main>
-    <h1 class="title"><a href="index.html">Nolan</a></h1>
-        <div class="dash_up_container">
-            <div class="dash_up_left">
-                <p class="log">Dashboard</p>
-                <p class="blue-text">Inscriptions à la newsletter</p>
-            </div>
-            <div class="dash_up_right">
-                <p>Se déconnecter</p>
+        <div class="dash_top">
+            <h1 class="title"><a href="index.html">Nolan</a></h1>
+            <div class="dash_top_right">
+            <p>Se déconnecter</p>
                     <a href="logout.php">
                         <svg name='disconnect-btn' id="logo-disconnect">
                             <path fill="#E1090F" fill-rule="evenodd" d="M6.09 4v2.945c-2.353 1.208-3.69 3.747-3.22 6.361.524 2.923 3.13 5.021 6.188 4.995 3.059-.027 5.626-2.187 6.096-5.118.415-2.59-.922-5.087-3.244-6.271v-2.9c3.074 1.022 5.282 3.54 5.911 6.494a8.43 8.43 0 0 1 .07 3.091c-.676 4.214-4.414 7.364-8.81 7.403-4.395.038-8.194-3.045-8.947-7.246-.753-4.2 1.76-8.339 5.911-9.743.016-.005.03-.006.046-.011Z" clip-rule="evenodd"/>
@@ -51,6 +47,13 @@ if (!isset($_SESSION['id'])){
                             <path stroke="#E1090F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 2v8"/>
                         </svg>
                     </a>
+            </div>
+        </div>
+
+        <div class="dash_up_container">
+            <div class="dash_up_left">
+                <p class="log">Dashboard</p>
+                <p class="blue-text">Inscriptions à la newsletter</p>
             </div>
         </div>
         <div class="table_contain">
@@ -84,7 +87,7 @@ if (!isset($_SESSION['id'])){
                             <svg id="order-mail" class="arrow-array" width="12" height="9" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 5.196-9H.804L6 9z" fill="#E9E9E9"/>
                             </svg>
                         </th>
-                        <th style="width:45%">Date d'inscription 
+                        <th class="date-hidden" style="width:45%">Date d'inscription 
                             <svg id="order-date" class="arrow-array" width="12" height="9" xmlns="http://www.w3.org/2000/svg">
                                 <path d="m6 9 5.196-9H.804L6 9z" fill="#E9E9E9"/>
                             </svg>
@@ -109,8 +112,6 @@ if (!isset($_SESSION['id'])){
     </main>    
     <div id="div-more" class="more">            
         <button id="btn-show-more">Voir plus</button>
-        <div>
-        </div>
     </div>
     <div id="snackbar"><span id="del-status"></span></div>
 </body>

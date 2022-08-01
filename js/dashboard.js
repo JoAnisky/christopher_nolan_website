@@ -248,24 +248,18 @@ const formSearch = document.getElementById('search-form');
 const inputSearch = document.getElementById('search');
 
 formSearch.addEventListener('input', function(e){
-
   e.preventDefault();
   let inputSearchValue = inputSearch.value;
 
   if (inputSearchValue !== ""){
-
     if (inputSearchValue.length >= 3){
       mailSearch();
-
-      // keyDownEnter();
     }
-
   }else{
     const test = new FormData();
     test.append("value", 0);
     mailList(`mail-list.php`,test);
   }
-
 });
 
 function mailSearch(){
@@ -275,19 +269,4 @@ function mailSearch(){
   });
   const search = new FormData(formSearch);
   mailList('search.php', search);
-}
-keyDownEnter();
-function keyDownEnter(){
-  // Add event listener on keydown
-  document.addEventListener('keydown', (event) => {
-    var name = event.key;
-    var code = event.code;
-    // Alert the key name and key code on keydown
-    console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
-    if(code == "Enter"){
-      console.log('Touche entrée pressée');
-    }else{
-      console.log("try again");
-    }
-  }, false);
 }
