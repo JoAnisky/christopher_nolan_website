@@ -42,13 +42,11 @@ if (isset($_POST["email"])) {
                 $errorResponse = $insertDB->errorCode();
                 header('errorResponse:'.($errorResponse));
             }
-
         }else{
             $errorResponse = 1;
             header('errorResponse:'.($errorResponse));
         }
     }
 }else{
-    echo "Pas de formulaire envoyé ";
     header('Location: index.html');
 }

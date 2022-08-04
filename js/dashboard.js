@@ -115,7 +115,6 @@ function mailList(a,b){
                 btnNo.addEventListener('click', () => {
                   divConfirmationContainer.remove();
                 });
-
             });
           // Fin bouton Delete
       }
@@ -132,12 +131,12 @@ window.addEventListener('DOMContentLoaded', () => {
 // ScrollUp
 const scrollUp = document.querySelector('.scrollUp');
 window.addEventListener("scroll", () => {
-    if(window.scrollY > 300){
-        scrollUp.style.display = "block";
-        scrollUp.classList.add("visible");
-    }else if (window.scrollY < 300){
-        scrollUp.style.display = "none";
-    }
+  if(window.scrollY > 300){
+      scrollUp.style.display = "block";
+      scrollUp.classList.add("visible");
+  }else if (window.scrollY < 300){
+      scrollUp.style.display = "none";
+  }
 });
 
 function removeShowMore(a, b){
@@ -208,10 +207,8 @@ function triAlphaAsc(a){
   // On récupere la balise tbody contenue dans le HTML
   const tBody = document.querySelector('tbody');
   for (let i = 0; i < trRows.length; i ++){ 
-
   let email = trRows[i].querySelector(`.td${a}`).dataset.value;
     for (let k = i + 1; k<trRows.length; k++){
-
     let emailK = trRows[k].querySelector(`.td${a}`).dataset.value;
       if (email > emailK){
         tBody.insertBefore(trRows[k],trRows[i]);
@@ -230,10 +227,8 @@ function triAlphaDesc(a){
   const tBody = document.querySelector('tbody');
   for (let i = 0; i < trRows.length; i ++){ 
   let email = trRows[i].querySelector(`.td${a}`).dataset.value;
-
     for (let k = i + 1; k<trRows.length; k++){
     let emailK = trRows[k].querySelector(`.td${a}`).dataset.value;
-
       if (email < emailK){
         tBody.insertBefore(trRows[k],trRows[i]);
         trRows = document.querySelectorAll(".rows");
@@ -246,11 +241,9 @@ function triAlphaDesc(a){
 // Fonction de recherche
 const formSearch = document.getElementById('search-form');
 const inputSearch = document.getElementById('search');
-
 formSearch.addEventListener('input', function(e){
   e.preventDefault();
   let inputSearchValue = inputSearch.value;
-
   if (inputSearchValue !== ""){
     if (inputSearchValue.length >= 3){
       mailSearch();
