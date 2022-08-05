@@ -315,11 +315,20 @@ to {bottom: 0; opacity: 0;}
 /* SnackBar END */
 
 /* Delete user BTN */
+#refresh-btn{
+    cursor: pointer;
+    width:20px;
+    height:20px;
+}
 .btn-del-user{
     width :3rem;
 }
 .btn-del-user:hover{
     cursor: pointer;
+}
+.btn-refresh{
+    background-color: transparent;
+    border: none;
 }
 /* Export CSV BTN*/
 #btn-export-csv{

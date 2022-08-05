@@ -50,11 +50,11 @@ if (!isset($_SESSION['id'])){
                     </a>
             </div>
         </div>
-
         <div class="dash_up_container">
             <p class="log">Dashboard</p>
             <p class="blue-text">Inscriptions à la newsletter</p>
         </div>
+
         <div class="table_contain">
             <form id="search-form" class="search-style" novalidate>
                 <label for="search"></label>
@@ -82,7 +82,7 @@ if (!isset($_SESSION['id'])){
                         </td>
                     </tr> 
                     <tr>
-                        <th style="width:35%">Email inscrits 
+                        <th style="width:35%">Email inscrits
                             <svg id="order-mail" class="arrow-array" width="12" height="9" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 5.196-9H.804L6 9z" fill="#E9E9E9"/>
                             </svg>
                         </th>

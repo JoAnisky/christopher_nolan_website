@@ -243,12 +243,22 @@ const formSearch = document.getElementById('search-form');
 const inputSearch = document.getElementById('search');
 
 formSearch.addEventListener('submit', function(e){
-  e.preventDefault();
-  const test = new FormData();
-  test.append("value", 0);
-  mailSearch();
+  if(inputSearch.value != ""){
+    e.preventDefault();
+    const test = new FormData();
+    test.append("value", 0);
+    mailSearch();
+    console.log(inputSearch.value.length);
+  }
 });
+// formSearch.addEventListener('submit', function(e){
+//   e.preventDefault();
 
+//     const test = new FormData();
+//     test.append("value", 0);
+//     mailSearch();  
+
+// });
 function mailSearch(){
   let trRows = document.querySelectorAll(".rows");
   trRows.forEach(row => {
