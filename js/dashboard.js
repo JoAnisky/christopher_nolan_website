@@ -241,18 +241,12 @@ function triAlphaDesc(a){
 // Fonction de recherche
 const formSearch = document.getElementById('search-form');
 const inputSearch = document.getElementById('search');
-formSearch.addEventListener('input', function(e){
+
+formSearch.addEventListener('submit', function(e){
   e.preventDefault();
-  let inputSearchValue = inputSearch.value;
-  if (inputSearchValue !== ""){
-    if (inputSearchValue.length >= 3){
-      mailSearch();
-    }
-  }else{
-    const test = new FormData();
-    test.append("value", 0);
-    mailList(`mail-list.php`,test);
-  }
+  const test = new FormData();
+  test.append("value", 0);
+  mailSearch();
 });
 
 function mailSearch(){
