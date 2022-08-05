@@ -23,6 +23,7 @@ if (!isset($_SESSION['id'])){
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Radley&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/adm.css" />
+        <link rel="icon" type="image/png" href="img/icons/favicon.svg"/>
         <script src="js/dashboard.js" defer></script>
     </head>
 <body>
