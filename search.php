@@ -30,9 +30,7 @@ if (isset($_POST['search']) && !empty($_POST['search'])){
         echo $e->getMessage();
     }
 
-}else if($_POST['search'] = " ") {
+}else{
     $errorMsg = json_encode("Le champ ne peut pas etre vide !");
     header('error:'.$errorMsg);
-}else{
-
 }
