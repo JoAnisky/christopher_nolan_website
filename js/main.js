@@ -314,7 +314,7 @@ form.addEventListener("submit", function(e){
 function ajaxResponse(){
     const formData = new FormData(form);
     // Lancement de la requête AJAX si tout est OK coté JS
-    fetch('add.php', {
+    fetch('php/add.php', {
         method: "POST",
         body : formData
     })

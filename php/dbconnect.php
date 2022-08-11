@@ -1,6 +1,6 @@
 <?php
 // Charger le fichier autoload.php (pour récupérer les variables dans le fichier .env)
-require __DIR__ .'/vendor/autoload.php';
+require '../vendor/autoload.php';
 
 // Spécifie d'aller chercher le fichier .env
 // Si il possède un nom -> (_DIR_, nomfichier)
