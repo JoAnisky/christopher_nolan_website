@@ -31,12 +31,11 @@ function isEven(n){
     return n % 2 === 0;
 }
 
-var mouseClick =0;
+var mouseClick = 0;
 link.addEventListener('click', function(e){
     mouseClick++
     e.preventDefault()
     burger.classList.toggle('open');
-
     if(!isEven(mouseClick)){
         ul.classList.remove('close');    
         ul.classList.add('active');
@@ -46,22 +45,6 @@ link.addEventListener('click', function(e){
     }
 });
 // End menu burger
-
-
-// Section 1 "Header"
-
-// Script logo UP (remonter la page)
-// jQuery(function(){
-//     $(function () {
-//         $(window).scroll(function () {
-//             if ($(this).scrollTop() > 200 ) { 
-//                 $('#scrollUp').css('right','10px');
-//             } else { 
-//                 $('#scrollUp').removeAttr( 'style' );
-//             }
-//         });
-//     });
-// });
 
 // Intersection Observer for HEADER
 const header = document.querySelector('header');
@@ -93,8 +76,6 @@ const btnsReadMore = document.querySelectorAll('.btn-read-more');
 const videoDescContainer = document.querySelector('.video-desc_container');
 const videoPlayer = document.querySelector('.video-player');
 const videoDesc = document.querySelector('.video-desc');
-
-// Fonction qui lance l'animation au click sur le bouton "Read More"
 
 // Fonction qui lance l'animation au click sur le bouton "Read More"
 
@@ -321,30 +302,39 @@ form.addEventListener("submit", function(e){
         label.style.color = "red";
         inputMail.style.border = "1px solid red";
     }else if (inputMail.validity.typeMismatch){
-
         label.textContent = "Adresse mail non valide";
         label.style.color = "red";
         inputMail.style.border = "1px solid red";
 
     }else{
         ajaxResponse();
-        label.textContent = "Merci de votre inscription !";
-        label.style.color = '#15ff00';
-        inputMail.style.border = "2px solid #15ff00";
-        inputMail.value = " ";
     }
 });
-
 
 function ajaxResponse(){
     const formData = new FormData(form);
     // Lancement de la requête AJAX si tout est OK coté JS
-    fetch('add.php', {
+    fetch('php/add.php', {
         method: "POST",
         body : formData
     })
-    .then(response => response.text())
-    .then(response=> {
-        console.log(response);
+    .then(response => {
+        let errorMsg = response.headers.get('errorResponse');
+        if(errorMsg == "23000"){
+            label.textContent = "L'adresse mail existe déjà !";
+            label.style.color = "red";
+            inputMail.style.border = "1px solid red";
+        }else if (errorMsg == 1){
+            label.textContent = "L'adresse mail n'est pas au bon format";
+            label.style.color = "red";
+            inputMail.style.border = "1px solid red";
+        }else{
+            label.textContent = "Merci de votre inscription !";
+            label.style.color = '#15ff00';
+            inputMail.style.border = "1px solid #15ff00";
+            inputMail.value = " ";
+        }
+    })
+    .then(data=> {
     });
 };

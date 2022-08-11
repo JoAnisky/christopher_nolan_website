@@ -115,7 +115,6 @@ function mailList(a,b){
                 btnNo.addEventListener('click', () => {
                   divConfirmationContainer.remove();
                 });
-
             });
           // Fin bouton Delete
       }
@@ -132,12 +131,12 @@ window.addEventListener('DOMContentLoaded', () => {
 // ScrollUp
 const scrollUp = document.querySelector('.scrollUp');
 window.addEventListener("scroll", () => {
-    if(window.scrollY > 300){
-        scrollUp.style.display = "block";
-        scrollUp.classList.add("visible");
-    }else if (window.scrollY < 300){
-        scrollUp.style.display = "none";
-    }
+  if(window.scrollY > 300){
+      scrollUp.style.display = "block";
+      scrollUp.classList.add("visible");
+  }else if (window.scrollY < 300){
+      scrollUp.style.display = "none";
+  }
 });
 
 function removeShowMore(a, b){
@@ -208,10 +207,8 @@ function triAlphaAsc(a){
   // On récupere la balise tbody contenue dans le HTML
   const tBody = document.querySelector('tbody');
   for (let i = 0; i < trRows.length; i ++){ 
-
   let email = trRows[i].querySelector(`.td${a}`).dataset.value;
     for (let k = i + 1; k<trRows.length; k++){
-
     let emailK = trRows[k].querySelector(`.td${a}`).dataset.value;
       if (email > emailK){
         tBody.insertBefore(trRows[k],trRows[i]);
@@ -230,10 +227,8 @@ function triAlphaDesc(a){
   const tBody = document.querySelector('tbody');
   for (let i = 0; i < trRows.length; i ++){ 
   let email = trRows[i].querySelector(`.td${a}`).dataset.value;
-
     for (let k = i + 1; k<trRows.length; k++){
     let emailK = trRows[k].querySelector(`.td${a}`).dataset.value;
-
       if (email < emailK){
         tBody.insertBefore(trRows[k],trRows[i]);
         trRows = document.querySelectorAll(".rows");
@@ -247,27 +242,23 @@ function triAlphaDesc(a){
 const formSearch = document.getElementById('search-form');
 const inputSearch = document.getElementById('search');
 
-formSearch.addEventListener('input', function(e){
-
-  e.preventDefault();
-  let inputSearchValue = inputSearch.value;
-
-  if (inputSearchValue !== ""){
-
-    if (inputSearchValue.length >= 3){
-      mailSearch();
-
-      // keyDownEnter();
-    }
-
-  }else{
+formSearch.addEventListener('submit', function(e){
+  if(inputSearch.value != ""){
+    e.preventDefault();
     const test = new FormData();
     test.append("value", 0);
-    mailList(`mail-list.php`,test);
+    mailSearch();
+    console.log(inputSearch.value.length);
   }
-
 });
+// formSearch.addEventListener('submit', function(e){
+//   e.preventDefault();
 
+//     const test = new FormData();
+//     test.append("value", 0);
+//     mailSearch();  
+
+// });
 function mailSearch(){
   let trRows = document.querySelectorAll(".rows");
   trRows.forEach(row => {
@@ -275,19 +266,4 @@ function mailSearch(){
   });
   const search = new FormData(formSearch);
   mailList('search.php', search);
-}
-keyDownEnter();
-function keyDownEnter(){
-  // Add event listener on keydown
-  document.addEventListener('keydown', (event) => {
-    var name = event.key;
-    var code = event.code;
-    // Alert the key name and key code on keydown
-    console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
-    if(code == "Enter"){
-      console.log('Touche entrée pressée');
-    }else{
-      console.log("try again");
-    }
-  }, false);
 }

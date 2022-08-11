@@ -1,6 +1,6 @@
 <?php
 // // ***** SCRIPT AFFICHAGE DE LA BDD nolan_newsletter ET LISTE DES EMAILS INSCRITS *****
-require('dbconnect.php');
+require_once('dbconnect.php');
 
 if (isset($_POST['search']) && !empty($_POST['search'])){
     $search = htmlspecialchars($_POST['search']);
@@ -31,7 +31,6 @@ if (isset($_POST['search']) && !empty($_POST['search'])){
     }
 
 }else{
-    echo "";
     $errorMsg = json_encode("Le champ ne peut pas etre vide !");
     header('error:'.$errorMsg);
 }

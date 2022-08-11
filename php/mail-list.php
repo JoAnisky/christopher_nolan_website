@@ -1,6 +1,6 @@
 <?php
 // // ***** SCRIPT AFFICHAGE DE LA BDD nolan_newsletter ET LISTE DES EMAILS INSCRITS *****
-require('dbconnect.php');
+require_once('dbconnect.php');
 
 if (isset($_POST['value'])){
     $showMore = $_POST['value'];
