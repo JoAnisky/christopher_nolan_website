@@ -248,7 +248,6 @@ formSearch.addEventListener('submit', function(e){
     const test = new FormData();
     test.append("value", 0);
     mailSearch();
-    console.log(inputSearch.value.length);
   }
 });
 // formSearch.addEventListener('submit', function(e){
