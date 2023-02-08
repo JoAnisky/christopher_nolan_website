@@ -15,7 +15,7 @@ if(isset($_POST['login']) && isset($_POST['password']) && !empty($_POST['login']
 
         // On récupère le mot de passe 
         // On peut aussi le crypter selon la meme méthode que dans la BDD
-        $mdp = ($_POST['password']);
+        $mdp = htmlspecialchars($_POST['password']);
 
         // Initialise la requête SQL
         $recupUser = $bdd->prepare('SELECT * FROM users WHERE login = :pseudo AND password = :mdp');

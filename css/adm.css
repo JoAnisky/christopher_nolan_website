@@ -175,7 +175,7 @@ main{
 .dash_top_right{
     display:flex;
     gap: .6875rem;
-    align-items: center;
+    justify-content: flex-end;
 }
 .dash_top{
     color: var(--white);;

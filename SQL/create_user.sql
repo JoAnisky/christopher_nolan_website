@@ -1,5 +1,5 @@
-CREATE USER 'your_user'@'localhost' IDENTIFIED BY 'yourpassword';
-GRANT ALL PRIVILEGES ON nolan_newsletter.* TO 'your_user'@'localhost';
+CREATE USER 'test'@'localhost' IDENTIFIED BY 'yourpassword';
+GRANT ALL PRIVILEGES ON nolan_newsletter.* TO 'test'@'localhost';
 FLUSH PRIVILEGES;
 
 -- Créer la base de données si elle n'existe pas

@@ -38,7 +38,7 @@ if (!isset($_SESSION['id'])){
     </div>
     <main>
         <div class="dash_top">
-            <h1 class="title"><a href="index.html">Nolan</a></h1>
+            <h1 class="title"><a href="../index.html">Nolan</a></h1>
             <div class="dash_top_right">
             <p>Se déconnecter</p>
                     <a href="logout.php">
